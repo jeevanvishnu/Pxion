@@ -660,12 +660,11 @@ button {
 .hero-video-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, 
-        rgba(3, 7, 18, 0.65) 0%, 
-        rgba(3, 7, 18, 0.25) 40%, 
-        rgba(3, 7, 18, 0.25) 60%, 
-        rgba(3, 7, 18, 0.8) 100%
-    );
+    background: linear-gradient(180deg,
+            rgba(3, 7, 18, 0.65) 0%,
+            rgba(3, 7, 18, 0.25) 40%,
+            rgba(3, 7, 18, 0.25) 60%,
+            rgba(3, 7, 18, 0.8) 100%);
     z-index: 2;
 }
 
@@ -2210,7 +2209,8 @@ button {
     justify-content: center;
     cursor: pointer;
     transition: var(--transition-fast);
-    color: var(--navy); /* Solves white-on-white invisible arrows! */
+    color: var(--navy);
+    /* Solves white-on-white invisible arrows! */
 }
 
 .tctrl-btn:hover {
@@ -2230,7 +2230,8 @@ button {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3); /* Promotes inactive dots readability! */
+    background: rgba(255, 255, 255, 0.3);
+    /* Promotes inactive dots readability! */
     cursor: pointer;
     transition: var(--transition-fast);
 }
@@ -2290,6 +2291,17 @@ button {
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+.news-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+}
+
+.news-card:hover .news-img img {
+    transform: scale(1.05);
 }
 
 .news-img-icon {
