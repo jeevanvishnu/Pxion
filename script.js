@@ -7,27 +7,34 @@ window.addEventListener('load', () => {
 
 // =================== HEADER SCROLL ===================
 const header = document.getElementById('header');
+const scrollTopBtn = document.getElementById('scroll-top');
 window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-    document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 400);
+    if (header) {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    if (scrollTopBtn) {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }
 }, { passive: true });
 
 // =================== MOBILE MENU ===================
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('active', open);
-    hamburger.setAttribute('aria-expanded', open);
-});
-// Close on mobile link click
-document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta .btn').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
+if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', open);
     });
-});
+    // Close on mobile link click
+    document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta .btn').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
 
 // =================== SCROLL REVEAL ===================
 const revealEls = document.querySelectorAll('.reveal');
@@ -42,82 +49,92 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealEls.forEach(el => revealObserver.observe(el));
 
 // =================== SCROLL TO TOP ===================
-document.getElementById('scroll-top').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// =================== TESTIMONIALS SLIDER ===================
-const track = document.getElementById('testimonialsTrack');
-const cards = track.querySelectorAll('.testimonial-card');
-const dotsContainer = document.getElementById('tDots');
-let currentIndex = 0;
-let cardsPerView = 1;
-let totalSlides = 0;
-
-function getCardsPerView() {
-    const w = window.innerWidth;
-    if (w >= 1024) return 3;
-    if (w >= 768) return 2;
-    return 1;
-}
-
-function buildDots() {
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'tctrl-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('role', 'tab');
-        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-        dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-        dot.addEventListener('click', () => goTo(i));
-        dotsContainer.appendChild(dot);
-    }
-}
-
-function updateSlider() {
-    cardsPerView = getCardsPerView();
-    totalSlides = Math.ceil(cards.length / cardsPerView);
-    currentIndex = Math.min(currentIndex, totalSlides - 1);
-    buildDots();
-    updatePosition();
-}
-
-function updatePosition() {
-    const cardW = cards[0].getBoundingClientRect().width + 24;
-    track.style.transform = `translateX(-${currentIndex * cardsPerView * cardW}px)`;
-    dotsContainer.querySelectorAll('.tctrl-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === currentIndex);
-        d.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+const scrollTopElement = document.getElementById('scroll-top');
+if (scrollTopElement) {
+    scrollTopElement.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
-function goTo(idx) {
-    currentIndex = Math.max(0, Math.min(idx, totalSlides - 1));
-    updatePosition();
+// =================== TESTIMONIALS SLIDER ===================
+const track = document.getElementById('testimonialsTrack');
+if (track) {
+    const cards = track.querySelectorAll('.testimonial-card');
+    const dotsContainer = document.getElementById('tDots');
+    let currentIndex = 0;
+    let cardsPerView = 1;
+    let totalSlides = 0;
+
+    const getCardsPerView = () => {
+        const w = window.innerWidth;
+        if (w >= 1024) return 3;
+        if (w >= 768) return 2;
+        return 1;
+    };
+
+    const buildDots = () => {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'tctrl-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+    };
+
+    const updateSlider = () => {
+        cardsPerView = getCardsPerView();
+        totalSlides = Math.ceil(cards.length / cardsPerView);
+        currentIndex = Math.min(currentIndex, totalSlides - 1);
+        buildDots();
+        updatePosition();
+    };
+
+    const updatePosition = () => {
+        const cardW = cards[0].getBoundingClientRect().width + 24;
+        track.style.transform = `translateX(-${currentIndex * cardsPerView * cardW}px)`;
+        dotsContainer.querySelectorAll('.tctrl-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === currentIndex);
+            d.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+        });
+    };
+
+    const goTo = (idx) => {
+        currentIndex = Math.max(0, Math.min(idx, totalSlides - 1));
+        updatePosition();
+    };
+
+    const tPrevBtn = document.getElementById('tPrev');
+    const tNextBtn = document.getElementById('tNext');
+    if (tPrevBtn) tPrevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+    if (tNextBtn) tNextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+    // Auto-advance
+    let autoSlide = setInterval(() => goTo((currentIndex + 1) % totalSlides), 5000);
+    track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    track.addEventListener('mouseleave', () => {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(() => goTo((currentIndex + 1) % totalSlides), 5000);
+    });
+
+    window.addEventListener('resize', updateSlider, { passive: true });
+    updateSlider();
 }
-
-document.getElementById('tPrev').addEventListener('click', () => goTo(currentIndex - 1));
-document.getElementById('tNext').addEventListener('click', () => goTo(currentIndex + 1));
-
-// Auto-advance
-let autoSlide = setInterval(() => goTo((currentIndex + 1) % totalSlides), 5000);
-track.addEventListener('mouseenter', () => clearInterval(autoSlide));
-track.addEventListener('mouseleave', () => {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => goTo((currentIndex + 1) % totalSlides), 5000);
-});
-
-window.addEventListener('resize', updateSlider, { passive: true });
-updateSlider();
 
 // =================== SMOOTH SCROLL FOR NAV ===================
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            const offset = target.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top: offset, behavior: 'smooth' });
+        const href = a.getAttribute('href');
+        if (href && href !== '#' && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const offset = target.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
+            }
         }
     });
 });
@@ -172,5 +189,78 @@ if (heroSection) {
                 card.style.transition = '';
             }, 800);
         });
+    });
+}
+
+// =================== FAQ ACCORDION INTERACTION ===================
+document.querySelectorAll('.faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const item = trigger.closest('.faq-item');
+        const content = item.querySelector('.faq-content');
+        const isOpen = item.classList.contains('active');
+        
+        // Close all other open items
+        document.querySelectorAll('.faq-item.active').forEach(openItem => {
+            if (openItem !== item) {
+                openItem.classList.remove('active');
+                openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                openItem.querySelector('.faq-content').style.maxHeight = null;
+                openItem.querySelector('.faq-content').setAttribute('aria-hidden', 'true');
+            }
+        });
+        
+        // Toggle the clicked item
+        if (isOpen) {
+            item.classList.remove('active');
+            trigger.setAttribute('aria-expanded', 'false');
+            content.style.maxHeight = null;
+            content.setAttribute('aria-hidden', 'true');
+        } else {
+            item.classList.add('active');
+            trigger.setAttribute('aria-expanded', 'true');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.setAttribute('aria-hidden', 'false');
+        }
+    });
+});
+
+// =================== CONTACT FORM SUBMISSION ===================
+const contactForm = document.getElementById('contact-form-submit');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const nameVal = document.getElementById('contact-name').value;
+        const emailVal = document.getElementById('contact-email').value;
+        const catSelect = document.getElementById('contact-category');
+        const catVal = catSelect.options[catSelect.selectedIndex].text;
+        
+        // Create custom notification block
+        const container = contactForm.parentNode;
+        
+        // Check if there is an existing notification and remove it
+        const oldNotify = container.querySelector('.form-notification');
+        if (oldNotify) {
+            oldNotify.remove();
+        }
+        
+        const notification = document.createElement('div');
+        notification.className = 'form-notification';
+        notification.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <span>Thank you, <strong>${nameVal}</strong>! Your request for <strong>${catVal}</strong> has been received. Our certified engineers will contact you at <strong>${emailVal}</strong> within 2 hours.</span>
+        `;
+        
+        // Insert notification above the form title or inside container top
+        container.insertBefore(notification, container.firstChild);
+        
+        // Clear all fields smoothly
+        contactForm.reset();
+        
+        // Smooth scroll to notification top
+        notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 }
