@@ -530,13 +530,15 @@ button {
 
 /* Mobile menu */
 #mobile-menu {
-    display: flex !important; /* Override general 'nav { display: none; }' reset */
+    display: flex !important;
+    /* Override general 'nav { display: none; }' reset */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(3, 7, 18, 0.97); /* Solid premium dark background */
+    background: rgba(3, 7, 18, 0.97);
+    /* Solid premium dark background */
     backdrop-filter: blur(28px) saturate(180%);
     -webkit-backdrop-filter: blur(28px) saturate(180%);
     padding: 120px 24px 60px 24px;
@@ -559,7 +561,8 @@ button {
 }
 
 #header.scrolled~#mobile-menu {
-    top: 0; /* Keep full screen */
+    top: 0;
+    /* Keep full screen */
 }
 
 #mobile-menu.open {
@@ -634,17 +637,43 @@ button {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(7, 17, 32, 0.88) 0%, rgba(15, 31, 61, 0.88) 35%, rgba(24, 49, 91, 0.78) 70%, rgba(33, 74, 138, 0.68) 100%), url('assets/Hero.png') no-repeat center center/cover;
-    padding-top: 100px;
-    padding-bottom: 80px;
+    background: var(--navy-dark);
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+#hero-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+}
+
+.hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, 
+        rgba(3, 7, 18, 0.65) 0%, 
+        rgba(3, 7, 18, 0.25) 40%, 
+        rgba(3, 7, 18, 0.25) 60%, 
+        rgba(3, 7, 18, 0.8) 100%
+    );
+    z-index: 2;
 }
 
 /* Premium background mesh & inline SVG noise overlay */
 .hero-bg {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 1;
     overflow: hidden;
 }
 
@@ -727,26 +756,27 @@ button {
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
 }
 
 .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 64px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-}
-
-@media (min-width: 1024px) {
-    .hero-inner {
-        grid-template-columns: 1.1fr 0.9fr;
-    }
+    text-align: center;
+    justify-content: center;
+    min-height: calc(100vh - 220px);
 }
 
 .hero-text {
     position: relative;
     z-index: 3;
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .hero-badge {
@@ -812,13 +842,15 @@ button {
     color: rgba(255, 255, 255, 0.65);
     line-height: 1.6;
     margin-bottom: 36px;
-    max-width: 560px;
+    max-width: 680px;
+    text-align: center;
 }
 
 .hero-actions {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 48px;
 }
 
@@ -853,10 +885,19 @@ button {
 
 .hero-stats {
     display: flex;
-    gap: clamp(24px, 5vw, 48px);
+    gap: clamp(32px, 6vw, 64px);
     flex-wrap: wrap;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 36px;
+    width: 100%;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .hero-stat-num {
@@ -881,238 +922,8 @@ button {
 }
 
 /* ============================================================
-   TV VISUAL & FLOATING WIDGETS
-============================================================ */
-.hero-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1500px;
-    /* Enable advanced 3D visual depth */
-}
+   
 
-@media (max-width: 1023px) {
-    .hero-visual {
-        margin-top: 40px;
-    }
-}
-
-.tv-glow-ambient {
-    position: absolute;
-    width: 130%;
-    height: 130%;
-    background: radial-gradient(circle at center, rgba(0, 102, 255, 0.22) 0%, rgba(255, 107, 0, 0.12) 50%, transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.tv-frame {
-    width: 100%;
-    max-width: 520px;
-    background: linear-gradient(135deg, #182235 0%, #080d16 100%);
-    border-radius: 20px;
-    padding: 12px 12px 36px;
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.8),
-        inset 0 1px 2px rgba(255, 255, 255, 0.15);
-    position: relative;
-    z-index: 2;
-    transform: rotateX(8deg) rotateY(-14deg) rotateZ(2deg);
-    /* Cinematic 3D positioning */
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease-out;
-    /* Smooth hover/movement tracking */
-}
-
-.tv-screen {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #02050a;
-    position: relative;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
-    transform: translateZ(10px);
-}
-
-.tv-wallpaper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.02);
-    transition: transform 0.5s ease;
-}
-
-.tv-frame:hover .tv-wallpaper {
-    transform: scale(1.05);
-}
-
-.tv-screen-content {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(3, 7, 18, 0.8) 0%, rgba(3, 7, 18, 0.2) 60%, transparent 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: 16px;
-}
-
-.tv-inner-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 2;
-}
-
-.tv-logo-overlay {
-    font-size: 16px;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.5px;
-}
-
-.tv-logo-overlay span {
-    color: var(--orange);
-}
-
-.tv-logo-overlay span.dot {
-    color: var(--yellow);
-}
-
-.tv-status-indicator {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.08);
-    padding: 4px 10px;
-    border-radius: 99px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.pulse-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #10B981;
-    box-shadow: 0 0 8px #10B981;
-    animation: pulseGlow 1.5s infinite;
-}
-
-.tv-reflection {
-    position: absolute;
-    inset: 12px 12px 36px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.01) 45%, transparent 100%);
-    pointer-events: none;
-    z-index: 3;
-}
-
-.tv-stand-neck {
-    position: absolute;
-    bottom: 6px;
-    left: 50%;
-    transform: translateX(-50%) translateZ(-5px);
-    width: 28px;
-    height: 30px;
-    background: linear-gradient(to right, #090e18, #182338);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
-}
-
-.tv-stand-base {
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%) translateZ(-10px);
-    width: 140px;
-    height: 12px;
-    background: linear-gradient(180deg, #1c273c 0%, #070b13 100%);
-    border-radius: 6px;
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.6),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-}
-
-/* Floating widgets surrounding screen with glassmorphism */
-.hero-badge-float {
-    position: absolute;
-    background: rgba(10, 15, 30, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 14px 18px;
-    box-shadow:
-        0 20px 48px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transform-style: preserve-3d;
-    z-index: 4;
-    transition: transform 0.2s ease-out;
-}
-
-.hbf-icon {
-    font-size: 22px;
-    margin-bottom: 6px;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-}
-
-.hbf-label {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.45);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.hbf-value {
-    font-size: 14.5px;
-    font-weight: 700;
-    color: var(--white);
-    margin-top: 2px;
-}
-
-/* Perfect premium spacing and composition */
-.hero-badge-float.hbf-1 {
-    top: -12px;
-    right: -36px;
-    animation: floatWidget1 5s ease-in-out infinite alternate;
-}
-
-.hero-badge-float.hbf-2 {
-    bottom: 24px;
-    left: -48px;
-    animation: floatWidget2 6s ease-in-out infinite alternate;
-}
-
-.hero-badge-float.hbf-3 {
-    bottom: -32px;
-    right: 28px;
-    animation: floatWidget1 7s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes floatWidget1 {
-    0% {
-        transform: translateY(0) translateZ(30px);
-    }
-
-    100% {
-        transform: translateY(-10px) translateZ(40px);
-    }
-}
-
-@keyframes floatWidget2 {
-    0% {
-        transform: translateY(0) translateZ(25px);
-    }
-
-    100% {
-        transform: translateY(-8px) translateZ(35px);
-    }
-}
 
 /* Scroll indicator styling */
 .scroll-indicator {
@@ -1185,7 +996,8 @@ button {
     font-size: 11px;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #8C9BAE; /* Premium slate-grey for light background */
+    color: #8C9BAE;
+    /* Premium slate-grey for light background */
     font-weight: 600;
     margin-bottom: 32px;
 }
@@ -1204,16 +1016,19 @@ button {
 .logo-item {
     flex-shrink: 0;
     font-size: clamp(14px, 1.2vw, 17px);
-    font-weight: 600; /* Matching the elegant model weight */
+    font-weight: 600;
+    /* Matching the elegant model weight */
     letter-spacing: -0.2px;
-    color: #B2C3DE; /* Beautiful slate blue/grey logo color */
+    color: #B2C3DE;
+    /* Beautiful slate blue/grey logo color */
     transition: all 0.3s ease;
     white-space: nowrap;
     cursor: default;
 }
 
 .logo-item:hover {
-    color: #0A0F1D; /* Deep navy accent on hover */
+    color: #0A0F1D;
+    /* Deep navy accent on hover */
     transform: translateY(-1px);
 }
 
@@ -2334,7 +2149,8 @@ button {
 .testimonial-quote {
     font-size: 15px;
     line-height: 1.75;
-    color: rgba(10, 15, 29, 0.75); /* Explicit dark text */
+    color: rgba(10, 15, 29, 0.75);
+    /* Explicit dark text */
     font-style: italic;
 }
 
@@ -2344,7 +2160,8 @@ button {
     gap: 14px;
     margin-top: 28px;
     padding-top: 20px;
-    border-top: 1px solid rgba(10, 15, 29, 0.08); /* Explicit dark border */
+    border-top: 1px solid rgba(10, 15, 29, 0.08);
+    /* Explicit dark border */
 }
 
 .author-avatar {
@@ -2364,12 +2181,14 @@ button {
 .author-name {
     font-size: 14px;
     font-weight: 700;
-    color: #0A0F1D; /* Explicit dark text */
+    color: #0A0F1D;
+    /* Explicit dark text */
 }
 
 .author-role {
     font-size: 12px;
-    color: rgba(10, 15, 29, 0.55); /* Explicit dark text */
+    color: rgba(10, 15, 29, 0.55);
+    /* Explicit dark text */
     margin-top: 2px;
 }
 
@@ -2391,7 +2210,7 @@ button {
     justify-content: center;
     cursor: pointer;
     transition: var(--transition-fast);
-    color: var(--text-secondary);
+    color: var(--navy); /* Solves white-on-white invisible arrows! */
 }
 
 .tctrl-btn:hover {
@@ -2411,7 +2230,7 @@ button {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--border);
+    background: rgba(255, 255, 255, 0.3); /* Promotes inactive dots readability! */
     cursor: pointer;
     transition: var(--transition-fast);
 }

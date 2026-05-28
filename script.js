@@ -2,6 +2,12 @@
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('page-loader').classList.add('hidden');
+        const bgVideo = document.getElementById('hero-bg-video');
+        if (bgVideo) {
+            bgVideo.play().catch(err => {
+                console.log('Video autoplay play triggered smoothly:', err);
+            });
+        }
     }, 1400);
 });
 
@@ -139,11 +145,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// =================== MOUSE PARALLAX ===================
+// =================== MOUSE PARALLAX (BACKGROUND ORBS) ===================
 const heroSection = document.getElementById('hero');
-const parallaxCards = document.querySelectorAll('.parallax-card');
+const ambientOrbs = document.querySelectorAll('.orb');
 
-if (heroSection) {
+if (heroSection && ambientOrbs.length > 0) {
     heroSection.addEventListener('mousemove', (e) => {
         const { width, height, left, top } = heroSection.getBoundingClientRect();
 
@@ -151,45 +157,44 @@ if (heroSection) {
         const mouseX = ((e.clientX - left) - width / 2) / (width / 2);
         const mouseY = ((e.clientY - top) - height / 2) / (height / 2);
 
-        parallaxCards.forEach(card => {
-            const speed = parseFloat(card.getAttribute('data-speed')) || 1.0;
+        ambientOrbs.forEach((orb, index) => {
+            // Give different speeds to different orbs for high-end parallax depth
+            const speed = (index + 1) * 15;
+            const transX = mouseX * speed;
+            const transY = mouseY * speed;
 
-            if (card.classList.contains('tv-frame')) {
-                // TV Frame gets dynamic 3D rotation and soft translation
-                const rotX = 8 - (mouseY * 8 * speed);
-                const rotY = -14 + (mouseX * 12 * speed);
-                const transX = mouseX * 12 * speed;
-                const transY = mouseY * 12 * speed;
-
-                card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(2deg) translate3d(${transX}px, ${transY}px, 0)`;
-            } else if (card.classList.contains('hero-badge-float')) {
-                // Floating glassmorphism cards get dynamic parallax slide
-                const transX = mouseX * 24 * speed;
-                const transY = mouseY * 24 * speed;
-
-                // Retain their 3D translateZ parameter from CSS float states
-                card.style.transform = `translate3d(${transX}px, ${transY}px, 40px)`;
-            }
+            orb.style.transform = `translate3d(${transX}px, ${transY}px, 0)`;
         });
     });
 
     // Reset smoothly when cursor leaves the hero section
     heroSection.addEventListener('mouseleave', () => {
-        parallaxCards.forEach(card => {
-            card.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        ambientOrbs.forEach(orb => {
+            orb.style.transition = 'transform 1.0s cubic-bezier(0.16, 1, 0.3, 1)';
+            orb.style.transform = `translate3d(0, 0, 0)`;
 
-            if (card.classList.contains('tv-frame')) {
-                card.style.transform = `rotateX(8deg) rotateY(-14deg) rotateZ(2deg) translate3d(0, 0, 0)`;
-            } else if (card.classList.contains('hero-badge-float')) {
-                card.style.transform = `translate3d(0, 0, 30px)`;
-            }
-
-            // Clean up transition property so movement remains responsive
             setTimeout(() => {
-                card.style.transition = '';
-            }, 800);
+                orb.style.transition = '';
+            }, 1000);
         });
     });
+}
+
+// =================== VIEWPORT-AWARE PLAYBACK ===================
+const heroVideo = document.getElementById('hero-bg-video');
+if (heroVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                heroVideo.play().catch(err => {
+                    console.log('Video autoplay interrupted or deferred:', err);
+                });
+            } else {
+                heroVideo.pause();
+            }
+        });
+    }, { threshold: 0.05 });
+    videoObserver.observe(heroVideo);
 }
 
 // =================== FAQ ACCORDION INTERACTION ===================
@@ -198,7 +203,7 @@ document.querySelectorAll('.faq-trigger').forEach(trigger => {
         const item = trigger.closest('.faq-item');
         const content = item.querySelector('.faq-content');
         const isOpen = item.classList.contains('active');
-        
+
         // Close all other open items
         document.querySelectorAll('.faq-item.active').forEach(openItem => {
             if (openItem !== item) {
@@ -208,7 +213,7 @@ document.querySelectorAll('.faq-trigger').forEach(trigger => {
                 openItem.querySelector('.faq-content').setAttribute('aria-hidden', 'true');
             }
         });
-        
+
         // Toggle the clicked item
         if (isOpen) {
             item.classList.remove('active');
@@ -229,21 +234,21 @@ const contactForm = document.getElementById('contact-form-submit');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const nameVal = document.getElementById('contact-name').value;
         const emailVal = document.getElementById('contact-email').value;
         const catSelect = document.getElementById('contact-category');
         const catVal = catSelect.options[catSelect.selectedIndex].text;
-        
+
         // Create custom notification block
         const container = contactForm.parentNode;
-        
+
         // Check if there is an existing notification and remove it
         const oldNotify = container.querySelector('.form-notification');
         if (oldNotify) {
             oldNotify.remove();
         }
-        
+
         const notification = document.createElement('div');
         notification.className = 'form-notification';
         notification.innerHTML = `
@@ -253,13 +258,13 @@ if (contactForm) {
             </svg>
             <span>Thank you, <strong>${nameVal}</strong>! Your request for <strong>${catVal}</strong> has been received. Our certified engineers will contact you at <strong>${emailVal}</strong> within 2 hours.</span>
         `;
-        
+
         // Insert notification above the form title or inside container top
         container.insertBefore(notification, container.firstChild);
-        
+
         // Clear all fields smoothly
         contactForm.reset();
-        
+
         // Smooth scroll to notification top
         notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
