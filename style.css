@@ -2616,7 +2616,7 @@ footer::before {
 
 @media (min-width: 1024px) {
     .footer-grid {
-        grid-template-columns: 1.5fr 0.8fr 0.8fr 1.9fr;
+        grid-template-columns: 1.5fr 1fr 1fr;
     }
 }
 
@@ -2741,46 +2741,6 @@ footer::before {
 .footer-link:hover::before {
     opacity: 1;
     width: auto;
-}
-
-.footer-location {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.footer-location-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 20px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-.footer-location-card:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.footer-location-label {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.footer-location-addr {
-    font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.6;
 }
 
 /* ============================================================
