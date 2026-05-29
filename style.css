@@ -862,6 +862,15 @@ button {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+#hero .hero-badge {
+    color: #ffffff;
+}
+
+#hero .hero-badge-dot {
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.85);
+}
+
 .hero-badge-dot {
     width: 6px;
     height: 6px;
@@ -2995,7 +3004,7 @@ footer {
 
 .contact-form-subtitle {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.88);
     margin-bottom: 32px;
 }
 
@@ -3029,6 +3038,10 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--text-muted);
+}
+
+.contact-form-container .form-label {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .form-input {
@@ -3127,7 +3140,7 @@ textarea.form-input {
 .faq-inner {
     padding: 0 30px 24px;
     font-size: 14px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.88);
     line-height: 1.7;
 }
 
@@ -3949,7 +3962,7 @@ textarea.form-input {
 
 .gallery-card-overlay p {
     font-size: 13px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.88);
     margin: 0;
     line-height: 1.5;
 }
@@ -4428,32 +4441,50 @@ textarea.form-input {
     }
 }
 
-.about-milestone.odd .about-milestone-year {
-    color: var(--blue-accent);
+/* ============================================================
+   INNER PAGES — WHITE TEXT ON DARK PANELS & SECTIONS
+   (about, products, solutions, news, contact, projects)
+============================================================ */
+
+.products-showcase-container .showcase-content {
+    background: rgba(17, 25, 46, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 36px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.about-milestone.even .about-milestone-year {
-    color: var(--orange);
+.products-showcase-container .showcase-desc,
+.products-showcase-container .showcase-spec-item {
+    color: rgba(255, 255, 255, 0.9);
 }
 
-@media (max-width: 768px) {
-    .timeline-line {
-        left: 20px;
-        transform: none;
-    }
+#news-grid-section .section-title,
+#news-grid-section .section-sub,
+#milestones .section-title,
+#milestones .section-sub {
+    color: #ffffff;
+}
 
-    .about-milestone {
-        justify-content: flex-start !important;
-    }
+#news-grid-section .section-sub,
+#milestones .section-sub {
+    color: rgba(255, 255, 255, 0.75);
+}
 
-    .timeline-node {
-        left: 20px;
-        transform: translateX(-50%);
-    }
+#milestones .about-milestone-card {
+    background: rgba(17, 25, 46, 0.55);
+    border-color: rgba(255, 255, 255, 0.1);
+}
 
-    .about-milestone-card {
-        width: calc(100% - 48px);
-        margin-left: auto;
-        padding: 24px;
-    }
+#milestones .about-milestone-card h4 {
+    color: #ffffff !important;
+}
+
+#milestones .about-milestone-card p {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.testimonial-card[style*="rgba(17, 25, 46"] .author-role {
+    color: rgba(255, 255, 255, 0.75) !important;
 }
