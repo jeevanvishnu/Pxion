@@ -565,7 +565,7 @@ button {
     top: calc(100% + 20px);
     left: 50%;
     transform: translateX(-50%) translateY(15px);
-    width: 960px;
+    width: 1140px;
     background: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
@@ -589,7 +589,7 @@ button {
 
 .mega-menu-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr) 280px;
+    grid-template-columns: 1fr 1.1fr 1.4fr 0.9fr 280px;
     gap: 24px;
 }
 
