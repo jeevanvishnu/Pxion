@@ -269,3 +269,35 @@ if (contactForm) {
         notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 }
+
+// =================== CATALOG INTERACTIVE FILTERING ===================
+const filterTabs = document.querySelectorAll('.filter-tab');
+const catalogCards = document.querySelectorAll('.catalog-card');
+
+if (filterTabs.length > 0 && catalogCards.length > 0) {
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            filterTabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            tab.classList.add('active');
+
+            const filterVal = tab.getAttribute('data-filter');
+
+            catalogCards.forEach(card => {
+                const cardCatsStr = card.getAttribute('data-category') || '';
+                const cardCats = cardCatsStr.split(' ');
+
+                if (filterVal === 'all' || cardCats.includes(filterVal)) {
+                    // Show matching card
+                    card.classList.remove('hidden');
+                    card.classList.add('visible');
+                } else {
+                    // Hide non-matching card
+                    card.classList.add('hidden');
+                    card.classList.remove('visible');
+                }
+            });
+        });
+    });
+}

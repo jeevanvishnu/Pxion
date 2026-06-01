@@ -110,7 +110,7 @@
                             <div class="contact-card-icon" aria-hidden="true">📍</div>
                             <div class="contact-card-content">
                                 <h3>UAE Headquarters (Dubai)</h3>
-                                <p>Gubash Building, Al Khabaisi,<br>Al Ittihad Road, PO Box: 99357,<br>Dubai, United Arab Emirates</p>
+                                <p>Showroom No. 25 Al Dallal Building,<br>Naif, Deira Dubai, United Arab Emirates<br>P.O. Box: 381108</p>
                                 <a href="tel:+971504037863" style="font-weight: 600; color: var(--orange); margin-top: 8px; display: inline-block;">+971 50 403 7863</a>
                             </div>
                         </div>
@@ -152,37 +152,49 @@
                             
                             <div class="contact-form-row">
                                 <div class="form-group">
-                                    <label class="form-label" for="contact-name">Full Name</label>
+                                    <label class="form-label" for="contact-name">Name</label>
                                     <input type="text" id="contact-name" class="form-input" required autocomplete="name" />
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="contact-email">Email Address</label>
-                                    <input type="email" id="contact-email" class="form-input" required autocomplete="email" />
+                                    <label class="form-label" for="contact-company">Company Name</label>
+                                    <input type="text" id="contact-company" class="form-input" required />
                                 </div>
                             </div>
 
                             <div class="contact-form-row">
                                 <div class="form-group">
-                                    <label class="form-label" for="contact-phone">Phone Number</label>
-                                    <input type="tel" id="contact-phone" class="form-input" required autocomplete="tel" />
+                                    <label class="form-label" for="contact-email">Email Address</label>
+                                    <input type="email" id="contact-email" class="form-input" required autocomplete="email" />
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="contact-category">Product Category Interest</label>
+                                    <label class="form-label" for="contact-phone">Mobile Number</label>
+                                    <input type="tel" id="contact-phone" class="form-input" required autocomplete="tel" />
+                                </div>
+                            </div>
+
+                            <div class="contact-form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="contact-location">Location</label>
+                                    <input type="text" id="contact-location" class="form-input" required placeholder="City or Country" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="contact-category">LED Screen Type</label>
                                     <select id="contact-category" class="form-input" required>
-                                        <option value="" disabled selected>Select Display Service</option>
-                                        <option value="indoor">Indoor LED Screens (SMD/COB)</option>
-                                        <option value="outdoor">Outdoor LED Fixed & Mesh</option>
-                                        <option value="custom">Innovative & Custom Kinetic Screens</option>
-                                        <option value="lcd">LCD & Kiosks Seamless Video Walls</option>
-                                        <option value="corporate">Corporate & Government AV Integrations</option>
-                                        <option value="public">Commercial & Public Large Space AV</option>
+                                        <option value="" disabled selected>Select Screen Type</option>
+                                        <option value="indoor">Indoor LED Screen (SMD/COB)</option>
+                                        <option value="outdoor">Outdoor LED Screen / Billboard</option>
+                                        <option value="kiosk">Interactive Kiosk / Poster Display</option>
+                                        <option value="video-wall">Seamless LCD Video Wall</option>
+                                        <option value="lighting">Commercial & Architectural Lighting</option>
+                                        <option value="av-integration">Professional AV & Systems Integration</option>
+                                        <option value="custom">Bespoke Custom / Kinetic Display</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" for="contact-message">Message Details</label>
-                                <textarea id="contact-message" class="form-input" required></textarea>
+                                <label class="form-label" for="contact-message">Inquiry Details</label>
+                                <textarea id="contact-message" class="form-input" placeholder="Tell us more about your project specifications..." required></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary" style="justify-content: center; padding: 16px; margin-top: 10px;">
