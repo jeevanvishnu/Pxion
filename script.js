@@ -14,9 +14,14 @@ window.addEventListener('load', () => {
 // =================== HEADER SCROLL ===================
 const header = document.getElementById('header');
 const scrollTopBtn = document.getElementById('scroll-top');
+const logoImg = document.querySelector('.logo-img');
 window.addEventListener('scroll', () => {
+    const isScrolled = window.scrollY > 40;
     if (header) {
-        header.classList.toggle('scrolled', window.scrollY > 40);
+        header.classList.toggle('scrolled', isScrolled);
+    }
+    if (logoImg) {
+        logoImg.src = isScrolled ? 'assets/Logo.png' : 'assets/Logow.png';
     }
     if (scrollTopBtn) {
         scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
@@ -34,10 +39,27 @@ if (hamburger && mobileMenu) {
     });
     // Close on mobile link click
     document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta .btn').forEach(link => {
+        // Exclude dropdown toggles from closing the whole menu
+        if (link.classList.contains('mobile-dropdown-toggle')) return;
+
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
             hamburger.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Mobile Dropdown Toggle
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !isExpanded);
+            const submenu = toggle.nextElementSibling;
+            if (submenu && submenu.classList.contains('mobile-submenu')) {
+                submenu.classList.toggle('open');
+            }
         });
     });
 }
@@ -267,5 +289,37 @@ if (contactForm) {
 
         // Smooth scroll to notification top
         notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+}
+
+// =================== CATALOG INTERACTIVE FILTERING ===================
+const filterTabs = document.querySelectorAll('.filter-tab');
+const catalogCards = document.querySelectorAll('.catalog-card');
+
+if (filterTabs.length > 0 && catalogCards.length > 0) {
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            filterTabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            tab.classList.add('active');
+
+            const filterVal = tab.getAttribute('data-filter');
+
+            catalogCards.forEach(card => {
+                const cardCatsStr = card.getAttribute('data-category') || '';
+                const cardCats = cardCatsStr.split(' ');
+
+                if (filterVal === 'all' || cardCats.includes(filterVal)) {
+                    // Show matching card
+                    card.classList.remove('hidden');
+                    card.classList.add('visible');
+                } else {
+                    // Hide non-matching card
+                    card.classList.add('hidden');
+                    card.classList.remove('visible');
+                }
+            });
+        });
     });
 }
