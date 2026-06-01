@@ -14,9 +14,14 @@ window.addEventListener('load', () => {
 // =================== HEADER SCROLL ===================
 const header = document.getElementById('header');
 const scrollTopBtn = document.getElementById('scroll-top');
+const logoImg = document.querySelector('.logo-img');
 window.addEventListener('scroll', () => {
+    const isScrolled = window.scrollY > 40;
     if (header) {
-        header.classList.toggle('scrolled', window.scrollY > 40);
+        header.classList.toggle('scrolled', isScrolled);
+    }
+    if (logoImg) {
+        logoImg.src = isScrolled ? 'assets/Logo.png' : 'assets/Logow.png';
     }
     if (scrollTopBtn) {
         scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
