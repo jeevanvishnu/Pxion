@@ -34,10 +34,27 @@ if (hamburger && mobileMenu) {
     });
     // Close on mobile link click
     document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta .btn').forEach(link => {
+        // Exclude dropdown toggles from closing the whole menu
+        if (link.classList.contains('mobile-dropdown-toggle')) return;
+
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
             hamburger.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Mobile Dropdown Toggle
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !isExpanded);
+            const submenu = toggle.nextElementSibling;
+            if (submenu && submenu.classList.contains('mobile-submenu')) {
+                submenu.classList.toggle('open');
+            }
         });
     });
 }
