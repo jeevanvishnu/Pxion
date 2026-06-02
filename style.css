@@ -1393,20 +1393,25 @@ button {
 }
 
 .brand-item {
-    font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: #B2C3DE;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    white-space: nowrap;
-    transition: color 0.3s ease, transform 0.3s ease;
-    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 48px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
 }
 
 .brand-item:hover {
-    color: var(--navy-dark, #0D47A1);
     transform: scale(1.08);
+}
+
+.brand-item img {
+    height: 38px; /* Elegant uniform height */
+    width: auto;
+    max-width: none; /* Crucial: Breaks the flexbox 0-width collapse loop */
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes marqueeScroll {
