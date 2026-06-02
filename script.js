@@ -21,7 +21,7 @@ window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', isScrolled);
     }
     if (logoImg) {
-        logoImg.src = isScrolled ? 'assets/Logo.png' : 'assets/Logow.png';
+        logoImg.src = 'assets/Logow.png';
     }
     if (scrollTopBtn) {
         scrollTopBtn.classList.toggle('visible', window.scrollY > 400);

@@ -6033,9 +6033,6 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     text-shadow: 0 0 10px rgba(0, 217, 255, 0.4) !important;
 }
 
-.footer-logo-img {
-    filter: invert(1) brightness(2) !important;
-}
 
 .social-btn {
     background: rgba(255, 255, 255, 0.05) !important;
@@ -6061,7 +6058,52 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     box-shadow: 0 8px 25px rgba(0, 217, 255, 0.5) !important;
 }
 
-/* 15. Nav Logo Polish */
-.logo-img {
-    filter: invert(1) brightness(2) !important;
+
+/* 16. Testimonial Controls Redesign */
+.tctrl-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #C7D2FE !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.tctrl-btn:hover {
+    background: linear-gradient(135deg, #0A3DFF, #00D9FF) !important;
+    border-color: transparent !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3) !important;
+    transform: scale(1.05) !important;
+}
+
+.tctrl-btn:disabled,
+.tctrl-btn[disabled] {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+.tctrl-dot {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.tctrl-dot.active {
+    background: #00D9FF !important;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5) !important;
+}
+
+/* 17. Home Video Banner Gradient Overlay Redesign */
+.hero-video-overlay {
+    background: linear-gradient(180deg,
+            rgba(5, 8, 45, 0.9) 0%,
+            rgba(10, 61, 255, 0.25) 40%,
+            rgba(10, 61, 255, 0.25) 60%,
+            rgba(5, 8, 45, 0.95) 100%) !important;
+}
+
+.hero-mesh {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(0, 217, 255, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(10, 61, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(5, 8, 45, 0.6) 0%, transparent 70%) !important;
 }
