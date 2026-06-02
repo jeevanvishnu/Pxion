@@ -1,7 +1,10 @@
 // =================== PAGE LOADER ===================
 window.addEventListener('load', () => {
     setTimeout(() => {
-        document.getElementById('page-loader').classList.add('hidden');
+        const pageLoader = document.getElementById('page-loader');
+        if (pageLoader) {
+            pageLoader.classList.add('hidden');
+        }
         const bgVideo = document.getElementById('hero-bg-video');
         if (bgVideo) {
             bgVideo.play().catch(err => {
