@@ -2,36 +2,50 @@
    CSS CUSTOM PROPERTIES
 ============================================================ */
 :root {
-    --navy: #1E88E5;
+    /* Brand Colors */
+    --primary-blue: #0A3DFF;
+    --secondary-blue: #1B5CFF;
+    --accent-cyan: #00D9FF;
+    --deep-navy: #040B4F;
+    --dark-bg: #05082D;
+    --surface-color: #0D145A;
+    
+    /* Variable Remapping for Seamless Integration */
+    --navy: #0A3DFF;
     /* Primary Blue */
-    --navy-dark: #0D47A1;
+    --navy-dark: #040B4F;
     /* Medium/Darker Blue for contrast */
-    --navy-light: #42A5F5;
+    --navy-light: #1B5CFF;
     /* Light Blue */
-    --accent-blue: #00BCD4;
+    --accent-blue: #00D9FF;
     /* Accent Cyan */
-    --orange: #00BCD4;
+    --orange: #00D9FF;
     /* Redefined to Accent Cyan to remove orange globally */
-    --yellow: #42A5F5;
-    /* Redefined to Light Blue to remove yellow globally */
-    --blue-accent: #00BCD4;
+    --yellow: #1B5CFF;
+    /* Redefined to Secondary Blue to remove yellow globally */
+    --blue-accent: #00D9FF;
     /* Accent Cyan */
-    --bg: #FFFFFF;
-    /* White page background */
+    --bg: #05082D;
+    /* Dark Background */
     --white: #FFFFFF;
-    --text-primary: #0F172A;
-    /* Dark Text */
-    --text-secondary: #64748B;
-    /* Gray Text */
-    --text-muted: rgba(15, 23, 42, 0.6);
+    
+    /* Typography Colors */
+    --text-primary: #FFFFFF;
+    /* Light Text */
+    --text-secondary: #C7D2FE;
+    /* Gray/Soft blue secondary Text */
+    --text-muted: rgba(199, 210, 254, 0.6);
     /* Gray Muted Text */
-    --border: rgba(30, 136, 229, 0.15);
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-border: rgba(30, 136, 229, 0.15);
-    --shadow-sm: 0 4px 12px rgba(30, 136, 229, 0.05);
-    --shadow-md: 0 16px 40px rgba(30, 136, 229, 0.08);
-    --shadow-lg: 0 32px 80px rgba(30, 136, 229, 0.12);
-    --shadow-xl: 0 60px 120px rgba(30, 136, 229, 0.15);
+    
+    /* Borders & Glass System */
+    --border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    
+    --shadow-sm: 0 4px 12px rgba(0, 217, 255, 0.05);
+    --shadow-md: 0 16px 40px rgba(0, 217, 255, 0.08);
+    --shadow-lg: 0 32px 80px rgba(0, 217, 255, 0.12);
+    --shadow-xl: 0 60px 120px rgba(0, 217, 255, 0.15);
     --radius-sm: 12px;
     --radius-md: 20px;
     --radius-lg: 32px;
@@ -40,8 +54,9 @@
     --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     --header-h: 88px;
-    --bg-gradient: #F4FAFF;
-    /* Light Background */
+    --bg-gradient: radial-gradient(circle at 20% 30%, rgba(0,217,255,0.18), transparent 30%),
+                   radial-gradient(circle at 80% 20%, rgba(10,61,255,0.20), transparent 35%),
+                   linear-gradient(135deg, #05082D 0%, #0A1A7A 50%, #040B4F 100%);
 }
 
 /* ============================================================
@@ -254,9 +269,9 @@ button {
 }
 
 .btn-primary {
-    background: #000080;
+    background: linear-gradient(90deg, #1E88E5, #00BCD4);
     color: var(--white);
-    box-shadow: 0 8px 24px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -266,9 +281,11 @@ button {
 }
 
 .btn-ghost {
-    background: #000080;
+    background: rgba(255, 255, 255, 0.04);
     color: var(--white);
     border: 1.5px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .btn-ghost:hover {
@@ -280,8 +297,8 @@ button {
 }
 
 .btn-white {
-    background: #000080;
-    color: var(--white);
+    background: var(--white);
+    color: var(--navy-dark);
     box-shadow: var(--shadow-md);
 }
 
@@ -746,9 +763,9 @@ button {
     padding: 10px 24px;
     font-size: 14px;
     font-weight: 600;
-    background: #000080;
+    background: linear-gradient(90deg, #1E88E5, #00BCD4);
     color: var(--white);
-    box-shadow: 0 4px 18px rgba(0, 0, 128, 0.3);
+    box-shadow: 0 4px 18px rgba(0, 188, 212, 0.3);
     border-radius: 99px;
     transition: all var(--transition);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -951,13 +968,12 @@ button {
     font-size: 15px;
     font-weight: 700;
     border-radius: 16px;
-    background: #000080;
-    box-shadow: 0 8px 24px rgba(0, 0, 128, 0.3);
+    background: linear-gradient(90deg, #1E88E5, #00BCD4);
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
     display: flex;
     align-items: center;
-    gap: 10px;
     transition: all 0.3s ease;
 }
 
@@ -977,7 +993,7 @@ button {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(14, 165, 233, 0.7), rgba(37, 99, 235, 0.7), rgba(56, 189, 248, 0.7)), url('assets/imgi_76_rental-amp-staging-RS.jpg') no-repeat center center;
+    background: linear-gradient(135deg, rgba(5, 8, 45, 0.85), rgba(10, 61, 255, 0.3)), url('assets/imgi_76_rental-amp-staging-RS.jpg') no-repeat center center;
     background-size: cover;
     padding-top: 120px;
     padding-bottom: 100px;
@@ -1213,8 +1229,8 @@ button {
     padding: 16px 36px;
     font-size: 15px;
     font-weight: 600;
-    background: #000080;
-    box-shadow: 0 10px 30px rgba(0, 0, 128, 0.35);
+    background: linear-gradient(90deg, #1E88E5, #00BCD4);
+    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.35);
 }
 
 .hero-actions .btn-ghost-white {
@@ -1227,7 +1243,8 @@ button {
     font-weight: 600;
     color: var(--white);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    background: #000080;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
     transition: all var(--transition);
 }
 
@@ -5497,4 +5514,554 @@ z-index: 0;
     color: #FFFFFF;
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
     transform: scale(1.1) rotate(360deg);
+}
+
+/* ============================================================
+   PREMIUM TECHNOLOGY-FOCUSED REDESIGN OVERRIDES
+============================================================ */
+
+/* 1. Body and General Background System */
+body {
+    background: var(--bg-gradient) !important;
+    background-attachment: fixed !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Page Loader styling */
+#page-loader {
+    background: #05082D !important;
+}
+.loader-logo {
+    color: #FFFFFF !important;
+}
+.loader-bar {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Make flat light sections transparent for seamless fluid gradient mesh flow */
+#services,
+#products,
+#projects,
+#testimonials,
+#why-choose,
+.faq-section,
+.brands-marquee-section,
+#about,
+#solutions,
+#news,
+#contact,
+#cta-banner,
+.about-mission-statement,
+.newsletter-subscription-box,
+.stat-glass-card {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.brands-marquee-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.marquee-label {
+    color: #A8B4FF !important;
+    border-right-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 2. Advanced Typography Overrides */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.service-name,
+.why-card h4,
+.product-title,
+.project-title,
+.news-title,
+.mega-title,
+.sol-overview-card h3,
+.faq-question h4,
+.stat-number,
+.contact-info-card h4,
+.about-milestone-card h4,
+.catalog-card h4,
+.model-card h4 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Highlighted Text Gradient */
+.hero-title-accent,
+.hero-stat-num,
+.stat-number,
+.stat-num,
+.highlighted-text,
+.cta-title {
+    background: linear-gradient(90deg, #00D9FF, #4FACFE, #0A3DFF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    display: inline-block !important;
+}
+
+.hero-stat-num span, 
+.stat-number span, 
+.stat-num span {
+    background: linear-gradient(90deg, #00D9FF, #4FACFE, #0A3DFF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+/* 3. Buttons Redesign */
+.btn-primary,
+.header-cta .btn,
+.mobile-menu-cta .btn {
+    background: linear-gradient(135deg, #0A3DFF, #00D9FF) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(0, 217, 255, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.15) !important;
+    transition: var(--transition) !important;
+}
+
+.btn-primary:hover,
+.header-cta .btn:hover,
+.mobile-menu-cta .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.35) !important;
+    background: linear-gradient(135deg, #1B5CFF, #00E5FF) !important;
+    color: #FFFFFF !important;
+}
+
+.btn-ghost,
+.btn-ghost-white,
+.btn-white,
+.btn-secondary,
+.btn-promo-cta {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(0, 217, 255, 0.4) !important;
+    color: #FFFFFF !important;
+    transition: var(--transition) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.btn-ghost:hover,
+.btn-ghost-white:hover,
+.btn-white:hover,
+.btn-secondary:hover,
+.btn-promo-cta:hover {
+    background: rgba(0, 217, 255, 0.08) !important;
+    border-color: rgba(0, 217, 255, 0.8) !important;
+    color: #00D9FF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.2) !important;
+}
+
+/* 4. Premium Cards (Glassmorphism & Soft Cyan Glow) */
+.service-card,
+.stat-glass-card,
+#why-choose .stat-glass-card,
+.why-card,
+.product-card,
+.testimonial-card,
+.news-card,
+.contact-info-card,
+.sol-overview-card,
+.catalog-card,
+.model-card,
+.about-milestone-card,
+.social-card,
+.compact-service-card,
+#why-choose .compact-service-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    transition: var(--transition) !important;
+}
+
+.service-card:hover,
+.stat-glass-card:hover,
+#why-choose .stat-glass-card:hover,
+.why-card:hover,
+.product-card:hover,
+.testimonial-card:hover,
+.news-card:hover,
+.contact-info-card:hover,
+.sol-overview-card:hover,
+.catalog-card:hover,
+.model-card:hover,
+.about-milestone-card:hover,
+.social-card:hover,
+.compact-service-card:hover,
+#why-choose .compact-service-card:hover {
+    border-color: rgba(0, 217, 255, 0.4) !important;
+    box-shadow: 0 20px 50px rgba(0, 217, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    transform: translateY(-4px) !important;
+}
+
+#why-choose .compact-service-card:hover .service-name-compact {
+    color: #00D9FF !important;
+}
+
+/* 5. Forms Redesign */
+input,
+textarea,
+select,
+.form-control,
+.form-input {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #FFFFFF !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 12px !important;
+    padding: 14px 20px !important;
+    transition: var(--transition) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+.form-input:focus {
+    outline: none !important;
+    border-color: #00D9FF !important;
+    box-shadow: 0 0 0 4px rgba(0, 217, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 6. Navigation & Header styling */
+#header {
+    background: rgba(5, 8, 45, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+#header.scrolled {
+    background: rgba(5, 8, 45, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.15) !important;
+    height: 72px !important;
+}
+
+#header nav {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#header.scrolled nav {
+    background: rgba(0, 217, 255, 0.05) !important;
+    border-color: rgba(0, 217, 255, 0.15) !important;
+}
+
+.nav-link,
+.mobile-nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.nav-link:hover,
+.mobile-nav-link:hover {
+    color: #4FACFE !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.nav-link.active,
+.mobile-nav-link.active {
+    color: #00D9FF !important;
+    background: rgba(0, 217, 255, 0.08) !important;
+}
+
+#header.scrolled .hamburger span {
+    background: #FFFFFF !important;
+}
+
+#header.scrolled .hamburger {
+    background: rgba(0, 217, 255, 0.05) !important;
+    border-color: rgba(0, 217, 255, 0.15) !important;
+}
+
+#mobile-menu {
+    background: rgba(5, 8, 45, 0.96) !important;
+    backdrop-filter: blur(28px) !important;
+    -webkit-backdrop-filter: blur(28px) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+.mobile-submenu-title {
+    color: #FFFFFF !important;
+}
+
+.mobile-submenu-link {
+    color: #C7D2FE !important;
+}
+.mobile-submenu-link:hover {
+    color: #00D9FF !important;
+}
+
+/* 7. Product & Specs Styling */
+.showcase-spec-item,
+.product-spec,
+.product-specs li,
+.spec-label {
+    color: #C7D2FE !important;
+}
+
+.showcase-spec-dot {
+    background: #00D9FF !important;
+    box-shadow: 0 0 10px #00D9FF !important;
+}
+
+.service-icon,
+.why-icon,
+.feature-icon,
+.product-icon {
+    background: rgba(0, 217, 255, 0.08) !important;
+    border-color: rgba(0, 217, 255, 0.2) !important;
+}
+.service-card:hover .service-icon,
+.why-card:hover .why-icon,
+.product-card:hover .product-icon {
+    background: linear-gradient(135deg, #00D9FF, #0A3DFF) !important;
+    border-color: transparent !important;
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.25) !important;
+}
+.service-icon svg,
+.why-icon svg,
+.feature-icon svg,
+.product-icon svg {
+    color: #00D9FF !important;
+}
+.service-card:hover .service-icon svg,
+.why-card:hover .why-icon svg,
+.product-card:hover .product-icon svg {
+    color: #FFFFFF !important;
+}
+
+/* 8. Glowing Footer styling */
+#footer,
+footer,
+.footer,
+.site-footer {
+    background: #03051F !important;
+    color: #A8B4FF !important;
+    border-top: 1px solid rgba(0, 217, 255, 0.1) !important;
+    padding: 80px 0 40px 0 !important;
+}
+
+#footer a,
+footer a,
+.footer a,
+.site-footer a {
+    color: #00D9FF !important;
+    transition: color var(--transition-fast) !important;
+}
+
+#footer a:hover,
+footer a:hover,
+.footer a:hover,
+.site-footer a:hover {
+    color: #4FACFE !important;
+    text-shadow: 0 0 8px rgba(0, 217, 255, 0.3) !important;
+}
+
+#footer h4,
+footer h4 {
+    color: #FFFFFF !important;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding-top: 24px !important;
+    margin-top: 48px !important;
+}
+
+/* 9. Product Catalog Filters & Pills Redesign */
+.filter-tab {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #C7D2FE !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.filter-tab:hover {
+    background: rgba(0, 217, 255, 0.1) !important;
+    border-color: rgba(0, 217, 255, 0.4) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.15) !important;
+}
+
+.filter-tab.active {
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF) !important;
+    border-color: transparent !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 20px rgba(0, 217, 255, 0.3) !important;
+}
+
+.catalog-tag {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #C7D2FE !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.catalog-card:hover .catalog-tag {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #FFFFFF !important;
+}
+
+.catalog-tag:hover {
+    background: linear-gradient(90deg, #00D9FF, #0A3DFF) !important;
+    border-color: transparent !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3) !important;
+}
+
+/* 10. Mega Menu Redesign */
+.mega-menu {
+    background: rgba(13, 20, 90, 0.95) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+.mega-title {
+    color: #FFFFFF !important;
+}
+
+.mega-title::after {
+    background: #00D9FF !important;
+}
+
+.mega-list a {
+    color: #C7D2FE !important;
+}
+
+.mega-list a:hover {
+    color: #00D9FF !important;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.3) !important;
+}
+
+.mega-promo-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 11. Contact Form Redesign */
+.contact-form-container {
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+.contact-form-title {
+    color: #FFFFFF !important;
+}
+
+.contact-form-subtitle {
+    color: #C7D2FE !important;
+}
+
+/* 12. Process Timeline Nodes */
+.timeline-step .timeline-node {
+    width: 48px !important;
+    height: 48px !important;
+    background: rgba(5, 8, 45, 0.95) !important;
+    border: 2px solid #00D9FF !important;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3) !important;
+    color: #FFFFFF !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 5 !important;
+}
+
+.timeline-step.even .timeline-node {
+    border-color: #1B5CFF !important;
+    box-shadow: 0 0 15px rgba(27, 92, 255, 0.3) !important;
+}
+
+/* 13. Project Gallery Filter Buttons */
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #C7D2FE !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.filter-btn:hover {
+    background: rgba(0, 217, 255, 0.1) !important;
+    border-color: rgba(0, 217, 255, 0.4) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.15) !important;
+}
+
+.filter-btn.active {
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF) !important;
+    border-color: transparent !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 20px rgba(0, 217, 255, 0.3) !important;
+}
+
+/* 14. Footer UI Polish */
+#footer a:not(.social-btn):not(.footer-logo-link),
+footer a:not(.social-btn):not(.footer-logo-link),
+.footer-links a,
+.site-footer a:not(.social-btn):not(.footer-logo-link) {
+    color: #C7D2FE !important;
+}
+
+#footer a:not(.social-btn):not(.footer-logo-link):hover,
+footer a:not(.social-btn):not(.footer-logo-link):hover,
+.footer-links a:hover,
+.site-footer a:not(.social-btn):not(.footer-logo-link):hover {
+    color: #00D9FF !important;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.4) !important;
+}
+
+.footer-logo-img {
+    filter: invert(1) brightness(2) !important;
+}
+
+.social-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #C7D2FE !important;
+}
+
+.social-btn:hover {
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF) !important;
+    border-color: transparent !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3) !important;
+}
+
+#scroll-top {
+    background: linear-gradient(135deg, #0A3DFF, #00D9FF) !important;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3) !important;
+    border: none !important;
+}
+
+#scroll-top:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.5) !important;
+}
+
+/* 15. Nav Logo Polish */
+.logo-img {
+    filter: invert(1) brightness(2) !important;
 }
