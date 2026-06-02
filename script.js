@@ -323,3 +323,37 @@ if (filterTabs.length > 0 && catalogCards.length > 0) {
         });
     });
 }
+
+
+// Animated Counters
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const targetValue = parseInt(target.getAttribute('data-target'));
+                let current = 0;
+                const duration = 1500; // 1.5 seconds total
+                const increment = targetValue / (duration / 16); // assuming 60fps (16ms per frame)
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < targetValue) {
+                        target.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        target.innerText = targetValue;
+                    }
+                };
+                
+                updateCounter();
+                observer.unobserve(target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+});
