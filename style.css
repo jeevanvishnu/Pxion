@@ -36,7 +36,7 @@
     --radius-md: 20px;
     --radius-lg: 32px;
     --radius-xl: 48px;
-    --font: 'Poppins', sans-serif;
+    --font: 'Poppins', 'Inter', sans-serif;
     --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     --header-h: 88px;
