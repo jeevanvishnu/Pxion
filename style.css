@@ -19,9 +19,9 @@
     /* Light Blue */
     --accent-blue: #00D9FF;
     /* Accent Cyan */
-    --orange: #00D9FF;
+    --accent-cyan: #00D9FF;
     /* Redefined to Accent Cyan to remove orange globally */
-    --yellow: #1B5CFF;
+    --accent-blue: #1B5CFF;
     /* Redefined to Secondary Blue to remove yellow globally */
     --blue-accent: #00D9FF;
     /* Accent Cyan */
@@ -213,7 +213,7 @@ button {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--accent-cyan);
     margin-bottom: 16px;
 }
 
@@ -222,7 +222,7 @@ button {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--orange);
+    background: var(--accent-cyan);
     border-radius: 99px;
 }
 
@@ -546,7 +546,7 @@ button {
     width: 16px;
     height: 2px;
     border-radius: 99px;
-    background: linear-gradient(90deg, var(--orange), var(--yellow));
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
     transition: transform var(--transition-fast);
     transform-origin: center;
 }
@@ -581,6 +581,7 @@ button {
     left: 50%;
     transform: translateX(-50%) translateY(15px);
     width: 1140px;
+    max-width: calc(100vw - 40px);
     background: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
@@ -665,7 +666,7 @@ button {
 .badge-hot {
     background: #FF0000;
     color: #FFF;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     padding: 2px 6px;
     border-radius: 4px;
@@ -1148,7 +1149,7 @@ button {
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--yellow);
+    color: var(--accent-blue);
     margin-bottom: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
@@ -1166,8 +1167,8 @@ button {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--yellow);
-    box-shadow: 0 0 10px var(--yellow);
+    background: var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue);
     animation: pulseGlow 2s ease infinite;
 }
 
@@ -1195,7 +1196,7 @@ button {
 }
 
 .hero-title-accent {
-    background: linear-gradient(135deg, var(--orange) 30%, var(--yellow) 100%);
+    background: linear-gradient(135deg, var(--accent-cyan) 30%, var(--accent-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1281,7 +1282,7 @@ button {
 }
 
 .hero-stat-num span {
-    color: var(--orange);
+    color: var(--accent-cyan);
 }
 
 .hero-stat-label {
@@ -1649,7 +1650,7 @@ button {
 .orb-orange {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
     bottom: 10%;
     right: -100px;
 }
@@ -1748,8 +1749,8 @@ button {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--orange);
-    box-shadow: 0 0 10px var(--orange);
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
     animation: pulseGlow 1.5s infinite;
 }
 
@@ -2050,7 +2051,7 @@ button {
     position: relative;
     border-radius: var(--radius-md);
     overflow: hidden;
-    background: linear-gradient(135deg, #1E88E5 0%, #00BCD4 100%);
+    background: linear-gradient(135deg, #0A1A7A 0%, #05082D 100%);
     padding: 60px 40px;
     z-index: 1;
     border: none;
@@ -2203,7 +2204,7 @@ button {
     position: absolute;
     top: 16px;
     left: 16px;
-    background: var(--orange);
+    background: var(--accent-cyan);
     color: var(--white);
     font-size: 11px;
     font-weight: 700;
@@ -2330,7 +2331,7 @@ button {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--orange);
+    background: var(--accent-cyan);
     flex-shrink: 0;
 }
 
@@ -2392,7 +2393,7 @@ button {
 }
 
 #projects .section-label {
-    color: var(--yellow);
+    color: var(--accent-blue);
 }
 
 #projects .section-title {
@@ -2509,7 +2510,7 @@ button {
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--yellow);
+    color: var(--accent-blue);
     margin-bottom: 8px;
 }
 
@@ -2794,7 +2795,7 @@ button {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: var(--orange);
+    background: var(--accent-cyan);
 }
 
 .news-title {
@@ -2883,7 +2884,7 @@ button {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--yellow);
+    color: var(--accent-blue);
     margin-bottom: 24px;
 }
 
@@ -2892,7 +2893,7 @@ button {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--yellow);
+    background: var(--accent-blue);
     border-radius: 99px;
 }
 
@@ -2901,7 +2902,7 @@ button {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--yellow);
+    background: var(--accent-blue);
     border-radius: 99px;
 }
 
@@ -3050,9 +3051,9 @@ footer::before {
 }
 
 .social-btn:hover {
-    background: var(--orange);
+    background: var(--accent-cyan);
     color: var(--white);
-    border-color: var(--orange);
+    border-color: var(--accent-cyan);
     transform: translateY(-2px);
 }
 
@@ -3236,7 +3237,7 @@ footer::before {
 }
 
 .contact-card-content a:hover {
-    color: var(--orange);
+    color: var(--accent-cyan);
 }
 
 .contact-form-container {
@@ -3376,7 +3377,7 @@ textarea.form-input {
 
 .faq-chevron {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    color: var(--orange);
+    color: var(--accent-cyan);
     flex-shrink: 0;
 }
 
@@ -3472,19 +3473,19 @@ textarea.form-input {
 }
 
 .compact-service-card:hover .compact-service-icon {
-    background: var(--orange);
-    box-shadow: 0 0 16px var(--orange);
+    background: var(--accent-cyan);
+    box-shadow: 0 0 16px var(--accent-cyan);
     transform: scale(1.2);
 }
 
 .compact-service-card:nth-child(even) .compact-service-icon {
-    background: var(--yellow);
-    box-shadow: 0 0 12px var(--yellow);
+    background: var(--accent-blue);
+    box-shadow: 0 0 12px var(--accent-blue);
 }
 
 .compact-service-card:nth-child(even):hover .compact-service-icon {
-    background: var(--orange);
-    box-shadow: 0 0 16px var(--orange);
+    background: var(--accent-cyan);
+    box-shadow: 0 0 16px var(--accent-cyan);
 }
 
 .service-name-compact {
@@ -3601,8 +3602,8 @@ textarea.form-input {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--orange);
-    box-shadow: 0 0 8px var(--orange);
+    background: var(--accent-cyan);
+    box-shadow: 0 0 8px var(--accent-cyan);
 }
 
 /* Industry Solutions Showcase Grid */
@@ -3911,7 +3912,7 @@ textarea.form-input {
 
 .dashboard-mock-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--orange), var(--blue-accent));
+    background: linear-gradient(90deg, var(--accent-cyan), var(--blue-accent));
     border-radius: 3px;
 }
 
@@ -3971,7 +3972,7 @@ textarea.form-input {
     top: 20px;
     bottom: 20px;
     width: 2px;
-    background: linear-gradient(to bottom, var(--orange) 0%, var(--blue-accent) 50%, var(--border) 100%);
+    background: linear-gradient(to bottom, var(--accent-cyan) 0%, var(--blue-accent) 50%, var(--border) 100%);
     z-index: 1;
 }
 
@@ -4013,8 +4014,8 @@ textarea.form-input {
     height: 42px;
     border-radius: 50%;
     background: var(--navy-dark);
-    border: 2px solid var(--orange);
-    box-shadow: 0 0 15px var(--orange);
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 0 15px var(--accent-cyan);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4142,8 +4143,8 @@ textarea.form-input {
     top: 0;
     bottom: 0;
     width: 4px;
-    background: linear-gradient(to bottom, var(--blue-accent) 0%, var(--orange) 100%);
-    box-shadow: 0 0 12px var(--orange);
+    background: linear-gradient(to bottom, var(--blue-accent) 0%, var(--accent-cyan) 100%);
+    box-shadow: 0 0 12px var(--accent-cyan);
     left: 50%;
     /* JS Controlled */
     transform: translateX(-50%);
@@ -4161,8 +4162,8 @@ textarea.form-input {
     height: 48px;
     border-radius: 50%;
     background: rgba(17, 25, 46, 0.9);
-    border: 2px solid var(--orange);
-    box-shadow: 0 0 20px var(--orange);
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 0 20px var(--accent-cyan);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4652,7 +4653,7 @@ textarea.form-input {
 }
 
 .social-card .social-tag {
-    color: var(--orange);
+    color: var(--accent-cyan);
     font-weight: 600;
     text-decoration: none;
 }
@@ -4675,7 +4676,7 @@ textarea.form-input {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--blue-accent), var(--orange));
+    background: linear-gradient(to bottom, var(--blue-accent), var(--accent-cyan));
     transform: translateX(-50%);
     opacity: 0.3;
     z-index: 1;
@@ -4721,8 +4722,8 @@ textarea.form-input {
 }
 
 .about-milestone.even .timeline-node {
-    background: var(--orange);
-    box-shadow: 0 0 10px var(--orange);
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
 }
 
 .about-milestone-card {
@@ -4752,7 +4753,7 @@ textarea.form-input {
 }
 
 .about-milestone.even .about-milestone-year {
-    color: var(--orange);
+    color: var(--accent-cyan);
 }
 
 @media (max-width: 768px) {
@@ -5551,7 +5552,6 @@ body {
 #news,
 #contact,
 #cta-banner,
-.about-mission-statement,
 .newsletter-subscription-box,
 .stat-glass-card {
     background: transparent !important;
@@ -6410,4 +6410,4 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 .light-section .showcase-spec-dot {
     background: #0A3DFF !important;
     box-shadow: 0 0 8px rgba(10, 61, 255, 0.4) !important;
-}
+}

@@ -1,17 +1,15 @@
 // =================== PAGE LOADER ===================
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        const pageLoader = document.getElementById('page-loader');
-        if (pageLoader) {
-            pageLoader.classList.add('hidden');
-        }
-        const bgVideo = document.getElementById('hero-bg-video');
-        if (bgVideo) {
-            bgVideo.play().catch(err => {
-                console.log('Video autoplay play triggered smoothly:', err);
-            });
-        }
-    }, 1400);
+    const pageLoader = document.getElementById('page-loader');
+    if (pageLoader) {
+        pageLoader.classList.add('hidden');
+    }
+    const bgVideo = document.getElementById('hero-bg-video');
+    if (bgVideo) {
+        bgVideo.play().catch(err => {
+            console.log('Video autoplay play triggered smoothly:', err);
+        });
+    }
 });
 
 // =================== HEADER SCROLL ===================
