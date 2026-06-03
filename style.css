@@ -6107,3 +6107,307 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
         radial-gradient(circle at 85% 75%, rgba(10, 61, 255, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(5, 8, 45, 0.6) 0%, transparent 70%) !important;
 }
+
+/* ============================================================
+   LIGHT SECTION ALTERNATION SYSTEM (REVISED & SPECIFICITY FIXED)
+============================================================ */
+/* Specificity fix for section backgrounds */
+.light-section,
+#hero.light-section,
+#services.light-section,
+#solutions.light-section,
+#testimonials.light-section,
+#contact.light-section,
+#about.light-section,
+#showcase.light-section,
+#tech-specs.light-section,
+#client-trust.light-section,
+#overview.light-section,
+#core-services.light-section,
+#solution-specs.light-section,
+#featured-showcase.light-section,
+#gallery.light-section,
+#project-stats.light-section,
+#featured-journal.light-section,
+#video-insights.light-section,
+#social-grid.light-section,
+#contact-content.light-section {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%) !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* 1. Hero Light Section Overrides (Specificity Fixed) */
+#hero.light-section .hero-video-overlay {
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.85) 0%, 
+        rgba(244, 250, 255, 0.35) 40%, 
+        rgba(244, 250, 255, 0.35) 60%, 
+        rgba(255, 255, 255, 0.90) 100%) !important;
+}
+
+#hero.light-section .hero-mesh {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(30, 136, 229, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(0, 188, 212, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 70%) !important;
+}
+
+#hero.light-section .hero-title,
+#hero.light-section .hero-sub,
+#hero.light-section .hero-stat-label,
+#hero.light-section .hero-badge {
+    color: #0F172A !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #0F172A !important;
+    background: none !important;
+}
+
+#hero.light-section .hero-badge {
+    background: rgba(10, 61, 255, 0.05) !important;
+    border: 1px solid rgba(10, 61, 255, 0.1) !important;
+    color: #0A3DFF !important;
+}
+
+#hero.light-section .hero-badge-dot {
+    background: #0A3DFF !important;
+    box-shadow: 0 0 10px rgba(10, 61, 255, 0.6) !important;
+}
+
+#hero.light-section .hero-stat-num {
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+#hero.light-section .hero-stat-num span {
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+#hero.light-section .btn-ghost-white {
+    background: rgba(10, 61, 255, 0.04) !important;
+    border: 1px solid rgba(10, 61, 255, 0.2) !important;
+    color: #0A3DFF !important;
+}
+
+#hero.light-section .btn-ghost-white:hover {
+    background: rgba(10, 61, 255, 0.08) !important;
+    border-color: #0A3DFF !important;
+    color: #0A3DFF !important;
+}
+
+/* 2. CTA Banner Light Section Overrides (Specificity Fixed) */
+#contact.light-section #cta-banner {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%) !important;
+}
+
+#contact.light-section .cta-mesh {
+    background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(10, 61, 255, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 50%, rgba(0, 217, 255, 0.08) 0%, transparent 50%) !important;
+}
+
+#contact.light-section .cta-label {
+    color: #0A3DFF !important;
+}
+
+#contact.light-section .cta-label::before,
+#contact.light-section .cta-label::after {
+    background: #0A3DFF !important;
+}
+
+#contact.light-section .cta-title {
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+#contact.light-section .cta-sub {
+    color: #475569 !important;
+}
+
+#contact.light-section .cta-phone {
+    color: #475569 !important;
+}
+
+#contact.light-section .cta-phone:hover {
+    color: #0A3DFF !important;
+}
+
+/* 3. Typography & Headings inside Light Sections (Specificity Fixed) */
+.light-section h1,
+.light-section h2,
+.light-section h3,
+.light-section h4,
+.light-section h5,
+.light-section h6,
+.light-section .section-title,
+.light-section .service-name,
+.light-section .why-card h4,
+.light-section .news-title,
+.light-section .sol-overview-card h3,
+.light-section .catalog-card h4,
+.light-section .model-card h4,
+.light-section .service-name-compact,
+.light-section .about-subtitle,
+.light-section .about-mini-point h4,
+.light-section .dashboard-mock-value:not(.green-text),
+.light-section .timeline-card h4,
+.light-section .gallery-card-overlay h4,
+.light-section .video-title-text,
+.light-section .about-content-showcase h4,
+#services.light-section .section-title,
+#solutions.light-section .section-title,
+#testimonials.light-section .section-title,
+#contact.light-section .cta-title {
+    color: #0F172A !important; /* Premium Dark Slate */
+    text-shadow: none !important;
+}
+
+/* Labels and Subtitles inside Light Sections (Specificity Fixed) */
+.light-section .section-label,
+#services.light-section .section-label,
+#solutions.light-section .section-label,
+#testimonials.light-section .section-label {
+    color: #0A3DFF !important; /* Theme Royal Blue label */
+}
+.light-section .section-label::before,
+#services.light-section .section-label::before,
+#solutions.light-section .section-label::before,
+#testimonials.light-section .section-label::before {
+    background: #0A3DFF !important;
+}
+
+/* Base Body Text, Specs, Descriptions and Muted Elements */
+.light-section .section-sub,
+.light-section .about-story-text,
+.light-section .service-desc,
+.light-section .why-card p,
+.light-section .news-excerpt,
+.light-section .testimonial-quote,
+.light-section .showcase-spec-item,
+.light-section .showcase-desc,
+.light-section p,
+.light-section li,
+.light-section .news-date,
+.light-section .about-mini-point p,
+.light-section .stat-label,
+.light-section .timeline-card p,
+.light-section .gallery-card-overlay p,
+.light-section .video-duration-text,
+.light-section .dashboard-title-mock,
+.light-section .device-status-item,
+#services.light-section .section-sub,
+#solutions.light-section .section-sub,
+#testimonials.light-section .section-sub {
+    color: #475569 !important; /* Slate Gray */
+}
+
+/* Card Components inside Light Sections */
+.light-section .service-card,
+.light-section .stat-glass-card,
+.light-section .why-card,
+.light-section .news-card,
+.light-section .sol-overview-card,
+.light-section .compact-service-card,
+.light-section .about-milestone-card,
+.light-section .social-card,
+.light-section .testimonial-card,
+.light-section .contact-info-card,
+.light-section .contact-form-container,
+#services.light-section .service-card,
+#testimonials.light-section .testimonial-card {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(10, 61, 255, 0.08) !important;
+    color: #0F172A !important;
+    box-shadow: 0 10px 30px rgba(10, 61, 255, 0.04), 0 1px 3px rgba(10, 61, 255, 0.02) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.light-section .service-card:hover,
+.light-section .stat-glass-card:hover,
+.light-section .why-card:hover,
+.light-section .news-card:hover,
+.light-section .sol-overview-card:hover,
+.light-section .compact-service-card:hover,
+.light-section .about-milestone-card:hover,
+.light-section .social-card:hover,
+.light-section .testimonial-card:hover,
+.light-section .contact-info-card:hover,
+.light-section .contact-form-container:hover,
+#services.light-section .service-card:hover,
+#testimonials.light-section .testimonial-card:hover {
+    background: #FFFFFF !important;
+    border-color: rgba(10, 61, 255, 0.25) !important;
+    box-shadow: 0 20px 40px rgba(10, 61, 255, 0.08), 0 0 30px rgba(0, 217, 255, 0.04) !important;
+    transform: translateY(-6px) !important;
+}
+
+/* 4. Form inputs inside Light Sections (contact.html support) */
+.light-section .form-label {
+    color: #0F172A !important;
+}
+
+.light-section .form-input {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(10, 61, 255, 0.2) !important;
+    color: #0F172A !important;
+}
+
+.light-section .form-input:focus {
+    border-color: #0A3DFF !important;
+    box-shadow: 0 0 0 3px rgba(10, 61, 255, 0.15) !important;
+}
+
+.light-section .contact-info-card {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(10, 61, 255, 0.08) !important;
+    color: #0F172A !important;
+    box-shadow: 0 10px 30px rgba(10, 61, 255, 0.04) !important;
+}
+
+.light-section .contact-info-card h3 {
+    color: #0F172A !important;
+}
+
+.light-section .contact-info-card p {
+    color: #475569 !important;
+}
+
+.light-section .contact-form-container {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(10, 61, 255, 0.08) !important;
+    color: #0F172A !important;
+    box-shadow: 0 10px 30px rgba(10, 61, 255, 0.04) !important;
+}
+
+.light-section .contact-form-title {
+    color: #0F172A !important;
+}
+
+.light-section .contact-form-subtitle {
+    color: #475569 !important;
+}
+
+/* Showcase Content Card inside Light Sections */
+.light-section .products-showcase-container .showcase-content {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(10, 61, 255, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(10, 61, 255, 0.04), 0 1px 3px rgba(10, 61, 255, 0.02) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.light-section .showcase-spec-dot {
+    background: #0A3DFF !important;
+    box-shadow: 0 0 8px rgba(10, 61, 255, 0.4) !important;
+}
