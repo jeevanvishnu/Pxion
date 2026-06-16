@@ -1260,7 +1260,7 @@ button {
     font-size: clamp(44px, 6.5vw, 84px);
     font-weight: 800;
     line-height: 0.95;
-    letter-spacing: -3px;
+    letter-spacing: -1px;
     color: var(--white);
     margin-bottom: 20px;
 }
@@ -1328,7 +1328,7 @@ button {
 
 .hero-stats {
     display: flex;
-    gap: clamp(32px, 6vw, 64px);
+    gap: clamp(16px, 2.5vw, 40px);
     flex-wrap: wrap;
     justify-content: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1344,10 +1344,10 @@ button {
 }
 
 .hero-stat-num {
-    font-size: clamp(32px, 4vw, 44px);
+    font-size: clamp(26px, 3vw, 38px);
     font-weight: 800;
     color: var(--white);
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
     line-height: 1;
 }
 
@@ -1356,7 +1356,7 @@ button {
 }
 
 .hero-stat-label {
-    font-size: 12.5px;
+    font-size: clamp(10px, 1vw, 12px);
     color: rgba(255, 255, 255, 0.45);
     font-weight: 500;
     margin-top: 6px;
@@ -1906,7 +1906,7 @@ button {
 
 @media (min-width: 768px) {
     .about-stats-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -2982,6 +2982,8 @@ button {
     letter-spacing: -2px;
     color: var(--white);
     line-height: 1.05;
+    text-align: center;
+    width: 100%;
 }
 
 .cta-sub {
@@ -5678,7 +5680,6 @@ h6,
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
     color: transparent !important;
-    display: inline-block !important;
 }
 
 .hero-stat-num span,
