@@ -9,7 +9,7 @@
     --deep-navy: #040B4F;
     --dark-bg: #05082D;
     --surface-color: #0D145A;
-    
+
     /* Variable Remapping for Seamless Integration */
     --navy: #0A3DFF;
     /* Primary Blue */
@@ -28,7 +28,7 @@
     --bg: #05082D;
     /* Dark Background */
     --white: #FFFFFF;
-    
+
     /* Typography Colors */
     --text-primary: #FFFFFF;
     /* Light Text */
@@ -36,12 +36,12 @@
     /* Gray/Soft blue secondary Text */
     --text-muted: rgba(199, 210, 254, 0.6);
     /* Gray Muted Text */
-    
+
     /* Borders & Glass System */
     --border: rgba(255, 255, 255, 0.08);
     --glass-bg: rgba(255, 255, 255, 0.04);
     --glass-border: rgba(255, 255, 255, 0.08);
-    
+
     --shadow-sm: 0 4px 12px rgba(0, 217, 255, 0.05);
     --shadow-md: 0 16px 40px rgba(0, 217, 255, 0.08);
     --shadow-lg: 0 32px 80px rgba(0, 217, 255, 0.12);
@@ -54,9 +54,9 @@
     --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     --header-h: 88px;
-    --bg-gradient: radial-gradient(circle at 20% 30%, rgba(0,217,255,0.18), transparent 30%),
-                   radial-gradient(circle at 80% 20%, rgba(10,61,255,0.20), transparent 35%),
-                   linear-gradient(135deg, #05082D 0%, #0A1A7A 50%, #040B4F 100%);
+    --bg-gradient: radial-gradient(circle at 20% 30%, rgba(0, 217, 255, 0.18), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(10, 61, 255, 0.20), transparent 35%),
+        linear-gradient(135deg, #05082D 0%, #0A1A7A 50%, #040B4F 100%);
 }
 
 /* ============================================================
@@ -202,7 +202,7 @@ button {
 }
 
 .section {
-    padding: clamp(80px, 10vw, 140px) 0;
+    padding: clamp(40px, 6vw, 80px) 0;
 }
 
 .section-label {
@@ -582,10 +582,10 @@ button {
     transform: translateX(-50%) translateY(15px);
     width: 1140px;
     max-width: calc(100vw - 40px);
-    background: #FFFFFF;
+    background: var(--surface-color);
     border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
-    border: 1px solid rgba(15, 23, 42, 0.05);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
     padding: 32px;
     opacity: 0;
     visibility: hidden;
@@ -603,6 +603,70 @@ button {
     height: 20px;
 }
 
+.nav-item-dropdown:hover .simple-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.simple-dropdown {
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    width: 280px;
+    background: var(--surface-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    padding: 32px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+}
+
+.simple-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.simple-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.simple-dropdown li {
+    margin-bottom: 16px;
+}
+
+.simple-dropdown li:last-child {
+    margin-bottom: 0;
+}
+
+.simple-dropdown a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.simple-dropdown a:hover {
+    color: var(--accent-cyan);
+}
+
 .mega-menu-grid {
     display: grid;
     grid-template-columns: 1fr 1.1fr 1.4fr 0.9fr 280px;
@@ -617,7 +681,7 @@ button {
 .mega-title {
     font-size: 15px;
     font-weight: 700;
-    color: var(--navy-dark);
+    color: var(--white);
     margin-bottom: 20px;
     position: relative;
     padding-bottom: 8px;
@@ -631,7 +695,7 @@ button {
     left: 0;
     width: 24px;
     height: 2px;
-    background: rgba(15, 23, 42, 0.1);
+    background: var(--accent-cyan);
 }
 
 .mega-list {
@@ -657,10 +721,11 @@ button {
     align-items: center;
     gap: 8px;
     line-height: 1.4;
+    font-weight: 500;
 }
 
 .mega-list a:hover {
-    color: var(--navy);
+    color: var(--accent-cyan);
 }
 
 .badge-hot {
@@ -1620,7 +1685,7 @@ button {
     background: #F4FAFF;
     position: relative;
     overflow: hidden;
-    padding: clamp(80px, 12vw, 160px) 0;
+    padding: clamp(40px, 6vw, 80px) 0;
 }
 
 /* Background Glowing Orbs */
@@ -1659,9 +1724,9 @@ button {
 .about-split-layout {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 24px;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 30px;
     position: relative;
     z-index: 1;
 }
@@ -1669,7 +1734,7 @@ button {
 @media (min-width: 1024px) {
     .about-split-layout {
         grid-template-columns: 1fr 1fr;
-        gap: 80px;
+        gap: 40px;
     }
 }
 
@@ -5532,9 +5597,11 @@ body {
 #page-loader {
     background: #05082D !important;
 }
+
 .loader-logo {
     color: #FFFFFF !important;
 }
+
 .loader-bar {
     background: rgba(255, 255, 255, 0.08) !important;
 }
@@ -5562,13 +5629,19 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
+
 .marquee-label {
     color: #A8B4FF !important;
     border-right-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* 2. Advanced Typography Overrides */
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .section-title,
 .service-name,
 .why-card h4,
@@ -5603,8 +5676,8 @@ h1, h2, h3, h4, h5, h6,
     display: inline-block !important;
 }
 
-.hero-stat-num span, 
-.stat-number span, 
+.hero-stat-num span,
+.stat-number span,
 .stat-num span {
     background: linear-gradient(90deg, #00D9FF, #4FACFE, #0A3DFF) !important;
     -webkit-background-clip: text !important;
@@ -5800,6 +5873,7 @@ select:focus,
 .mobile-submenu-link {
     color: #C7D2FE !important;
 }
+
 .mobile-submenu-link:hover {
     color: #00D9FF !important;
 }
@@ -5824,6 +5898,7 @@ select:focus,
     background: rgba(0, 217, 255, 0.08) !important;
     border-color: rgba(0, 217, 255, 0.2) !important;
 }
+
 .service-card:hover .service-icon,
 .why-card:hover .why-icon,
 .product-card:hover .product-icon {
@@ -5831,12 +5906,14 @@ select:focus,
     border-color: transparent !important;
     box-shadow: 0 8px 24px rgba(0, 217, 255, 0.25) !important;
 }
+
 .service-icon svg,
 .why-icon svg,
 .feature-icon svg,
 .product-icon svg {
     color: #00D9FF !important;
 }
+
 .service-card:hover .service-icon svg,
 .why-card:hover .why-icon svg,
 .product-card:hover .product-icon svg {
@@ -6139,11 +6216,11 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 
 /* 1. Hero Light Section Overrides (Specificity Fixed) */
 #hero.light-section .hero-video-overlay {
-    background: linear-gradient(180deg, 
-        rgba(255, 255, 255, 0.85) 0%, 
-        rgba(244, 250, 255, 0.35) 40%, 
-        rgba(244, 250, 255, 0.35) 60%, 
-        rgba(255, 255, 255, 0.90) 100%) !important;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.85) 0%,
+            rgba(244, 250, 255, 0.35) 40%,
+            rgba(244, 250, 255, 0.35) 60%,
+            rgba(255, 255, 255, 0.90) 100%) !important;
 }
 
 #hero.light-section .hero-mesh {
@@ -6268,7 +6345,8 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 #solutions.light-section .section-title,
 #testimonials.light-section .section-title,
 #contact.light-section .cta-title {
-    color: #0F172A !important; /* Premium Dark Slate */
+    color: #0F172A !important;
+    /* Premium Dark Slate */
     text-shadow: none !important;
 }
 
@@ -6277,8 +6355,10 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 #services.light-section .section-label,
 #solutions.light-section .section-label,
 #testimonials.light-section .section-label {
-    color: #0A3DFF !important; /* Theme Royal Blue label */
+    color: #0A3DFF !important;
+    /* Theme Royal Blue label */
 }
+
 .light-section .section-label::before,
 #services.light-section .section-label::before,
 #solutions.light-section .section-label::before,
@@ -6308,7 +6388,8 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 #services.light-section .section-sub,
 #solutions.light-section .section-sub,
 #testimonials.light-section .section-sub {
-    color: #475569 !important; /* Slate Gray */
+    color: #475569 !important;
+    /* Slate Gray */
 }
 
 /* Card Components inside Light Sections */
