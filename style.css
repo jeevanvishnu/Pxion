@@ -1690,7 +1690,11 @@ button {
     background: #F4FAFF;
     position: relative;
     overflow: hidden;
-    padding: clamp(40px, 6vw, 80px) 0;
+    padding: 0 0 40px 0;
+}
+
+#about .about-split-layout {
+    margin-top: 0;
 }
 
 /* Background Glowing Orbs */
@@ -6344,7 +6348,6 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 .light-section .about-mini-point h4,
 .light-section .dashboard-mock-value:not(.green-text),
 .light-section .timeline-card h4,
-.light-section .gallery-card-overlay h4,
 .light-section .video-title-text,
 .light-section .about-content-showcase h4,
 #services.light-section .section-title,
@@ -6387,7 +6390,6 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 .light-section .about-mini-point p,
 .light-section .stat-label,
 .light-section .timeline-card p,
-.light-section .gallery-card-overlay p,
 .light-section .video-duration-text,
 .light-section .dashboard-title-mock,
 .light-section .device-status-item,
@@ -6396,6 +6398,14 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 #testimonials.light-section .section-sub {
     color: #475569 !important;
     /* Slate Gray */
+}
+
+/* Fix for gallery card overlay text color inside light sections */
+.light-section .gallery-card-overlay h4 {
+    color: #FFFFFF !important;
+}
+.light-section .gallery-card-overlay p {
+    color: rgba(255, 255, 255, 0.88) !important;
 }
 
 /* Card Components inside Light Sections */
@@ -6913,5 +6923,26 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     .cta-actions .btn {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* Force correct positioning for timeline nodes */
+@media (min-width: 768px) {
+    .timeline-step {
+        position: relative !important;
+    }
+    .timeline-step .timeline-node {
+        position: absolute !important;
+        top: 10px !important;
+    }
+    .timeline-step.odd .timeline-node {
+        left: 0 !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+    }
+    .timeline-step.even .timeline-node {
+        left: 100% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
     }
 }
