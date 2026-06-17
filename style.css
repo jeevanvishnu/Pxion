@@ -668,6 +668,15 @@ button {
     font-weight: 500;
 }
 
+/* Fallback for when a tags are direct children (no ul/li) */
+.simple-dropdown > a {
+    display: flex;
+    margin-bottom: 16px;
+}
+.simple-dropdown > a:last-child {
+    margin-bottom: 0;
+}
+
 .simple-dropdown a:hover {
     color: var(--accent-cyan);
 }
