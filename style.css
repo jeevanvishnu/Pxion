@@ -1711,7 +1711,7 @@ button {
     background: #F4FAFF;
     position: relative;
     overflow: hidden;
-    padding: 0 0 40px 0;
+    padding: 80px 0 80px 0;
 }
 
 #about .about-split-layout {
@@ -2028,7 +2028,8 @@ button {
         gap: 24px;
     }
 
-    .about-why-choose .why-choose-grid {
+    .about-why-choose .why-choose-grid,
+    #solution-specs .why-choose-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
     }
