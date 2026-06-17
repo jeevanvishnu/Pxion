@@ -1547,6 +1547,18 @@ button {
     margin-bottom: 60px;
 }
 
+.services-subheading {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: #111111;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1909,8 +1921,9 @@ button {
 
 /* Experience Stats Grid */
 .about-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     margin-top: 80px;
     position: relative;
@@ -1919,7 +1932,7 @@ button {
 
 @media (min-width: 768px) {
     .about-stats-grid {
-        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
 }
 
@@ -1933,6 +1946,8 @@ button {
     overflow: hidden;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
+    flex: 1 1 220px;
+    max-width: 320px;
 }
 
 .stat-glass-card:hover {

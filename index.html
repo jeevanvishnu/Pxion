@@ -387,12 +387,12 @@
         <div class="about-orb orb-blue"></div>
       </div>
       <div class="container">
-        <div class="about-split-layout">
+        <div class="about-split-layout" style="align-items: stretch;">
           <!-- Left: Crop Showcase Visual -->
-          <div class="about-visual-showcase reveal">
-            <div class="about-showcase-frame" style="aspect-ratio: 16/10;">
+          <div class="about-visual-showcase reveal" style="align-items: stretch;">
+            <div class="about-showcase-frame" style="height: 100%;">
               <img src="assets/LED Screen &amp; AV Solutions Provider.jpg"
-                alt="PIXON TECHNOLOGIES Display Calibration Laboratory Preview" class="about-showcase-img" />
+                alt="PIXON TECHNOLOGIES Display Calibration Laboratory Preview" class="about-showcase-img" style="height: 100%; object-fit: cover;" />
               <div class="about-visual-overlay"></div>
               <div class="about-float-badge badge-top parallax-card" data-speed="1.0" style="top: 16px; left: 16px;">
                 <span class="pulse-dot-orange"></span> Calibration HQ
@@ -401,10 +401,10 @@
           </div>
 
           <!-- Right: Story Summary & Discover CTA -->
-          <div class="about-content-showcase reveal reveal-delay-2">
+          <div class="about-content-showcase reveal reveal-delay-2" style="justify-content: center;">
             <div>
               <div class="section-label">About PIXON TECHNOLOGIES</div>
-              <h2 id="about-heading" class="section-title" style="margin-bottom: 20px;">
+              <h2 id="about-heading" class="section-title" style="margin-bottom: 20px; font-size: clamp(26px, 4vw, 42px);">
                 Leading LED Screen &<br /><span class="hero-title-accent">AV Solutions Provider</span>
               </h2>
               <p class="about-story-text">
@@ -435,9 +435,9 @@
       <div class="container">
         <header class="services-header">
           <div class="section-label reveal">Our Products & Solutions</div>
-          <h2 id="services-heading" class="section-title reveal reveal-delay-1">
-            Everything Your Visual<br />Space Needs
-          </h2>
+          <p id="services-heading" class="services-subheading reveal reveal-delay-1">
+            Everything Your Visual Space Needs
+          </p>
         </header>
         <div class="services-grid">
           <article class="service-card reveal">
@@ -845,8 +845,7 @@
         </header>
 
         <!-- Stats Counters Grid -->
-        <div class="about-stats-grid reveal"
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-bottom: 60px;">
+        <div class="about-stats-grid reveal" style="margin-bottom: 60px;">
           <div class="stat-glass-card">
             <div class="stat-num"><span class="counter" data-target="50">0</span>K<span>+</span></div>
             <div class="stat-label">Projects</div>
@@ -864,7 +863,7 @@
           </div>
           <div class="stat-glass-card reveal-delay-3">
             <div class="stat-num"><span class="counter" data-target="50">0</span>K<span>+</span></div>
-            <div class="stat-label">Statsified Customer</div>
+            <div class="stat-label">Satisfied Customers</div>
             <div class="stat-glow" style="background: rgba(0, 188, 212, 0.15); bottom: -30px; right: -30px;"></div>
           </div>
           <div class="stat-glass-card reveal-delay-4">
