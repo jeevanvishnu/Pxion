@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -178,13 +178,14 @@
 
     <main>
         <!-- ======================== PRODUCTS HERO ======================== -->
-        <section id="hero" aria-label="Products hero section" style="min-height: 70vh; padding-top: 140px; padding-bottom: 60px;">
-            <div class="hero-bg">
+        <section id="hero" aria-label="Products hero section" style="min-height: 70vh; padding-top: 140px; padding-bottom: 60px; position: relative; background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div style="position: absolute; inset: 0; background: rgba(3, 7, 18, 0.72); z-index: 0;"></div>
+            <div class="hero-bg" style="position: absolute; inset: 0; z-index: 1;">
                 <div class="hero-mesh"></div>
                 <div class="orb orb-1"></div>
                 <div class="orb orb-2"></div>
             </div>
-            <div class="hero-content">
+            <div class="hero-content" style="position: relative; z-index: 2;">
                 <div class="container">
                     <div style="max-width: 850px; margin: 0 auto; text-align: center;" class="animate-fade-in-up">
                         <div class="hero-badge" style="justify-content: center;">

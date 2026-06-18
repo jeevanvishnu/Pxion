@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -256,12 +256,13 @@
         <!-- ============================================================
              HERO SECTION - Product Banner
              ============================================================ -->
-        <section id="hero" class="hero-section" aria-label="Transparent Glass LED Screen Hero Section">
-            <div class="hero-bg">
+        <section id="hero" class="hero-section" style="position: relative; background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" aria-label="Transparent Glass LED Screen Hero Section">
+            <div style="position: absolute; inset: 0; background: rgba(3, 7, 18, 0.72); z-index: 0;"></div>
+            <div class="hero-bg" style="position: absolute; inset: 0; z-index: 1;">
                 <div class="hero-mesh"></div>
                 <div class="orb orb-1" style="background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%); top: -10%; left: 10%;"></div>
             </div>
-            <div class="hero-content">
+            <div class="hero-content" style="position: relative; z-index: 2;">
                 <div class="container">
                     <div class="hero-grid">
                         <!-- Left: Text Content -->
