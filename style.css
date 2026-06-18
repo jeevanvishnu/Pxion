@@ -763,6 +763,9 @@ button {
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    /* Fix for WebKit border-radius overflow bleeding */
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .mega-promo-card::before {
@@ -1589,6 +1592,9 @@ button {
     display: flex;
     flex-direction: column;
     color: var(--text-primary);
+    /* Fix for WebKit border-radius overflow bleeding */
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .service-card::before {
@@ -1628,6 +1634,7 @@ button {
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: inherit;
 }
 
 .service-card:hover .service-img {
@@ -1788,6 +1795,9 @@ button {
         inset 0 1px 2px rgba(255, 255, 255, 0.15);
     border: 1px solid var(--glass-border);
     background: var(--navy-dark);
+    /* Fix for WebKit border-radius overflow bleeding */
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .about-showcase-img {
@@ -1795,6 +1805,7 @@ button {
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition);
+    border-radius: inherit;
 }
 
 .about-showcase-frame:hover .about-showcase-img {
@@ -2035,7 +2046,8 @@ button {
     }
 
     .about-why-choose .why-choose-grid,
-    #solution-specs .why-choose-grid {
+    #solution-specs .why-choose-grid,
+    #tech-specs .why-choose-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
     }
@@ -3544,6 +3556,9 @@ textarea.form-input {
     position: relative;
     overflow: hidden;
     cursor: default;
+    /* Fix for WebKit border-radius overflow bleeding */
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .compact-service-card::before {
@@ -6572,6 +6587,28 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     display: flex;
     flex-direction: column;
     gap: 24px;
+    align-items: flex-start;
+}
+
+.hero-text-col .hero-title,
+.hero-text-col .hero-sub,
+.hero-text-col .hero-actions {
+    margin-bottom: 0;
+}
+
+.hero-text-col .hero-sub {
+    text-align: left;
+}
+
+.hero-text-col .hero-actions {
+    justify-content: flex-start;
+}
+
+.hero-text-col .hero-desc {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 .hero-image-col {
