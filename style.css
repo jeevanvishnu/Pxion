@@ -214,7 +214,7 @@ button {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--accent-cyan);
-    margin-bottom: 16px;
+    margin-bottom: 4px;
 }
 
 .section-label::before {
@@ -232,6 +232,7 @@ button {
     line-height: 1.1;
     letter-spacing: -1.5px;
     color: var(--text-primary);
+    margin-bottom: 4px;
 }
 
 .section-sub {
@@ -239,7 +240,7 @@ button {
     color: var(--text-secondary);
     line-height: 1.7;
     max-width: 540px;
-    margin-top: 16px;
+    margin-top: 4px;
 }
 
 .text-center .section-sub {
@@ -1874,7 +1875,7 @@ button {
 .about-content-showcase {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap:16px;
 }
 
 .about-content-showcase .section-title {
