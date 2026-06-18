@@ -1205,7 +1205,7 @@ button {
     align-items: center;
     text-align: center;
     justify-content: center;
-    min-height: calc(100vh - 220px);
+    min-height: calc(85vh - 220px);
 }
 
 .hero-text {
@@ -3468,6 +3468,151 @@ textarea.form-input {
     min-height: 120px;
 }
 
+/* --- File Upload Component --- */
+.file-upload-wrapper {
+    position: relative;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 16px;
+    border: 1.5px dashed rgba(19, 59, 216, 0.22);
+    border-radius: 12px;
+    background: rgba(237, 241, 248, 0.95);
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.file-upload-area:hover,
+.file-upload-area.drag-over {
+    border-color: var(--blue-accent);
+    background: rgba(225, 238, 255, 1);
+}
+
+.file-upload-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(10, 61, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0A3DFF;
+    transition: all 0.3s ease;
+}
+
+.file-upload-area:hover .file-upload-icon,
+.file-upload-area.drag-over .file-upload-icon {
+    background: rgba(10, 44, 180, 0.15);
+    transform: translateY(-2px);
+}
+
+.file-upload-text {
+    font-size: 13px;
+    color: #5f6e88;
+    line-height: 1.4;
+}
+
+.file-upload-cta {
+    color: #0A3DFF;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.file-upload-hint {
+    font-size: 11px;
+    color: #94a3b8;
+    letter-spacing: 0.3px;
+}
+
+/* File Preview List */
+.file-preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.file-preview-list:empty {
+    display: none;
+}
+
+.file-preview-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(15, 31, 61, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.file-preview-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgba(45, 127, 249, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.file-preview-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-preview-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-preview-size {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.file-preview-remove {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.12);
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.file-preview-remove:hover {
+    background: rgba(239, 68, 68, 0.25);
+    transform: scale(1.1);
+}
+
+
 /* ============================================================
    FAQ ACCORDION
 ============================================================ */
@@ -5521,9 +5666,10 @@ z-index: 0;
 #why-choose .stat-num {
     font-size: 56px !important;
     font-weight: 800 !important;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--accent-blue) 100%) !important;
+    background: linear-gradient(90deg, #00D9FF, #4FACFE, #0A3DFF) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
     letter-spacing: -2px !important;
     line-height: 1 !important;
     margin-bottom: 8px !important;
@@ -5532,17 +5678,13 @@ z-index: 0;
     justify-content: center;
 }
 
-#why-choose .stat-num span.counter {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--accent-blue) 100%) !important;
+#why-choose .stat-num span.counter,
+#why-choose .stat-num span {
+    background: linear-gradient(90deg, #00D9FF, #4FACFE, #0A3DFF) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-}
-
-#why-choose .stat-num span:not(.counter) {
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--navy-light) 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    font-weight: 700;
+    background-clip: text !important;
+    font-weight: 800;
 }
 
 #why-choose .stat-label {

@@ -1,4 +1,4 @@
-﻿// =================== PAGE LOADER ===================
+// =================== PAGE LOADER ===================
 window.addEventListener('load', () => {
     const pageLoader = document.getElementById('page-loader');
     if (pageLoader) {
@@ -285,13 +285,127 @@ if (contactForm) {
         // Insert notification above the form title or inside container top
         container.insertBefore(notification, container.firstChild);
 
-        // Clear all fields smoothly
+        // Clear all fields and file previews
         contactForm.reset();
+        uploadedFiles = [];
+        renderFilePreviews();
 
         // Smooth scroll to notification top
         notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 }
+
+// =================== FILE UPLOAD HANDLER ===================
+let uploadedFiles = [];
+const fileInput = document.getElementById('contact-files');
+const fileUploadArea = document.getElementById('file-upload-area');
+const filePreviewContainer = document.getElementById('file-preview');
+
+if (fileInput && fileUploadArea && filePreviewContainer) {
+    // Click on upload area triggers file picker
+    fileUploadArea.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    // Prevent the hidden input from also triggering (it overlays the area)
+    fileInput.style.pointerEvents = 'none';
+
+    // File input change handler
+    fileInput.addEventListener('change', (e) => {
+        handleFiles(e.target.files);
+        fileInput.value = ''; // reset so same file can be re-added
+    });
+
+    // Drag & Drop events
+    ['dragenter', 'dragover'].forEach(eventName => {
+        fileUploadArea.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            fileUploadArea.classList.add('drag-over');
+        });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        fileUploadArea.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            fileUploadArea.classList.remove('drag-over');
+        });
+    });
+
+    fileUploadArea.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        if (dt && dt.files) {
+            handleFiles(dt.files);
+        }
+    });
+
+    function handleFiles(fileList) {
+        const maxSize = 10 * 1024 * 1024; // 10MB
+        const allowedTypes = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png'];
+
+        Array.from(fileList).forEach(file => {
+            // Check duplicate
+            if (uploadedFiles.some(f => f.name === file.name && f.size === file.size)) return;
+
+            // Check size
+            if (file.size > maxSize) {
+                alert(`"${file.name}" exceeds the 10 MB limit.`);
+                return;
+            }
+
+            // Check extension
+            const ext = '.' + file.name.split('.').pop().toLowerCase();
+            if (!allowedTypes.includes(ext)) {
+                alert(`"${file.name}" is not an allowed file type.`);
+                return;
+            }
+
+            uploadedFiles.push(file);
+        });
+
+        renderFilePreviews();
+    }
+
+    function renderFilePreviews() {
+        filePreviewContainer.innerHTML = '';
+
+        uploadedFiles.forEach((file, index) => {
+            const ext = file.name.split('.').pop().toLowerCase();
+            const isImage = ['jpg', 'jpeg', 'png'].includes(ext);
+            const icon = isImage ? '🖼️' : '📄';
+            const size = formatFileSize(file.size);
+
+            const item = document.createElement('div');
+            item.className = 'file-preview-item';
+            item.innerHTML = `
+                <div class="file-preview-icon">${icon}</div>
+                <div class="file-preview-info">
+                    <div class="file-preview-name">${file.name}</div>
+                    <div class="file-preview-size">${size}</div>
+                </div>
+                <button type="button" class="file-preview-remove" data-index="${index}" aria-label="Remove file">&times;</button>
+            `;
+            filePreviewContainer.appendChild(item);
+        });
+
+        // Attach remove listeners
+        filePreviewContainer.querySelectorAll('.file-preview-remove').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const idx = parseInt(e.currentTarget.getAttribute('data-index'));
+                uploadedFiles.splice(idx, 1);
+                renderFilePreviews();
+            });
+        });
+    }
+
+    function formatFileSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+}
+
 
 // =================== CATALOG INTERACTIVE FILTERING ===================
 const filterTabs = document.querySelectorAll('.filter-tab');
