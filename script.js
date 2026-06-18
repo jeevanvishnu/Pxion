@@ -52,8 +52,29 @@ if (hamburger && mobileMenu) {
 
     // Mobile Dropdown Toggle
     const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     mobileDropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
+            const clickedChevron = e.target && typeof e.target.closest === 'function'
+                ? e.target.closest('.dropdown-chevron')
+                : null;
+            const label = toggle.textContent.replace(/\s+/g, ' ').trim();
+            const destination = label.startsWith('Services')
+                ? 'solutions.html'
+                : label.startsWith('Products')
+                    ? 'products.html'
+                    : null;
+            const isCurrentSectionPage = destination === currentPage;
+
+            if (destination && !clickedChevron && !isCurrentSectionPage) {
+                e.preventDefault();
+                mobileMenu.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                window.location.href = destination;
+                return;
+            }
+
             e.preventDefault();
             const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
             toggle.setAttribute('aria-expanded', !isExpanded);

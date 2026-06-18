@@ -2144,6 +2144,14 @@ button {
     transition: color 0.3s ease;
 }
 
+@media (min-width: 640px) {
+    .why-card-wide {
+        grid-column: span 2;
+        max-width: 550px;
+        justify-self: center;
+    }
+}
+
 /* Mini glows on why cards */
 .why-card-glow-blue,
 .why-card-glow-orange {
@@ -5420,6 +5428,11 @@ canvas {
         font-size: clamp(28px, 8vw, 44px) !important;
         letter-spacing: -1.5px !important;
         line-height: 1.05 !important;
+    }
+
+    #hero.light-section .hero-title {
+        white-space: normal !important;
+        overflow-wrap: anywhere;
     }
 
     .section-title {
