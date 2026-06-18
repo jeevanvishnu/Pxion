@@ -1,4 +1,4 @@
-// =================== PAGE LOADER ===================
+﻿// =================== PAGE LOADER ===================
 window.addEventListener('load', () => {
     const pageLoader = document.getElementById('page-loader');
     if (pageLoader) {
@@ -22,7 +22,7 @@ window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', isScrolled);
     }
     if (logoImg) {
-        logoImg.src = 'assets/Logow.png';
+        logoImg.src = 'assets/pixon-logo.png';
     }
     if (scrollTopBtn) {
         scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
