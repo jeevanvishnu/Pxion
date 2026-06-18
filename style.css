@@ -669,11 +669,12 @@ button {
 }
 
 /* Fallback for when a tags are direct children (no ul/li) */
-.simple-dropdown > a {
+.simple-dropdown>a {
     display: flex;
     margin-bottom: 16px;
 }
-.simple-dropdown > a:last-child {
+
+.simple-dropdown>a:last-child {
     margin-bottom: 0;
 }
 
@@ -1874,6 +1875,20 @@ button {
     display: flex;
     flex-direction: column;
     gap: 32px;
+}
+
+.about-content-showcase .section-title {
+    font-size: clamp(26px, 3.8vw, 38px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.about-content-showcase h4 {
+    font-size: 18px !important;
+}
+
+.about-content-showcase h5 {
+    font-size: 15px !important;
 }
 
 .about-subtitle {
@@ -6450,6 +6465,7 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 .light-section .gallery-card-overlay h4 {
     color: #FFFFFF !important;
 }
+
 .light-section .gallery-card-overlay p {
     color: rgba(255, 255, 255, 0.88) !important;
 }
@@ -6884,7 +6900,7 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     padding-top: 100px;
     padding-bottom: 100px;
     background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.08), transparent 40%),
-                radial-gradient(circle at 80% 50%, rgba(10, 61, 255, 0.08), transparent 40%);
+        radial-gradient(circle at 80% 50%, rgba(10, 61, 255, 0.08), transparent 40%);
 }
 
 .cta-card {
@@ -6999,15 +7015,18 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     .timeline-step {
         position: relative !important;
     }
+
     .timeline-step .timeline-node {
         position: absolute !important;
         top: 10px !important;
     }
+
     .timeline-step.odd .timeline-node {
         left: 0 !important;
         right: auto !important;
         transform: translateX(-50%) !important;
     }
+
     .timeline-step.even .timeline-node {
         left: 100% !important;
         right: auto !important;
