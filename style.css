@@ -5439,6 +5439,19 @@ canvas {
         font-size: clamp(24px, 6vw, 36px) !important;
         letter-spacing: -0.8px !important;
     }
+
+    #hero[aria-label="Projects hero section"] .hero-title {
+        font-size: clamp(30px, 8.5vw, 42px) !important;
+        line-height: 1.02 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        max-width: 100%;
+    }
+
+    #hero[aria-label="Projects hero section"] .hero-title-accent {
+        white-space: normal !important;
+        display: inline;
+    }
 }
 
 /* 3. Hero Stats & Actions Mobile Optimization */
