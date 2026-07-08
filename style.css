@@ -2,50 +2,45 @@
    CSS CUSTOM PROPERTIES
 ============================================================ */
 :root {
-    /* Brand Colors */
-    --primary-blue: #0A3DFF;
+    /* ─── Brand Core Colors ─── */
+    --primary-blue:   #0A3DFF;
     --secondary-blue: #1B5CFF;
-    --accent-cyan: #00D9FF;
-    --deep-navy: #040B4F;
-    --dark-bg: #05082D;
-    --surface-color: #0D145A;
+    --deep-navy:      #040B4F;
+    --dark-bg:        #05082D;
+    --surface-color:  #0D145A;
 
-    /* Variable Remapping for Seamless Integration */
-    --navy: #0A3DFF;
-    /* Primary Blue */
-    --navy-dark: #040B4F;
-    /* Medium/Darker Blue for contrast */
-    --navy-light: #1B5CFF;
-    /* Light Blue */
-    --accent-blue: #00D9FF;
-    /* Accent Cyan */
-    --accent-cyan: #00D9FF;
-    /* Redefined to Accent Cyan to remove orange globally */
-    --accent-blue: #1B5CFF;
-    /* Redefined to Secondary Blue to remove yellow globally */
-    --blue-accent: #00D9FF;
-    /* Accent Cyan */
-    --bg: #05082D;
-    /* Dark Background */
-    --white: #FFFFFF;
+    /* ─── Semantic Aliases (single source of truth) ─── */
+    --navy:       #0A3DFF;   /* Primary Blue          */
+    --navy-dark:  #040B4F;   /* Deepest navy          */
+    --navy-light: #1B5CFF;   /* Secondary Blue        */
+    --accent-cyan: #00D9FF;  /* Bright Cyan accent    */
+    --accent-blue: #00D9FF;  /* Alias → same cyan     */
+    --blue-accent: #00D9FF;  /* Alias → same cyan     */
+    --bg:          #05082D;  /* Dark Background       */
+    --white:       #FFFFFF;
 
-    /* Typography Colors */
-    --text-primary: #FFFFFF;
-    /* Light Text */
+    /* ─── Accent Colors (used for feature dots) ─── */
+    --orange: #F97316;       /* Warm orange           */
+    --yellow: #EAB308;       /* Amber yellow          */
+
+    /* ─── Typography Colors ─── */
+    --text-primary:   #FFFFFF;
     --text-secondary: #C7D2FE;
-    /* Gray/Soft blue secondary Text */
-    --text-muted: rgba(199, 210, 254, 0.6);
-    /* Gray Muted Text */
+    --text-muted:     rgba(199, 210, 254, 0.6);
+    --text-dark:      #111827;   /* For dark text on light backgrounds */
 
-    /* Borders & Glass System */
-    --border: rgba(255, 255, 255, 0.08);
-    --glass-bg: rgba(255, 255, 255, 0.04);
+    /* ─── Borders & Glass System ─── */
+    --border:       rgba(255, 255, 255, 0.08);
+    --glass-bg:     rgba(255, 255, 255, 0.04);
     --glass-border: rgba(255, 255, 255, 0.08);
 
+    /* ─── Shadows ─── */
     --shadow-sm: 0 4px 12px rgba(0, 217, 255, 0.05);
     --shadow-md: 0 16px 40px rgba(0, 217, 255, 0.08);
     --shadow-lg: 0 32px 80px rgba(0, 217, 255, 0.12);
     --shadow-xl: 0 60px 120px rgba(0, 217, 255, 0.15);
+
+    /* ─── Shape & Motion ─── */
     --radius-sm: 12px;
     --radius-md: 20px;
     --radius-lg: 32px;
@@ -1286,11 +1281,12 @@ button {
     background-clip: text;
 }
 
+/* Hero title accent now uses the full cyan→blue gradient for visual impact */
 #hero .hero-title-accent {
-    color: var(--white);
-    background: none;
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
+    background: linear-gradient(135deg, #00D9FF 20%, #7DD3FC 60%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-sub {
@@ -1439,35 +1435,64 @@ button {
 }
 
 /* ============================================================
-   TRUSTED BRANDS MARQUEE TICKER
+   OUR CLIENTS MARQUEE TICKER
 ============================================================ */
 .brands-marquee-section {
-    background: #FFFFFF;
-    padding: 28px 0;
-    border-bottom: 1px solid #E5EAF4;
-    border-top: 1px solid #E5EAF4;
+    position: relative;
+    padding: 60px 0 40px;
     overflow: hidden;
 }
 
-.marquee-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
+.brands-marquee-section::before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: 20%;
+    width: 60%;
+    height: 300%;
+    background: radial-gradient(ellipse at center, rgba(30, 136, 229, 0.15) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.marquee-label {
-    font-size: 11px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: #6B7A90;
+.marquee-header {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.marquee-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.marquee-title {
+    font-size: clamp(24px, 4vw, 36px);
     font-weight: 700;
-    margin-right: 40px;
-    flex-shrink: 0;
-    border-right: 2px solid #E5EAF4;
-    padding-right: 28px;
-    height: 28px;
-    line-height: 28px;
-    white-space: nowrap;
+    color: var(--text-primary);
+}
+
+.marquee-title .hero-title-accent {
+    color: var(--accent-blue);
+}
+
+.marquee-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 32px;
+    max-width: 1200px;
+}
+
+.marquee-container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .marquee-wrap {
@@ -1508,12 +1533,16 @@ button {
 
 .brand-item img {
     height: 38px;
-    /* Elegant uniform height */
     width: auto;
     max-width: none;
-    /* Crucial: Breaks the flexbox 0-width collapse loop */
     object-fit: contain;
+    opacity: 0.8;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 4px;
+}
+
+.brand-item:hover img {
+    opacity: 1;
 }
 
 @keyframes marqueeScroll {
@@ -1523,21 +1552,6 @@ button {
 
     100% {
         transform: translateX(-50%);
-    }
-}
-
-/* Responsive: stack label above on mobile */
-@media (max-width: 768px) {
-    .marquee-container {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .marquee-label {
-        border-right: none;
-        padding-right: 0;
-        margin-right: 0;
-        text-align: center;
     }
 }
 
@@ -1557,7 +1571,7 @@ button {
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.5px;
-    color: #111111;
+    color: var(--text-dark);
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -1875,7 +1889,7 @@ button {
 .about-content-showcase {
     display: flex;
     flex-direction: column;
-    gap:16px;
+    gap: 16px;
 }
 
 .about-content-showcase .section-title {
@@ -3081,15 +3095,138 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 15px;
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    font-weight: 600;
     padding: 18px 32px;
-    transition: color var(--transition-fast);
+    border-radius: 99px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    transition: all var(--transition-fast);
 }
 
 .cta-phone:hover {
     color: var(--white);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* CTA trust badges row */
+.cta-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+    margin-top: 36px;
+}
+
+.cta-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.2px;
+}
+
+.cta-trust-item svg {
+    width: 16px;
+    height: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+}
+
+/* Footer contact links (CSS-only hover — replaces inline JS) */
+.footer-contact-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-contact-link:hover {
+    color: #ffffff;
+}
+
+.footer-contact-link svg {
+    flex-shrink: 0;
+}
+
+/* Compact service card — Why Choose Us grid */
+.compact-services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+}
+
+@media (min-width: 640px) {
+    .compact-services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .compact-services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.compact-service-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(30, 136, 229, 0.12);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(30, 136, 229, 0.04);
+}
+
+.compact-service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 188, 212, 0.35);
+    box-shadow: 0 12px 32px rgba(30, 136, 229, 0.1);
+}
+
+.check-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1E88E5, #00BCD4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.25);
+    transition: var(--transition);
+}
+
+.compact-service-card:hover .check-icon-wrapper {
+    transform: scale(1.1) rotate(6deg);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+}
+
+.service-name-compact {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+}
+
+.service-desc-compact {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.55;
 }
 
 /* ============================================================
@@ -3187,10 +3324,15 @@ footer::before {
     align-items: center;
     justify-content: center;
     color: rgba(255, 255, 255, 0.9);
-    font-size: 16px;
-    font-weight: 700;
     transition: var(--transition-fast);
     cursor: pointer;
+}
+
+.social-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
 }
 
 .social-btn:hover {
