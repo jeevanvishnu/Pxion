@@ -6307,9 +6307,9 @@ select:focus,
 footer,
 .footer,
 .site-footer {
-    background: #03051F !important;
+    background: var(--surface-color) !important;
     color: #A8B4FF !important;
-    border-top: 1px solid rgba(0, 217, 255, 0.1) !important;
+    border-top: 1px solid rgba(0, 217, 255, 0.2) !important;
     padding: 80px 0 40px 0 !important;
 }
 
