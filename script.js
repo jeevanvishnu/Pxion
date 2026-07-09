@@ -493,3 +493,101 @@ document.addEventListener("DOMContentLoaded", () => {
         counterObserver.observe(counter);
     });
 });
+
+// =================== INTERACTIVE BRANCH LOCATIONS HUB ===================
+document.addEventListener("DOMContentLoaded", () => {
+    const locationTabs = document.querySelectorAll(".location-tab");
+    const activeTitle = document.getElementById("active-loc-title");
+    const activeAddress = document.getElementById("active-loc-address");
+    const activeEmail = document.getElementById("active-loc-email");
+    const activeHours = document.getElementById("active-loc-hours");
+    
+    const phoneBtn = document.getElementById("active-loc-phone-btn");
+    const phoneLabel = document.getElementById("active-loc-phone-label");
+    const phoneAltBtn = document.getElementById("active-loc-phone-alt-btn");
+    const phoneAltLabel = document.getElementById("active-loc-phone-alt-label");
+    const mapBtn = document.getElementById("active-loc-map-btn");
+    
+    const mapIframe = document.getElementById("contact-map-iframe");
+    const mapContainer = document.getElementById("map-container");
+    const activeBranchLabel = document.getElementById("map-active-branch-label");
+
+    if (locationTabs.length > 0) {
+        // Initialize dynamic link buttons on load for the active tab (MEA HQ)
+        const initActiveTab = document.querySelector(".location-tab.active");
+        if (initActiveTab) {
+            updateActiveLocationDetails(initActiveTab);
+        }
+
+        locationTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                // Remove active class from all tabs
+                locationTabs.forEach(t => t.classList.remove("active"));
+                // Add active class to clicked tab
+                tab.classList.add("active");
+                updateActiveLocationDetails(tab);
+            });
+        });
+
+        function updateActiveLocationDetails(tab) {
+            // Get branch attributes
+            const title = tab.getAttribute("data-title");
+            const address = tab.getAttribute("data-address");
+            const email = tab.getAttribute("data-email");
+            const hours = tab.getAttribute("data-hours");
+            const phone = tab.getAttribute("data-phone");
+            const phoneAlt = tab.getAttribute("data-phone-alt");
+            const mapUrl = tab.getAttribute("data-map");
+            const mapLink = tab.getAttribute("data-map-link");
+
+            // Update text fields
+            if (activeTitle) activeTitle.textContent = title;
+            if (activeAddress) activeAddress.textContent = address;
+            if (activeEmail) activeEmail.textContent = email;
+            if (activeHours) activeHours.textContent = hours;
+
+            // Update primary phone call button
+            if (phoneBtn) {
+                phoneBtn.href = `tel:${phone.replace(/\s+/g, '')}`;
+                if (phoneLabel) phoneLabel.textContent = `Call: ${phone}`;
+            }
+
+            // Update alternate phone button
+            if (phoneAltBtn) {
+                if (phoneAlt) {
+                    phoneAltBtn.href = `tel:${phoneAlt.replace(/\s+/g, '')}`;
+                    phoneAltBtn.style.display = "inline-flex";
+                    if (phoneAltLabel) phoneAltLabel.textContent = `Call Alt: ${phoneAlt}`;
+                } else {
+                    phoneAltBtn.style.display = "none";
+                }
+            }
+
+            // Update map button
+            if (mapBtn) {
+                if (mapLink) {
+                    mapBtn.href = mapLink;
+                    mapBtn.style.display = "inline-flex";
+                } else {
+                    mapBtn.style.display = "none";
+                }
+            }
+
+            // Update embedded map iframe
+            if (mapIframe) {
+                if (mapContainer) mapContainer.classList.add("loading");
+                if (activeBranchLabel) activeBranchLabel.textContent = title;
+                
+                // Set src of iframe to the map url
+                mapIframe.src = mapUrl;
+            }
+        }
+
+        // Initialize loader listener for map iframe
+        if (mapIframe && mapContainer) {
+            mapIframe.addEventListener("load", () => {
+                mapContainer.classList.remove("loading");
+            });
+        }
+    }
+});
