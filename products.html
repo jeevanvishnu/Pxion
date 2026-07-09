@@ -202,34 +202,47 @@
                         <ul>
                             <li><a href="indoor-led-screen.html" class="mobile-submenu-link">Indoor LED Screen</a></li>
                             <li><a href="oled-series.html" class="mobile-submenu-link">OLED Series</a></li>
-                            <li><a href="indoor-cob.html" class="mobile-submenu-link">Indoor COB (Chip-On-Board) <span class="badge-hot">HOT</span></a></li>
-                            <li><a href="indoor-customised-led.html" class="mobile-submenu-link">Indoor Customised LED</a></li>
+                            <li><a href="indoor-cob.html" class="mobile-submenu-link">Indoor COB (Chip-On-Board) <span
+                                        class="badge-hot">HOT</span></a></li>
+                            <li><a href="indoor-customised-led.html" class="mobile-submenu-link">Indoor Customised
+                                    LED</a></li>
                         </ul>
                     </li>
                     <li class="mobile-submenu-group">
                         <span class="mobile-submenu-title">Outdoor Products</span>
                         <ul>
-                            <li><a href="outdoor-led-screen.html" class="mobile-submenu-link">Outdoor LED Screen</a></li>
-                            <li><a href="outdoor-mesh-screen.html" class="mobile-submenu-link">Outdoor Mesh Screen</a></li>
-                            <li><a href="outdoor-flexible-led.html" class="mobile-submenu-link">Outdoor Flexible LED</a></li>
-                            <li><a href="outdoor-customised-led.html" class="mobile-submenu-link">Outdoor Customised LED</a></li>
+                            <li><a href="outdoor-led-screen.html" class="mobile-submenu-link">Outdoor LED Screen</a>
+                            </li>
+                            <li><a href="outdoor-mesh-screen.html" class="mobile-submenu-link">Outdoor Mesh Screen</a>
+                            </li>
+                            <li><a href="outdoor-flexible-led.html" class="mobile-submenu-link">Outdoor Flexible LED</a>
+                            </li>
+                            <li><a href="outdoor-customised-led.html" class="mobile-submenu-link">Outdoor Customised
+                                    LED</a></li>
                         </ul>
                     </li>
                     <li class="mobile-submenu-group">
                         <span class="mobile-submenu-title">Innovative LED Screens</span>
                         <ul>
-                            <li><a href="smart-classroom-led.html" class="mobile-submenu-link">Smart Classroom LED System</a></li>
-                            <li><a href="interactive-conference-led.html" class="mobile-submenu-link">Interactive Conference LED</a></li>
-                            <li><a href="kinetic-led-screen.html" class="mobile-submenu-link">Kinetic LED Screen <span class="badge-hot">HOT</span></a></li>
-                            <li><a href="spherical-led-screen.html" class="mobile-submenu-link">Spherical LED Screen</a></li>
-                            <li><a href="transparent-glass-led.html" class="mobile-submenu-link">Transparent Glass LED</a></li>
-                            <li><a href="transparent-film-led.html" class="mobile-submenu-link">Transparent Film LED</a></li>
+                            <li><a href="smart-classroom-led.html" class="mobile-submenu-link">Smart Classroom LED
+                                    System</a></li>
+                            <li><a href="interactive-conference-led.html" class="mobile-submenu-link">Interactive
+                                    Conference LED</a></li>
+                            <li><a href="kinetic-led-screen.html" class="mobile-submenu-link">Kinetic LED Screen <span
+                                        class="badge-hot">HOT</span></a></li>
+                            <li><a href="spherical-led-screen.html" class="mobile-submenu-link">Spherical LED Screen</a>
+                            </li>
+                            <li><a href="transparent-glass-led.html" class="mobile-submenu-link">Transparent Glass
+                                    LED</a></li>
+                            <li><a href="transparent-film-led.html" class="mobile-submenu-link">Transparent Film LED</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="mobile-submenu-group">
                         <span class="mobile-submenu-title">LCD & Kiosk</span>
                         <ul>
-                            <li><a href="kiosk-poster.html" class="mobile-submenu-link">Kiosk & Poster Screen <span class="badge-hot">HOT</span></a></li>
+                            <li><a href="kiosk-poster.html" class="mobile-submenu-link">Kiosk & Poster Screen <span
+                                        class="badge-hot">HOT</span></a></li>
                             <li><a href="video-wall.html" class="mobile-submenu-link">Video Wall</a></li>
                         </ul>
                     </li>
@@ -242,6 +255,379 @@
             <a href="projects.html" class="btn btn-primary">Our Portfolio →</a>
         </div>
     </nav>
+
+    <style>
+        /* ===== PRODUCTS PAGE — LAYOUT REDESIGN ONLY (no bg colour changes) ===== */
+
+        /* ---------- Showcase Rows ---------- */
+        .products-showcase-container {
+            display: flex;
+            flex-direction: column;
+            gap: 72px;
+        }
+
+        .showcase-row {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .showcase-row.reverse {
+            grid-template-columns: 45% 55%;
+        }
+
+        .showcase-row.reverse .showcase-visual { order: 2; }
+        .showcase-row.reverse .showcase-content { order: 1; }
+
+        .showcase-img-frame {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+        }
+
+        .showcase-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-img-frame:hover .showcase-img {
+            transform: scale(1.04);
+        }
+
+        .showcase-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .showcase-title {
+            font-size: clamp(18px, 2.4vw, 26px);
+            font-weight: 700;
+            line-height: 1.25;
+            margin: 0;
+        }
+
+        .showcase-desc {
+            font-size: 15.5px;
+            line-height: 1.75;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .showcase-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 18px;
+            margin-top: 4px;
+        }
+
+        .showcase-spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .showcase-row,
+            .showcase-row.reverse {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .showcase-row.reverse .showcase-visual { order: 0; }
+            .showcase-row.reverse .showcase-content { order: 0; }
+            .showcase-specs { grid-template-columns: 1fr; }
+        }
+
+        /* ---------- Catalog Filter Tabs ---------- */
+        .catalog-filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .filter-tab {
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            transition: all 0.28s ease;
+        }
+
+        /* ---------- Catalog Grid ---------- */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .catalog-card {
+            background: rgba(15, 23, 42, 0.4) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.06) !important;
+            border-radius: 16px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-6px) !important;
+            background: rgba(15, 23, 42, 0.6) !important;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Border highlights on hover */
+        .catalog-card:nth-child(4n+1):hover { border-color: rgba(30, 136, 229, 0.3) !important; }
+        .catalog-card:nth-child(4n+2):hover { border-color: rgba(255, 107, 43, 0.3) !important; }
+        .catalog-card:nth-child(4n+3):hover { border-color: rgba(156, 39, 176, 0.3) !important; }
+        .catalog-card:nth-child(4n+4):hover { border-color: rgba(0, 188, 212, 0.3) !important; }
+
+        /* Top colour strip per card — purely structural accent line */
+        .catalog-card::before {
+            content: '';
+            display: block;
+            height: 4px;
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .catalog-card:nth-child(4n+1)::before { background: linear-gradient(90deg,#1E88E5,#42A5F5); }
+        .catalog-card:nth-child(4n+2)::before { background: linear-gradient(90deg,#FF6B2B,#FFA552); }
+        .catalog-card:nth-child(4n+3)::before { background: linear-gradient(90deg,#9C27B0,#CE93D8); }
+        .catalog-card:nth-child(4n+4)::before { background: linear-gradient(90deg,#00BCD4,#80DEEA); }
+
+        .catalog-card-inner {
+            padding: 28px 22px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            flex: 1;
+        }
+
+        .catalog-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .catalog-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .catalog-icon {
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease !important;
+        }
+
+        /* Card specific glassmorphic icon backgrounds */
+        .catalog-card:nth-child(4n+1) .catalog-icon {
+            background: rgba(30, 136, 229, 0.08) !important;
+            border: 1px solid rgba(30, 136, 229, 0.2) !important;
+            color: #42A5F5 !important;
+        }
+        .catalog-card:nth-child(4n+1):hover .catalog-icon {
+            background: rgba(30, 136, 229, 0.16) !important;
+            border-color: rgba(30, 136, 229, 0.4) !important;
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.2) !important;
+        }
+
+        .catalog-card:nth-child(4n+2) .catalog-icon {
+            background: rgba(255, 107, 43, 0.08) !important;
+            border: 1px solid rgba(255, 107, 43, 0.2) !important;
+            color: #FFA552 !important;
+        }
+        .catalog-card:nth-child(4n+2):hover .catalog-icon {
+            background: rgba(255, 107, 43, 0.16) !important;
+            border-color: rgba(255, 107, 43, 0.4) !important;
+            box-shadow: 0 4px 15px rgba(255, 107, 43, 0.2) !important;
+        }
+
+        .catalog-card:nth-child(4n+3) .catalog-icon {
+            background: rgba(156, 39, 176, 0.08) !important;
+            border: 1px solid rgba(156, 39, 176, 0.2) !important;
+            color: #CE93D8 !important;
+        }
+        .catalog-card:nth-child(4n+3):hover .catalog-icon {
+            background: rgba(156, 39, 176, 0.16) !important;
+            border-color: rgba(156, 39, 176, 0.4) !important;
+            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.2) !important;
+        }
+
+        .catalog-card:nth-child(4n+4) .catalog-icon {
+            background: rgba(0, 188, 212, 0.08) !important;
+            border: 1px solid rgba(0, 188, 212, 0.2) !important;
+            color: #80DEEA !important;
+        }
+        .catalog-card:nth-child(4n+4):hover .catalog-icon {
+            background: rgba(0, 188, 212, 0.16) !important;
+            border-color: rgba(0, 188, 212, 0.4) !important;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.2) !important;
+        }
+
+        .catalog-num {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.4;
+        }
+
+        .catalog-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.3;
+            color: #FFFFFF !important;
+        }
+
+        .catalog-divider {
+            height: 1px;
+            width: 100%;
+            opacity: 0.1;
+            border: none;
+            background: currentColor;
+            margin: 0;
+        }
+
+        .catalog-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .catalog-tag {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.06) !important;
+            color: rgba(255, 255, 255, 0.65) !important;
+            border-radius: 6px !important;
+            padding: 4px 10px !important;
+            font-size: 11.5px !important;
+            font-weight: 500;
+            line-height: 1.3;
+            transition: all 0.25s ease !important;
+        }
+
+        /* Color tag glows by column group */
+        .catalog-card:nth-child(4n+1) .catalog-tag:hover {
+            background: rgba(30, 136, 229, 0.15) !important;
+            border-color: rgba(30, 136, 229, 0.4) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25) !important;
+            transform: translateY(-1px) !important;
+        }
+        .catalog-card:nth-child(4n+2) .catalog-tag:hover {
+            background: rgba(255, 107, 43, 0.15) !important;
+            border-color: rgba(255, 107, 43, 0.4) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(255, 107, 43, 0.25) !important;
+            transform: translateY(-1px) !important;
+        }
+        .catalog-card:nth-child(4n+3) .catalog-tag:hover {
+            background: rgba(156, 39, 176, 0.15) !important;
+            border-color: rgba(156, 39, 176, 0.4) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.25) !important;
+            transform: translateY(-1px) !important;
+        }
+        .catalog-card:nth-child(4n+4) .catalog-tag:hover {
+            background: rgba(0, 188, 212, 0.15) !important;
+            border-color: rgba(0, 188, 212, 0.4) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.25) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        @media (max-width: 1100px) {
+            .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 780px) {
+            .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 520px) {
+            .catalog-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ---------- Industry Grid ---------- */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .industry-card {
+            border-radius: 16px;
+            padding: 36px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.15);
+        }
+
+        .industry-icon {
+            font-size: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .industry-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .industry-card p {
+            font-size: 14.5px;
+            line-height: 1.65;
+            margin: 0;
+            opacity: 0.75;
+        }
+
+        @media (max-width: 900px) {
+            .industry-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .industry-grid { grid-template-columns: 1fr; }
+        }
+
+        .section-title {
+            font-size: clamp(26px, 3.5vw, 38px) !important;
+        }
+    </style>
 
     <main>
         <!-- ======================== PRODUCTS HERO ======================== -->
@@ -260,7 +646,7 @@
                             <span class="hero-badge-dot"></span>
                             PREMIUM DISPLAY PRODUCTS
                         </div>
-                        <h1 class="hero-title" style="font-size: clamp(38px, 5.5vw, 68px); margin-bottom: 16px;">
+                        <h1 class="hero-title" style="font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 16px;">
                             Advanced Display <span class="hero-title-accent">Technology</span>
                         </h1>
                         <p class="hero-sub" style="margin-bottom: 30px; margin-left: auto; margin-right: auto;">
@@ -474,131 +860,179 @@
 
                     <!-- Professional Series -->
                     <div class="catalog-card reveal" data-category="professional indoor">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">🏢</div>
-                            <h3 class="catalog-title">Professional Series</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">UHF</span>
-                            <span class="catalog-tag">Uslim S2</span>
-                            <span class="catalog-tag">UMicro</span>
-                            <span class="catalog-tag">UMini Ⅲ Pro</span>
-                            <span class="catalog-tag">UMini W</span>
-                            <span class="catalog-tag">UpanelS</span>
-                            <span class="catalog-tag">ULW Ⅲ</span>
-                            <span class="catalog-tag">Umate LM</span>
-                            <span class="catalog-tag">Umate PN</span>
-                            <span class="catalog-tag">UMini P</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">🏢</div>
+                                    <span class="catalog-num">01</span>
+                                </div>
+                                <h3 class="catalog-title">Professional Series</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">UHF</span>
+                                <span class="catalog-tag">Uslim S2</span>
+                                <span class="catalog-tag">UMicro</span>
+                                <span class="catalog-tag">UMini Ⅲ Pro</span>
+                                <span class="catalog-tag">UMini W</span>
+                                <span class="catalog-tag">UpanelS</span>
+                                <span class="catalog-tag">ULW Ⅲ</span>
+                                <span class="catalog-tag">Umate LM</span>
+                                <span class="catalog-tag">Umate PN</span>
+                                <span class="catalog-tag">UMini P</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Commercial Series -->
                     <div class="catalog-card reveal reveal-delay-1" data-category="commercial indoor outdoor">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">🛍️</div>
-                            <h3 class="catalog-title">Commercial Series</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">Uslim II</span>
-                            <span class="catalog-tag">FCQ</span>
-                            <span class="catalog-tag">UDA II</span>
-                            <span class="catalog-tag">Usurface III</span>
-                            <span class="catalog-tag">Usurface (GM)</span>
-                            <span class="catalog-tag">USK</span>
-                            <span class="catalog-tag">Ufix II</span>
-                            <span class="catalog-tag">Uslim-O</span>
-                            <span class="catalog-tag">Usurface IV</span>
-                            <span class="catalog-tag">NX Series</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">🛍️</div>
+                                    <span class="catalog-num">02</span>
+                                </div>
+                                <h3 class="catalog-title">Commercial Series</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">Uslim II</span>
+                                <span class="catalog-tag">FCQ</span>
+                                <span class="catalog-tag">UDA II</span>
+                                <span class="catalog-tag">Usurface III</span>
+                                <span class="catalog-tag">Usurface (GM)</span>
+                                <span class="catalog-tag">USK</span>
+                                <span class="catalog-tag">Ufix II</span>
+                                <span class="catalog-tag">Uslim-O</span>
+                                <span class="catalog-tag">Usurface IV</span>
+                                <span class="catalog-tag">NX Series</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Rental & Staging Series -->
                     <div class="catalog-card reveal reveal-delay-2" data-category="rental absen-live">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">🎪</div>
-                            <h3 class="catalog-title">Rental & Staging</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">URM Ⅲ</span>
-                            <span class="catalog-tag">UGM Ⅱ</span>
-                            <span class="catalog-tag">NT V2 Indoor Series</span>
-                            <span class="catalog-tag">FL V2 Indoor Series</span>
-                            <span class="catalog-tag">PL V2 Series (indoor)</span>
-                            <span class="catalog-tag">PL V3 Series (indoor)</span>
-                            <span class="catalog-tag">Saturn (SA) Series</span>
-                            <span class="catalog-tag">Neptune Pro V2</span>
-                            <span class="catalog-tag">PL Pro Series</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">🎪</div>
+                                    <span class="catalog-num">03</span>
+                                </div>
+                                <h3 class="catalog-title">Rental & Staging</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">URM Ⅲ</span>
+                                <span class="catalog-tag">UGM Ⅱ</span>
+                                <span class="catalog-tag">NT V2 Indoor Series</span>
+                                <span class="catalog-tag">FL V2 Indoor Series</span>
+                                <span class="catalog-tag">PL V2 Series (indoor)</span>
+                                <span class="catalog-tag">PL V3 Series (indoor)</span>
+                                <span class="catalog-tag">Saturn (SA) Series</span>
+                                <span class="catalog-tag">Neptune Pro V2</span>
+                                <span class="catalog-tag">PL Pro Series</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Creative & Flexible Series -->
                     <div class="catalog-card reveal reveal-delay-3" data-category="creative">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">🎨</div>
-                            <h3 class="catalog-title">Creative & Flexible</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">Umake OF</span>
-                            <span class="catalog-tag">Udesign SV</span>
-                            <span class="catalog-tag">Umake VT</span>
-                            <span class="catalog-tag">Umake WG</span>
-                            <span class="catalog-tag">UVF</span>
-                            <span class="catalog-tag">U-Natural</span>
-                            <span class="catalog-tag">CP Series (AbsenCP)</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">🎨</div>
+                                    <span class="catalog-num">04</span>
+                                </div>
+                                <h3 class="catalog-title">Creative & Flexible</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">Umake OF</span>
+                                <span class="catalog-tag">Udesign SV</span>
+                                <span class="catalog-tag">Umake VT</span>
+                                <span class="catalog-tag">Umake WG</span>
+                                <span class="catalog-tag">UVF</span>
+                                <span class="catalog-tag">U-Natural</span>
+                                <span class="catalog-tag">CP Series (AbsenCP)</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Cinema Series -->
                     <div class="catalog-card reveal" data-category="indoor">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">🎬</div>
-                            <h3 class="catalog-title">Cinema Series</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">UTV Cinema</span>
-                            <span class="catalog-tag">UTV SC</span>
-                            <span class="catalog-tag">UTV W</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">🎬</div>
+                                    <span class="catalog-num">05</span>
+                                </div>
+                                <h3 class="catalog-title">Cinema Series</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">UTV Cinema</span>
+                                <span class="catalog-tag">UTV SC</span>
+                                <span class="catalog-tag">UTV W</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Indoor & Fine-pitch Series -->
                     <div class="catalog-card reveal reveal-delay-1" data-category="indoor">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">🏠</div>
-                            <h3 class="catalog-title">Indoor & Fine-pitch</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">Acclaim V3 Series</span>
-                            <span class="catalog-tag">Acclaim V3 Pro Series</span>
-                            <span class="catalog-tag">A Series (A27 etc.)</span>
-                            <span class="catalog-tag">AW Series</span>
-                            <span class="catalog-tag">CPS Series</span>
-                            <span class="catalog-tag">Polaris V10 Indoor</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">🏠</div>
+                                    <span class="catalog-num">06</span>
+                                </div>
+                                <h3 class="catalog-title">Indoor & Fine-pitch</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">Acclaim V3 Series</span>
+                                <span class="catalog-tag">Acclaim V3 Pro Series</span>
+                                <span class="catalog-tag">A Series (A27 etc.)</span>
+                                <span class="catalog-tag">AW Series</span>
+                                <span class="catalog-tag">CPS Series</span>
+                                <span class="catalog-tag">Polaris V10 Indoor</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Micro LED Series -->
                     <div class="catalog-card reveal reveal-delay-2" data-category="micro-led">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">🔬</div>
-                            <h3 class="catalog-title">Micro LED COB</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">KLCOB V2 Series</span>
-                            <span class="catalog-tag">CL V2 Series</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">🔬</div>
+                                    <span class="catalog-num">07</span>
+                                </div>
+                                <h3 class="catalog-title">Micro LED COB</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">KLCOB V2 Series</span>
+                                <span class="catalog-tag">CL V2 Series</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- All-in-One Screens -->
                     <div class="catalog-card reveal reveal-delay-3" data-category="all-in-one">
-                        <div class="catalog-header">
-                            <div class="catalog-icon">💻</div>
-                            <h3 class="catalog-title">All-in-One Screens</h3>
-                        </div>
-                        <div class="catalog-list">
-                            <span class="catalog-tag">Absenicon X Series</span>
-                            <span class="catalog-tag">Absenicon C Ultrawide</span>
-                            <span class="catalog-tag">X Series (meeting rooms)</span>
+                        <div class="catalog-card-inner">
+                            <div class="catalog-header">
+                                <div class="catalog-header-top">
+                                    <div class="catalog-icon">💻</div>
+                                    <span class="catalog-num">08</span>
+                                </div>
+                                <h3 class="catalog-title">All-in-One Screens</h3>
+                            </div>
+                            <hr class="catalog-divider" />
+                            <div class="catalog-list">
+                                <span class="catalog-tag">Absenicon X Series</span>
+                                <span class="catalog-tag">Absenicon C Ultrawide</span>
+                                <span class="catalog-tag">X Series (meeting rooms)</span>
+                            </div>
                         </div>
                     </div>
 

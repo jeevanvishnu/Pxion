@@ -1987,27 +1987,27 @@ button {
     background: #FFFFFF;
     border: 1px solid rgba(30, 136, 229, 0.12);
     border-radius: var(--radius-md);
-    padding: 36px 24px;
+    padding: 24px 16px;
     text-align: center;
     position: relative;
     overflow: hidden;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
-    flex: 1 1 180px;
-    max-width: 320px;
+    flex: 1 1 150px;
+    max-width: 280px;
 }
 
 .stat-glass-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     border-color: rgba(0, 188, 212, 0.3);
     box-shadow: var(--shadow-lg), 0 8px 32px rgba(30, 136, 229, 0.06);
 }
 
 .stat-num {
-    font-size: clamp(32px, 5vw, 44px);
+    font-size: clamp(24px, 4vw, 36px);
     font-weight: 800;
     color: var(--navy);
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
     line-height: 1;
 }
 
@@ -2016,10 +2016,10 @@ button {
 }
 
 .stat-label {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-secondary);
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -3474,89 +3474,123 @@ footer::before {
 .contact-info-column {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .contact-info-card {
     background: #FFFFFF;
-    border: 1px solid rgba(30, 136, 229, 0.12);
-    border-radius: var(--radius-md);
-    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+    padding: 24px 28px;
     display: flex;
     gap: 20px;
-    transition: var(--transition);
-    box-shadow: var(--shadow-sm);
+    align-items: flex-start;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-info-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #0A3DFF, #00D9FF);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .contact-info-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 188, 212, 0.3);
-    box-shadow: var(--shadow-lg), 0 8px 24px rgba(30, 136, 229, 0.04);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(10, 61, 255, 0.08);
+}
+
+.contact-info-card:hover::after {
+    opacity: 1;
 }
 
 .contact-card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: rgba(0, 188, 212, 0.08);
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(10, 61, 255, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 20px;
-    color: var(--navy);
+    font-size: 24px;
+    color: #0A3DFF;
+    transition: all 0.4s ease;
+}
+
+.contact-info-card:hover .contact-card-icon {
+    background: #0A3DFF;
+    color: #FFFFFF;
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(10, 61, 255, 0.25);
+}
+
+.contact-card-content {
+    flex: 1;
 }
 
 .contact-card-content h3 {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #0F172A;
     margin-bottom: 6px;
+    letter-spacing: -0.3px;
 }
 
 .contact-card-content p,
 .contact-card-content a {
-    font-size: 14px;
-    color: var(--text-secondary);
+    font-size: 14.5px;
+    color: #64748B;
     line-height: 1.6;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .contact-card-content a:hover {
-    color: var(--accent-cyan);
+    color: #0A3DFF;
 }
 
 .contact-form-container {
-    background: var(--navy-light);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-md);
-    padding: 40px;
-    box-shadow: var(--shadow-xl);
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.04);
 }
 
 .contact-form-title {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.5px;
-    margin-bottom: 8px;
+    color: #0F172A;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
 }
 
 .contact-form-subtitle {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.88);
-    margin-bottom: 32px;
+    font-size: 15px;
+    color: #64748B;
+    margin-bottom: 36px;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
 .contact-form-row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
 }
 
 @media (min-width: 640px) {
@@ -3568,55 +3602,57 @@ footer::before {
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .form-label {
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-}
-
-.contact-form-container .form-label {
-    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 1px;
+    color: #475569;
+    margin-left: 4px;
 }
 
 .form-input {
-    background: rgba(15, 31, 61, 0.35);
-    /* Premium Frosted Glass Container */
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 14px 18px;
-    font-size: 14px;
-    color: var(--white);
+    background: #F8FAFC;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-size: 15px;
+    color: #0F172A;
     font-family: var(--font);
-    transition: var(--transition-fast);
+    transition: all 0.3s ease;
     width: 100%;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+}
+
+.form-input::placeholder {
+    color: #94A3B8;
 }
 
 .form-input:focus {
     outline: none;
-    border-color: var(--blue-accent);
-    box-shadow: 0 0 16px rgba(45, 127, 249, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    background: rgba(15, 31, 61, 0.6);
+    background: #FFFFFF;
+    border-color: #0A3DFF;
+    box-shadow: 0 4px 16px rgba(10, 61, 255, 0.1);
 }
 
 select.form-input {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%2364748B' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 18px center;
+    background-position: right 20px center;
     padding-right: 40px;
     cursor: pointer;
+}
+select.form-input option {
+    background: #FFFFFF;
+    color: #0F172A;
 }
 
 textarea.form-input {
     resize: vertical;
-    min-height: 120px;
+    min-height: 140px;
 }
 
 /* --- File Upload Component --- */
@@ -3633,11 +3669,11 @@ textarea.form-input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 14px 16px;
-    border: 1.5px dashed rgba(19, 59, 216, 0.22);
-    border-radius: 12px;
-    background: rgba(237, 241, 248, 0.95);
+    gap: 10px;
+    padding: 36px 20px;
+    border: 2px dashed #E2E8F0;
+    border-radius: 14px;
+    background: #F8FAFC;
     transition: all 0.3s ease;
     text-align: center;
     cursor: pointer;
@@ -3645,45 +3681,68 @@ textarea.form-input {
 
 .file-upload-area:hover,
 .file-upload-area.drag-over {
-    border-color: var(--blue-accent);
-    background: rgba(225, 238, 255, 1);
+    border-color: #0A3DFF;
+    background: #F0F4FF;
 }
 
 .file-upload-icon {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: rgba(10, 61, 255, 0.08);
+    background: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #0A3DFF;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.file-upload-area:hover .file-upload-icon,
-.file-upload-area.drag-over .file-upload-icon {
-    background: rgba(10, 44, 180, 0.15);
-    transform: translateY(-2px);
+.file-upload-area:hover .file-upload-icon {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(10, 61, 255, 0.15);
 }
 
 .file-upload-text {
-    font-size: 13px;
-    color: #5f6e88;
-    line-height: 1.4;
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
 }
 
 .file-upload-cta {
     color: #0A3DFF;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    font-weight: 700;
 }
 
 .file-upload-hint {
-    font-size: 11px;
-    color: #94a3b8;
-    letter-spacing: 0.3px;
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+.contact-form-container .btn-primary {
+    background: linear-gradient(135deg, #0A3DFF, #00D9FF);
+    border: none;
+    border-radius: 14px;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(10, 61, 255, 0.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contact-form-container .btn-primary:hover {
+    box-shadow: 0 16px 32px rgba(10, 61, 255, 0.35);
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #1B5CFF, #2EE5FF);
 }
 
 /* File Preview List */
@@ -6786,8 +6845,6 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 .light-section .about-milestone-card,
 .light-section .social-card,
 .light-section .testimonial-card,
-.light-section .contact-info-card,
-.light-section .contact-form-container,
 #services.light-section .service-card,
 #testimonials.light-section .testimonial-card {
     background: #FFFFFF !important;
@@ -6806,8 +6863,6 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 .light-section .about-milestone-card:hover,
 .light-section .social-card:hover,
 .light-section .testimonial-card:hover,
-.light-section .contact-info-card:hover,
-.light-section .contact-form-container:hover,
 #services.light-section .service-card:hover,
 #testimonials.light-section .testimonial-card:hover {
     background: #FFFFFF !important;
@@ -6816,51 +6871,7 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     transform: translateY(-6px) !important;
 }
 
-/* 4. Form inputs inside Light Sections (contact.html support) */
-.light-section .form-label {
-    color: #0F172A !important;
-}
 
-.light-section .form-input {
-    background: #FFFFFF !important;
-    border: 1px solid rgba(10, 61, 255, 0.2) !important;
-    color: #0F172A !important;
-}
-
-.light-section .form-input:focus {
-    border-color: #0A3DFF !important;
-    box-shadow: 0 0 0 3px rgba(10, 61, 255, 0.15) !important;
-}
-
-.light-section .contact-info-card {
-    background: #FFFFFF !important;
-    border: 1px solid rgba(10, 61, 255, 0.08) !important;
-    color: #0F172A !important;
-    box-shadow: 0 10px 30px rgba(10, 61, 255, 0.04) !important;
-}
-
-.light-section .contact-info-card h3 {
-    color: #0F172A !important;
-}
-
-.light-section .contact-info-card p {
-    color: #475569 !important;
-}
-
-.light-section .contact-form-container {
-    background: #FFFFFF !important;
-    border: 1px solid rgba(10, 61, 255, 0.08) !important;
-    color: #0F172A !important;
-    box-shadow: 0 10px 30px rgba(10, 61, 255, 0.04) !important;
-}
-
-.light-section .contact-form-title {
-    color: #0F172A !important;
-}
-
-.light-section .contact-form-subtitle {
-    color: #475569 !important;
-}
 
 /* Showcase Content Card inside Light Sections */
 .light-section .products-showcase-container .showcase-content {
@@ -7337,4 +7348,342 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
         right: auto !important;
         transform: translateX(-50%) !important;
     }
+}
+
+/* ============================================================
+   CQ SPLIT — MODERN CLEAN CONTACT SECTION (LIGHT THEME)
+============================================================ */
+
+.cq-split-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .cq-split-grid {
+        grid-template-columns: 1fr 1.25fr;
+        gap: 64px;
+    }
+}
+
+/* --- Left Column: Elegant Typography & Minimal List --- */
+.cq-split-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.cq-split-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cq-split-title {
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+}
+
+.cq-split-accent {
+    color: #0A3DFF;
+}
+
+.cq-split-desc {
+    font-size: 16px;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cq-split-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.cq-split-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.cq-split-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(10, 61, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0A3DFF;
+    flex-shrink: 0;
+}
+
+.cq-split-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cq-split-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+.cq-split-addr,
+.cq-split-hours {
+    font-size: 14.5px;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cq-split-link {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #0A3DFF;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+}
+
+.cq-split-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* --- Right Column: Pristine Form Card --- */
+.cq-split-right {
+    width: 100%;
+}
+
+.cq-flat-form-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+@media (min-width: 640px) {
+    .cq-flat-form-card {
+        padding: 40px;
+    }
+}
+
+.cq-form-header-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.cq-form-header-sub {
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 28px;
+    line-height: 1.5;
+}
+
+.cq-flat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cq-flat-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 640px) {
+    .cq-flat-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.cq-flat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cq-flat-group label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #475569;
+    margin-left: 2px;
+}
+
+.cq-flat-input {
+    background: #F8FAFC;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 14.5px;
+    color: #0F172A;
+    font-family: var(--font);
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.cq-flat-input::placeholder {
+    color: #94A3B8;
+}
+
+.cq-flat-input:focus {
+    outline: none;
+    background: #FFFFFF;
+    border-color: #0A3DFF;
+    box-shadow: 0 0 0 3px rgba(10, 61, 255, 0.1);
+}
+
+.cq-flat-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%2364748B' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.cq-flat-select option {
+    background: #FFFFFF;
+    color: #0F172A;
+}
+
+.cq-flat-textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* Upload Area styling */
+.cq-flat-upload-wrapper {
+    position: relative;
+}
+
+.cq-flat-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 24px 20px;
+    border: 2px dashed #CBD5E1;
+    border-radius: 12px;
+    background: #F8FAFC;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.cq-flat-upload-area:hover {
+    border-color: #0A3DFF;
+    background: #F1F5F9;
+}
+
+.cq-flat-upload-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(10, 61, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0A3DFF;
+    transition: all 0.2s ease;
+}
+
+.cq-flat-upload-area:hover .cq-flat-upload-icon {
+    transform: translateY(-2px);
+    background: #0A3DFF;
+    color: #FFFFFF;
+}
+
+.cq-flat-upload-text {
+    font-size: 13.5px;
+    color: #475569;
+    margin: 0;
+}
+
+.cq-flat-upload-cta {
+    color: #0A3DFF;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.cq-flat-upload-hint {
+    font-size: 12px;
+    color: #94A3B8;
+    margin: 0;
+}
+
+/* Submit Button */
+.cq-flat-submit-btn {
+    background: #0A3DFF;
+    border: none;
+    border-radius: 12px;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 15px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(10, 61, 255, 0.15);
+    transition: all 0.2s ease;
+    margin-top: 4px;
+    font-family: var(--font);
+}
+
+.cq-flat-submit-btn:hover {
+    background: #002ACC;
+    box-shadow: 0 8px 20px rgba(0, 42, 204, 0.25);
+}
+
+.cq-flat-submit-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.cq-flat-submit-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* Light Section specific override to avoid theme clashes */
+.light-section .cq-flat-form-card {
+    background: #FFFFFF !important;
+}
+
+.light-section .cq-flat-input {
+    background: #F8FAFC !important;
+    color: #0F172A !important;
+}
+
+.light-section .cq-flat-input:focus {
+    background: #FFFFFF !important;
+}
+
+.light-section .cq-flat-upload-area {
+    background: #F8FAFC !important;
+}
+
+.light-section .cq-flat-upload-area:hover {
+    background: #F1F5F9 !important;
 }
