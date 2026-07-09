@@ -266,86 +266,6 @@
             gap: 72px;
         }
 
-        .showcase-row {
-            display: grid;
-            grid-template-columns: 55% 45%;
-            gap: 56px;
-            align-items: center;
-        }
-
-        .showcase-row.reverse {
-            grid-template-columns: 45% 55%;
-        }
-
-        .showcase-row.reverse .showcase-visual { order: 2; }
-        .showcase-row.reverse .showcase-content { order: 1; }
-
-        .showcase-img-frame {
-            position: relative;
-            border-radius: 18px;
-            overflow: hidden;
-            aspect-ratio: 16 / 10;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.22);
-        }
-
-        .showcase-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .showcase-img-frame:hover .showcase-img {
-            transform: scale(1.04);
-        }
-
-        .showcase-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .showcase-title {
-            font-size: clamp(18px, 2.4vw, 26px);
-            font-weight: 700;
-            line-height: 1.25;
-            margin: 0;
-        }
-
-        .showcase-desc {
-            font-size: 15.5px;
-            line-height: 1.75;
-            margin: 0;
-            opacity: 0.8;
-        }
-
-        .showcase-specs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px 18px;
-            margin-top: 4px;
-        }
-
-        .showcase-spec-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        @media (max-width: 900px) {
-            .showcase-row,
-            .showcase-row.reverse {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .showcase-row.reverse .showcase-visual { order: 0; }
-            .showcase-row.reverse .showcase-content { order: 0; }
-            .showcase-specs { grid-template-columns: 1fr; }
-        }
-
         /* ---------- Catalog Filter Tabs ---------- */
         .catalog-filter-tabs {
             display: flex;
@@ -664,7 +584,7 @@
 
         <!-- ======================== FEATURED PRODUCTS SHOWCASE ======================== -->
         <section class="section light-section" id="showcase" style="padding-top: 80px; padding-bottom: 80px;">
-            <div class="container">
+            <div class="container-large">
                 <header style="text-align: center; margin-bottom: 60px;">
                     <div class="section-label" style="justify-content: center; margin-bottom: 12px;">Premium Arrays
                     </div>
@@ -685,6 +605,7 @@
                             </div>
                         </div>
                         <div class="showcase-content">
+                            <span class="showcase-category-tag">Smart Indoor Displays</span>
                             <h3 class="showcase-title">Smart Indoor LED <br><span class="hero-title-accent">Screens
                                     (SMD, COB & OLED)</span></h3>
                             <p class="showcase-desc">
@@ -702,6 +623,7 @@
                                 <div class="showcase-spec-item"><span class="showcase-spec-dot"></span> Factory Color &
                                     Uniformity Calibrated</div>
                             </div>
+                            <a href="indoor.html" class="showcase-action-link">Explore Indoor Series <span class="arrow">→</span></a>
                         </div>
                     </div>
 
@@ -715,6 +637,7 @@
                             </div>
                         </div>
                         <div class="showcase-content">
+                            <span class="showcase-category-tag">High-Brightness Outdoor</span>
                             <h3 class="showcase-title">Weatherproof Outdoor <br><span class="hero-title-accent">LED
                                     Screens & Billboards</span></h3>
                             <p class="showcase-desc">
@@ -732,6 +655,7 @@
                                 <div class="showcase-spec-item"><span class="showcase-spec-dot"></span> Lightweight
                                     Structural Mesh Facades</div>
                             </div>
+                            <a href="outdoor.html" class="showcase-action-link">Explore Outdoor Series <span class="arrow">→</span></a>
                         </div>
                     </div>
 
@@ -746,6 +670,7 @@
                             </div>
                         </div>
                         <div class="showcase-content">
+                            <span class="showcase-category-tag">Corporate & Conference</span>
                             <h3 class="showcase-title">Executive Video Walls <br><span class="hero-title-accent">&
                                     Interactive Displays</span></h3>
                             <p class="showcase-desc">
@@ -763,6 +688,7 @@
                                 <div class="showcase-spec-item"><span class="showcase-spec-dot"></span> Unified Screen
                                     Sharing Control</div>
                             </div>
+                            <a href="video-wall.html" class="showcase-action-link">Explore Video Walls <span class="arrow">→</span></a>
                         </div>
                     </div>
 
@@ -777,6 +703,7 @@
                             </div>
                         </div>
                         <div class="showcase-content">
+                            <span class="showcase-category-tag">Commercial Signage</span>
                             <h3 class="showcase-title">Interactive Digital Kiosks <br><span class="hero-title-accent">&
                                     Poster Screens</span></h3>
                             <p class="showcase-desc">
@@ -794,6 +721,7 @@
                                 <div class="showcase-spec-item"><span class="showcase-spec-dot"></span> Anti-Glare
                                     Screen with Toughened Glass</div>
                             </div>
+                            <a href="kiosk-poster.html" class="showcase-action-link">Explore Kiosks & Posters <span class="arrow">→</span></a>
                         </div>
                     </div>
 
@@ -808,6 +736,7 @@
                             </div>
                         </div>
                         <div class="showcase-content">
+                            <span class="showcase-category-tag">Architectural & Creative</span>
                             <h3 class="showcase-title">Innovative & Custom <br><span class="hero-title-accent">Kinetic &
                                     Spherical LED</span></h3>
                             <p class="showcase-desc">
@@ -825,6 +754,7 @@
                                 <div class="showcase-spec-item"><span class="showcase-spec-dot"></span> Bespoke CAD
                                     Blueprint & Installation</div>
                             </div>
+                            <a href="kinetic-led-screen.html" class="showcase-action-link">Explore Custom Solutions <span class="arrow">→</span></a>
                         </div>
                     </div>
 

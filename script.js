@@ -591,3 +591,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+// ==========================================
+// SHOWCASE TABS LOGIC
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.showcase-tab');
+    const items = document.querySelectorAll('.showcase-display-item');
+
+    if (tabs.length > 0 && items.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active to clicked tab
+                tab.classList.add('active');
+
+                // Get target id
+                const targetId = tab.getAttribute('data-target');
+
+                // Hide all items
+                items.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Show target item
+                const targetItem = document.getElementById(targetId);
+                if (targetItem) {
+                    targetItem.classList.add('active');
+                }
+            });
+        });
+    }
+});
