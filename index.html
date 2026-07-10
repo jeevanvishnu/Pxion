@@ -1011,8 +1011,8 @@
         #wp-stage {
           position: relative;
           width: 100%;
-          aspect-ratio: 1600/620;
-          background: linear-gradient(180deg, #0b1642 0%, #081335 5%, #081335 100%);
+          aspect-ratio: 1600/650;
+          background: radial-gradient(circle at 50% 50%, #0c184c 0%, #060c2b 100%);
           overflow: hidden;
         }
 
@@ -1035,13 +1035,13 @@
 
         .wp-title-wrap {
           position: absolute;
-          top: 8%;
+          top: 7%;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
           align-items: center;
           gap: 12px;
-          z-index: 5;
+          z-index: 10;
         }
 
         .wp-title-wrap h2 {
@@ -1076,100 +1076,227 @@
         }
 
         @keyframes wptwinkle {
-
-          0%,
-          100% {
+          0%, 100% {
             transform: scale(1);
             opacity: .85;
           }
-
           50% {
             transform: scale(1.25);
             opacity: 1;
           }
         }
 
-        .wp-pin {
+        /* Hotspot Design */
+        .wp-hotspot {
           position: absolute;
+          z-index: 15;
+          width: 2px;
+          height: 2px;
+          transform: translate(-50%, -50%);
+        }
+
+        .wp-hotspot-hitbox {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          pointer-events: auto;
+          z-index: 5;
+          transform: translate(-50%, -50%);
+        }
+
+        .wp-hotspot-core {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 8px;
+          height: 8px;
+          background-color: #38c6f4;
+          border-radius: 50%;
+          box-shadow: 0 0 10px #38c6f4, 0 0 20px rgba(56, 198, 244, 0.6);
+          z-index: 2;
+          transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease;
+          pointer-events: none;
+          transform: translate(-50%, -50%);
+        }
+
+        .wp-hotspot-pulse {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 10px;
+          height: 10px;
+          border: 1.5px solid rgba(56, 198, 244, 0.85);
+          border-radius: 50%;
+          opacity: 0;
+          pointer-events: none;
+          animation: wppulse 2.4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        }
+
+        .wp-hotspot-pulse-2 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 10px;
+          height: 10px;
+          border: 1.5px solid rgba(56, 198, 244, 0.5);
+          border-radius: 50%;
+          opacity: 0;
+          pointer-events: none;
+          animation: wppulse 2.4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation-delay: 1.2s;
+        }
+
+        @keyframes wppulse {
+          0% {
+            transform: translate(-50%, -50%) scale(0.6);
+            opacity: 0.9;
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(3.5);
+            opacity: 0;
+          }
+        }
+
+        /* Leader Line - Futuristic callout style */
+        .wp-hotspot-line {
+          position: absolute;
+          bottom: 50%;
+          left: 50%;
+          width: 1.5px;
+          height: 35px;
+          background: linear-gradient(to top, #38c6f4 0%, rgba(56, 198, 244, 0) 100%);
+          transform: translateX(-50%);
+          transform-origin: bottom center;
+          transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.4s ease;
+          pointer-events: none;
+        }
+
+        .wp-hotspot-text {
+          position: absolute;
+          bottom: calc(50% + 40px);
+          left: 50%;
+          transform: translateX(-50%);
           display: flex;
           flex-direction: column;
           align-items: center;
-          transform: translate(-50%, -100%);
-          z-index: 6;
-          animation: wpdrop .7s cubic-bezier(.34, 1.56, .64, 1) both;
-        }
-
-        .wp-pin-icon {
-          width: 22px;
-          height: 28px;
-          filter: drop-shadow(0 0 5px rgba(56, 198, 244, 0.85));
-        }
-
-        .wp-pin-icon svg {
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-
-        .wp-pin-stem {
-          width: 2px;
-          height: 8px;
-          background: linear-gradient(180deg, #38c6f4, transparent);
-        }
-
-        .wp-pin-label {
-          margin-top: 3px;
-          background: rgba(10, 22, 60, 0.88);
-          border: 1px solid rgba(56, 198, 244, 0.35);
-          border-radius: 6px;
-          padding: 5px 12px;
+          pointer-events: none;
+          transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
           text-align: center;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .wp-h-country {
+          color: #8fe3ff;
+          font-size: clamp(11px, 1.4vw, 13px);
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          line-height: 1.1;
+          margin-bottom: 4px;
+          text-shadow: 0 0 10px rgba(56, 198, 244, 0.9), 0 2px 4px rgba(0,0,0,1);
+        }
+
+        .wp-h-city {
+          color: #ffffff;
+          font-size: clamp(14px, 1.7vw, 16px);
+          font-weight: 600;
+          letter-spacing: 0.8px;
+          line-height: 1.2;
           white-space: nowrap;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 1), 0 0 4px rgba(255,255,255,0.5);
         }
 
-        .wp-pin-label .wpc {
-          color: #f4f8ff;
-          font-size: 13px;
-          font-weight: 700;
-          line-height: 1.25;
+        /* Alternate: Downward pointing leader lines */
+        .wp-hotspot.wp-dir-down .wp-hotspot-line {
+          bottom: auto;
+          top: 50%;
+          background: linear-gradient(to bottom, #38c6f4 0%, rgba(56, 198, 244, 0) 100%);
+          transform-origin: top center;
         }
 
-        .wp-pin-label .wpcity {
-          color: #bcd4ea;
-          font-size: 11.5px;
-          font-weight: 500;
-          line-height: 1.25;
+        .wp-hotspot.wp-dir-down .wp-hotspot-text {
+          bottom: auto;
+          top: calc(50% + 40px);
         }
 
-        @keyframes wpdrop {
-          0% {
-            opacity: 0;
-            transform: translate(-50%, -160%);
+        /* Hover & Active States */
+        .wp-hotspot:hover .wp-hotspot-core,
+        .wp-hotspot.active .wp-hotspot-core {
+          transform: translate(-50%, -50%) scale(1.4);
+          background-color: #ffffff;
+          box-shadow: 0 0 15px #ffffff, 0 0 30px #38c6f4;
+        }
+
+        .wp-hotspot:hover .wp-hotspot-line,
+        .wp-hotspot.active .wp-hotspot-line {
+          height: 48px;
+          background: linear-gradient(to top, #ffffff 0%, #38c6f4 100%);
+        }
+
+        .wp-hotspot.wp-dir-down:hover .wp-hotspot-line,
+        .wp-hotspot.wp-dir-down.active .wp-hotspot-line {
+          height: 48px;
+          background: linear-gradient(to bottom, #ffffff 0%, #38c6f4 100%);
+        }
+
+        .wp-hotspot:hover .wp-hotspot-text,
+        .wp-hotspot.active .wp-hotspot-text {
+          transform: translate(-50%, -13px);
+        }
+
+        .wp-hotspot.wp-dir-down:hover .wp-hotspot-text,
+        .wp-hotspot.wp-dir-down.active .wp-hotspot-text {
+          transform: translate(-50%, 13px);
+        }
+
+        .wp-hotspot:hover .wp-h-city,
+        .wp-hotspot.active .wp-h-city {
+          color: #38c6f4;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 6px rgba(56, 198, 244, 0.8);
+        }
+
+        /* Responsiveness adjustments */
+        @media(max-width: 640px) {
+          #wp-stage {
+            aspect-ratio: 4/3;
           }
-
-          100% {
-            opacity: 1;
-            transform: translate(-50%, -100%);
+          .wp-h-country {
+            font-size: 8px;
+            letter-spacing: 1px;
           }
-        }
-
-        @media(max-width:640px) {
-          .wp-pin-label .wpc {
+          .wp-h-city {
             font-size: 10px;
           }
-
-          .wp-pin-label .wpcity {
-            font-size: 9px;
+          .wp-hotspot-line {
+            height: 25px;
           }
-
-          .wp-pin-label {
-            padding: 3px 7px;
+          .wp-hotspot-text {
+            bottom: 28px;
           }
-
-          .wp-pin-icon {
-            width: 15px;
-            height: 20px;
+          .wp-hotspot.wp-dir-down .wp-hotspot-text {
+            top: 28px;
+          }
+          .wp-hotspot:hover .wp-hotspot-line,
+          .wp-hotspot.active .wp-hotspot-line {
+            height: 33px;
+          }
+          .wp-hotspot.wp-dir-down:hover .wp-hotspot-line,
+          .wp-hotspot.wp-dir-down.active .wp-hotspot-line {
+            height: 33px;
+          }
+          .wp-hotspot:hover .wp-hotspot-text,
+          .wp-hotspot.active .wp-hotspot-text {
+            transform: translate(-50%, -8px);
+          }
+          .wp-hotspot.wp-dir-down:hover .wp-hotspot-text,
+          .wp-hotspot.wp-dir-down.active .wp-hotspot-text {
+            transform: translate(-50%, 8px);
           }
         }
       </style>
@@ -1188,71 +1315,149 @@
           </svg>
         </div>
 
-        <!-- UK -->
-        <div class="wp-pin" style="left:47%;top:26%;animation-delay:.05s;">
-          <div class="wp-pin-icon" data-wppin></div>
-          <div class="wp-pin-stem"></div>
-          <div class="wp-pin-label">
-            <div class="wpc">UK</div>
-            <div class="wpcity">London</div>
+        <!-- UK (London) -->
+        <div class="wp-hotspot" style="left:47%;top:28%;">
+          <div class="wp-hotspot-hitbox"></div>
+          <div class="wp-hotspot-pulse"></div>
+          <div class="wp-hotspot-pulse-2"></div>
+          <div class="wp-hotspot-core"></div>
+          <div class="wp-hotspot-line"></div>
+          <div class="wp-hotspot-text">
+            <span class="wp-h-country">UK</span>
+            <span class="wp-h-city">London</span>
           </div>
         </div>
-        <!-- USA -->
-        <div class="wp-pin" style="left:19%;top:54%;animation-delay:.15s;">
-          <div class="wp-pin-icon" data-wppin></div>
-          <div class="wp-pin-stem"></div>
-          <div class="wp-pin-label">
-            <div class="wpc">USA</div>
-            <div class="wpcity">LA</div>
+
+        <!-- USA (LA) -->
+        <div class="wp-hotspot" style="left:19%;top:54%;">
+          <div class="wp-hotspot-hitbox"></div>
+          <div class="wp-hotspot-pulse"></div>
+          <div class="wp-hotspot-pulse-2"></div>
+          <div class="wp-hotspot-core"></div>
+          <div class="wp-hotspot-line"></div>
+          <div class="wp-hotspot-text">
+            <span class="wp-h-country">USA</span>
+            <span class="wp-h-city">LA</span>
           </div>
         </div>
-        <!-- KSA -->
-        <div class="wp-pin" style="left:62%;top:62%;animation-delay:.25s;">
-          <div class="wp-pin-icon" data-wppin></div>
-          <div class="wp-pin-stem"></div>
-          <div class="wp-pin-label">
-            <div class="wpc">KSA</div>
-            <div class="wpcity">Riyadh</div>
+
+        <!-- KSA (Riyadh) - Points DOWN -->
+        <div class="wp-hotspot wp-dir-down" style="left:60%;top:64%;">
+          <div class="wp-hotspot-hitbox"></div>
+          <div class="wp-hotspot-pulse"></div>
+          <div class="wp-hotspot-pulse-2"></div>
+          <div class="wp-hotspot-core"></div>
+          <div class="wp-hotspot-line"></div>
+          <div class="wp-hotspot-text">
+            <span class="wp-h-country">KSA</span>
+            <span class="wp-h-city">Riyadh</span>
           </div>
         </div>
-        <!-- UAE -->
-        <div class="wp-pin" style="left:65.5%;top:59%;animation-delay:.35s;">
-          <div class="wp-pin-icon" data-wppin></div>
-          <div class="wp-pin-stem"></div>
-          <div class="wp-pin-label">
-            <div class="wpc">UAE</div>
-            <div class="wpcity">Dubai</div>
+
+        <!-- UAE (Dubai) - Hub -->
+        <div class="wp-hotspot" style="left:66%;top:54%;">
+          <div class="wp-hotspot-hitbox"></div>
+          <div class="wp-hotspot-pulse"></div>
+          <div class="wp-hotspot-pulse-2"></div>
+          <div class="wp-hotspot-core"></div>
+          <div class="wp-hotspot-line"></div>
+          <div class="wp-hotspot-text">
+            <span class="wp-h-country">UAE</span>
+            <span class="wp-h-city">Dubai</span>
           </div>
         </div>
-        <!-- India -->
-        <div class="wp-pin" style="left:72%;top:57%;animation-delay:.45s;">
-          <div class="wp-pin-icon" data-wppin></div>
-          <div class="wp-pin-stem"></div>
-          <div class="wp-pin-label">
-            <div class="wpc">India</div>
-            <div class="wpcity">Mumbai</div>
+
+        <!-- India (Mumbai) - Points DOWN -->
+        <div class="wp-hotspot wp-dir-down" style="left:74%;top:58%;">
+          <div class="wp-hotspot-hitbox"></div>
+          <div class="wp-hotspot-pulse"></div>
+          <div class="wp-hotspot-pulse-2"></div>
+          <div class="wp-hotspot-core"></div>
+          <div class="wp-hotspot-line"></div>
+          <div class="wp-hotspot-text">
+            <span class="wp-h-country">India</span>
+            <span class="wp-h-city">Mumbai</span>
           </div>
         </div>
-        <!-- China -->
-        <div class="wp-pin" style="left:80%;top:47%;animation-delay:.55s;">
-          <div class="wp-pin-icon" data-wppin></div>
-          <div class="wp-pin-stem"></div>
-          <div class="wp-pin-label">
-            <div class="wpc">China</div>
-            <div class="wpcity">Shenzhen</div>
+
+        <!-- China (Shenzhen) -->
+        <div class="wp-hotspot" style="left:82%;top:48%;">
+          <div class="wp-hotspot-hitbox"></div>
+          <div class="wp-hotspot-pulse"></div>
+          <div class="wp-hotspot-pulse-2"></div>
+          <div class="wp-hotspot-core"></div>
+          <div class="wp-hotspot-line"></div>
+          <div class="wp-hotspot-text">
+            <span class="wp-h-country">China</span>
+            <span class="wp-h-city">Shenzhen</span>
           </div>
         </div>
       </div>
 
       <script>
         (function () {
-          const pinSVG = `<svg viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="wpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8fe3ff"/><stop offset="100%" stop-color="#159fe0"/></linearGradient></defs><path d="M12 0C5.4 0 0 5.4 0 12c0 8.5 12 20 12 20s12-11.5 12-20C24 5.4 18.6 0 12 0z" fill="url(#wpg)"/><circle cx="12" cy="12" r="5" fill="#04263a"/></svg>`;
-          document.querySelectorAll('[data-wppin]').forEach(el => el.innerHTML = pinSVG);
-
           const canvas = document.getElementById('dotmap');
           const ctx = canvas.getContext('2d');
           const stage = document.getElementById('wp-stage');
+          const hotspots = document.querySelectorAll('.wp-hotspot');
 
+          // Hotspot coordinates matching percent left/top
+          const locations = [
+            { name: 'UK', xPct: 0.47, yPct: 0.28 },
+            { name: 'USA', xPct: 0.19, yPct: 0.54 },
+            { name: 'KSA', xPct: 0.60, yPct: 0.64 },
+            { name: 'UAE', xPct: 0.66, yPct: 0.54, isHub: true },
+            { name: 'India', xPct: 0.74, yPct: 0.58 },
+            { name: 'China', xPct: 0.82, yPct: 0.48 }
+          ];
+
+          // Connection links radiating from the UAE Hub
+          const connections = [];
+          const hubLoc = locations.find(l => l.isHub);
+          locations.forEach(loc => {
+            if (loc !== hubLoc) {
+              connections.push({
+                from: hubLoc,
+                to: loc,
+                t: Math.random(),
+                speed: 0.003 + Math.random() * 0.003
+              });
+            }
+          });
+
+          // Interaction ripples
+          let ripples = [];
+
+          function addRipple(x, y) {
+            ripples.push({
+              x,
+              y,
+              radius: 0,
+              maxRadius: 160,
+              opacity: 0.75,
+              speed: 2.8
+            });
+          }
+
+          // Attach hover listeners to hotspots for interactive canvas ripples
+          hotspots.forEach((hs, idx) => {
+            const hitbox = hs.querySelector('.wp-hotspot-hitbox');
+            if (hitbox) {
+              hitbox.addEventListener('mouseenter', () => {
+                hs.classList.add('active');
+                const w = stage.clientWidth;
+                const h = stage.clientHeight;
+                const x = locations[idx].xPct * w;
+                const y = locations[idx].yPct * h;
+                addRipple(x, y);
+              });
+              hitbox.addEventListener('mouseleave', () => {
+                hs.classList.remove('active');
+              });
+            }
+          });
+
+          // Map boundary detection
           function inLand(nx, ny) {
             const blobs = [
               { cx: 0.09, cy: 0.08, rx: 0.05, ry: 0.06 }, { cx: 0.14, cy: 0.20, rx: 0.10, ry: 0.10 },
@@ -1274,13 +1479,11 @@
             return false;
           }
 
-          function draw() {
-            const dpr = window.devicePixelRatio || 1;
-            const w = stage.clientWidth, h = stage.clientHeight;
-            canvas.width = w * dpr; canvas.height = h * dpr;
-            canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            ctx.clearRect(0, 0, w, h);
+          // Dot map array
+          let dots = [];
+
+          function initDots(w, h) {
+            dots = [];
             const sp = Math.max(12, w / 95);
             const cols = Math.ceil(w / sp), rows = Math.ceil(h / sp);
             for (let i = 0; i <= cols; i++) {
@@ -1290,21 +1493,155 @@
                 if (!inLand(nx, ny)) continue;
                 const n = Math.random();
                 if (n < 0.12) continue;
-                const bright = n > 0.82;
-                ctx.beginPath();
-                ctx.arc(x, y, bright ? 1.6 : 1.1, 0, Math.PI * 2);
-                ctx.fillStyle = bright ? 'rgba(120,205,245,0.9)' : 'rgba(60,110,190,0.55)';
-                ctx.fill();
+                
+                dots.push({
+                  x,
+                  y,
+                  baseRadius: n > 0.82 ? 1.6 : 1.1,
+                  opacity: 0.25 + Math.random() * 0.5,
+                  twinkleSpeed: (0.008 + Math.random() * 0.015) * (Math.random() > 0.5 ? 1 : -1),
+                  isBright: n > 0.82
+                });
               }
             }
-            for (let k = 0; k < 200; k++) {
-              const x = Math.random() * w, y = Math.random() * h;
-              ctx.beginPath(); ctx.arc(x, y, 0.8, 0, Math.PI * 2);
-              ctx.fillStyle = 'rgba(40,70,140,0.2)'; ctx.fill();
-            }
           }
-          window.addEventListener('resize', draw);
-          draw();
+
+          let animationFrameId;
+
+          function animate() {
+            const dpr = window.devicePixelRatio || 1;
+            const w = stage.clientWidth, h = stage.clientHeight;
+
+            if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
+              canvas.width = w * dpr; canvas.height = h * dpr;
+              canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+              ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+              initDots(w, h);
+            }
+
+            ctx.clearRect(0, 0, w, h);
+
+            // 1. Process active interaction ripples
+            ripples = ripples.filter(r => {
+              r.radius += r.speed;
+              r.opacity = 1 - (r.radius / r.maxRadius);
+              return r.radius < r.maxRadius;
+            });
+
+            // 2. Draw subtle starry background particles
+            for (let k = 0; k < 45; k++) {
+              const sx = (k * 7919) % w;
+              const sy = (k * 104729) % h;
+              ctx.beginPath();
+              ctx.arc(sx, sy, 0.7, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(56, 198, 244, 0.1)';
+              ctx.fill();
+            }
+
+            // 3. Update and draw world map dots
+            dots.forEach(dot => {
+              dot.opacity += dot.twinkleSpeed;
+              if (dot.opacity > 0.85) {
+                dot.opacity = 0.85;
+                dot.twinkleSpeed = -Math.abs(dot.twinkleSpeed);
+              } else if (dot.opacity < 0.2) {
+                dot.opacity = 0.2;
+                dot.twinkleSpeed = Math.abs(dot.twinkleSpeed);
+              }
+
+              let radius = dot.baseRadius;
+              let alpha = dot.opacity;
+
+              // Wave propagation interaction
+              ripples.forEach(r => {
+                const dx = dot.x - r.x;
+                const dy = dot.y - r.y;
+                const dist = Math.hypot(dx, dy);
+                const waveDist = Math.abs(dist - r.radius);
+                if (waveDist < 25) {
+                  const strength = (1 - waveDist / 25) * r.opacity;
+                  radius += strength * 1.6;
+                  alpha = Math.min(1, alpha + strength * 0.7);
+                }
+              });
+
+              ctx.beginPath();
+              ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
+              ctx.fillStyle = dot.isBright
+                ? `rgba(143, 227, 255, ${alpha})`
+                : `rgba(45, 95, 175, ${alpha * 0.7})`;
+              ctx.fill();
+            });
+
+            // 4. Draw connectivity arcs & photons
+            connections.forEach(conn => {
+              const x1 = conn.from.xPct * w;
+              const y1 = conn.from.yPct * h;
+              const x2 = conn.to.xPct * w;
+              const y2 = conn.to.yPct * h;
+
+              // Bend the line upward for visual curvature
+              const mx = (x1 + x2) / 2;
+              const my = (y1 + y2) / 2;
+              const dist = Math.hypot(x2 - x1, y2 - y1);
+              const cx = mx;
+              const cy = my - dist * 0.15;
+
+              // Draw bezier arc line
+              ctx.beginPath();
+              ctx.moveTo(x1, y1);
+              ctx.quadraticCurveTo(cx, cy, x2, y2);
+              ctx.strokeStyle = 'rgba(56, 198, 244, 0.13)';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+
+              // Photon positioning
+              conn.t += conn.speed;
+              if (conn.t > 1) {
+                conn.t = 0;
+                conn.speed = 0.003 + Math.random() * 0.003;
+              }
+
+              const t = conn.t;
+              const px = (1 - t) * (1 - t) * x1 + 2 * (1 - t) * t * cx + t * t * x2;
+              const py = (1 - t) * (1 - t) * y1 + 2 * (1 - t) * t * cy + t * t * y2;
+
+              // Photon tail
+              const tPrev = Math.max(0, t - 0.07);
+              const pxPrev = (1 - tPrev) * (1 - tPrev) * x1 + 2 * (1 - tPrev) * tPrev * cx + tPrev * tPrev * x2;
+              const pyPrev = (1 - tPrev) * (1 - tPrev) * y1 + 2 * (1 - tPrev) * tPrev * cy + tPrev * tPrev * y2;
+
+              const grad = ctx.createLinearGradient(pxPrev, pyPrev, px, py);
+              grad.addColorStop(0, 'rgba(56, 198, 244, 0)');
+              grad.addColorStop(1, 'rgba(143, 227, 255, 0.8)');
+
+              ctx.beginPath();
+              ctx.moveTo(pxPrev, pyPrev);
+              ctx.quadraticCurveTo((pxPrev + px) / 2, (pyPrev + py) / 2 - 2, px, py);
+              ctx.strokeStyle = grad;
+              ctx.lineWidth = 1.8;
+              ctx.stroke();
+
+              // Photon head
+              ctx.beginPath();
+              ctx.arc(px, py, 2.0, 0, Math.PI * 2);
+              ctx.fillStyle = '#ffffff';
+              ctx.fill();
+            });
+
+            animationFrameId = requestAnimationFrame(animate);
+          }
+
+          window.addEventListener('resize', () => {
+            const w = stage.clientWidth, h = stage.clientHeight;
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = w * dpr; canvas.height = h * dpr;
+            canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            initDots(w, h);
+          });
+
+          animate();
         })();
       </script>
     </section>
