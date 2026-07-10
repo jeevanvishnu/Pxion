@@ -271,10 +271,6 @@
         </video>
         <!-- Cinematic vignette: dark edges, clear centre so video shows through -->
         <div class="hero-vignette"></div>
-        <!-- Left-side gradient so text is always readable -->
-        <div class="hero-left-fade"></div>
-        <!-- Bottom gradient for stats bar -->
-        <div class="hero-bottom-fade"></div>
       </div>
 
       <!-- Audio Toggle - bottom right -->
@@ -290,69 +286,33 @@
         </svg>
       </button>
 
-      <!-- Main hero content — left-bottom aligned -->
-      <div class="hero-content">
-        <div class="hero-inner">
-          <div class="hero-text">
-            <!-- Badge -->
-            <div class="hero-badge animate-fade-in-up">
-              <span class="hero-badge-dot"></span>
-              LED Screen &amp; AV Solutions Company
-            </div>
+      <!-- Main hero content — vertically and horizontally centered -->
+      <div class="hero-content" style="top: 50%; bottom: auto; transform: translateY(-50%); text-align: center; display: flex; justify-content: center; width: 100%;">
+        <div class="hero-inner" style="align-items: center; max-width: 100%;">
+          <div class="hero-text" style="align-items: center; text-align: center;">
 
             <!-- Headline -->
-            <h1 class="hero-title animate-fade-in-up delay-1">
-              ILLUMINATE<br>IN EVERY <span class="hero-title-accent">DIMENSION</span>
+            <h1 class="hero-title animate-fade-in-up delay-1" style="font-size: clamp(30px, 4.5vw, 66px);">
+              ILLUMINATE IN EVERY<br><span class="hero-title-accent">DIMENSION</span>
             </h1>
 
-            <!-- Sub-heading -->
-            <p class="hero-sub animate-fade-in-up delay-2">
-              Supplying, designing, installing &amp; servicing commercial LED screens and
-              AV systems across the Middle East &amp; Africa.
-            </p>
 
             <!-- CTAs -->
-            <div class="hero-actions animate-fade-in-up delay-3">
-              <a href="#solutions" class="btn btn-primary">
+            <div class="hero-actions animate-fade-in-up delay-3" style="justify-content: center;">
+              <a href="#solutions" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">
                 Explore Solutions
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </a>
-              <a href="contact.html" class="btn-ghost-white">Contact Us</a>
+              <a href="contact.html" class="btn-ghost-white" style="padding: 10px 20px; font-size: 14px;">Contact Us</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Stats bar pinned to bottom -->
-      <div class="hero-stats-bar animate-fade-in-up delay-4">
-        <div class="hero-stat">
-          <div class="hero-stat-num">1M<span>+</span></div>
-          <div class="hero-stat-label">Customers</div>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">15<span>+</span></div>
-          <div class="hero-stat-label">Years Experience</div>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">1000<span>+</span></div>
-          <div class="hero-stat-label">Channel Partners</div>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">50<span>+</span></div>
-          <div class="hero-stat-label">Completed Projects</div>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">10<span>+</span></div>
-          <div class="hero-stat-label">Group of Companies</div>
-        </div>
-      </div>
+
 
       <!-- Scroll indicator -->
       <div class="scroll-indicator" aria-hidden="true">
