@@ -4,13 +4,40 @@ window.addEventListener('load', () => {
     if (pageLoader) {
         pageLoader.classList.add('hidden');
     }
+
     const bgVideo = document.getElementById('hero-bg-video');
     if (bgVideo) {
-        bgVideo.play().catch(err => {
-            console.log('Video autoplay play triggered smoothly:', err);
-        });
+        // Ensure video is ready before playing to avoid stuttering
+        bgVideo.load();
+
+        // Use canplay event for smooth initial play
+        const playVideo = () => {
+            bgVideo.play().catch(() => {
+                // Autoplay blocked — silently fail, static bg remains
+            });
+        };
+
+        if (bgVideo.readyState >= 3) {
+            playVideo();
+        } else {
+            bgVideo.addEventListener('canplay', playVideo, { once: true });
+        }
+
+        // Pause video when not visible to save GPU resources
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    bgVideo.play().catch(() => {});
+                } else {
+                    bgVideo.pause();
+                }
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(bgVideo.closest('#hero') || bgVideo);
     }
 });
+
 
 // =================== HEADER SCROLL ===================
 const header = document.getElementById('header');
@@ -621,6 +648,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetItem.classList.add('active');
                 }
             });
+        });
+    }
+});
+
+// Hero Audio Toggle
+document.addEventListener("DOMContentLoaded", function() {
+    const video = document.getElementById("hero-bg-video");
+    const toggleBtn = document.getElementById("hero-audio-toggle");
+    
+    if (video && toggleBtn) {
+        const iconMuted = document.getElementById("audio-icon-muted");
+        const iconUnmuted = document.getElementById("audio-icon-unmuted");
+        
+        toggleBtn.addEventListener("click", function() {
+            if (video.muted) {
+                video.muted = false;
+                iconMuted.style.display = "none";
+                iconUnmuted.style.display = "block";
+            } else {
+                video.muted = true;
+                iconMuted.style.display = "block";
+                iconUnmuted.style.display = "none";
+            }
         });
     }
 });
