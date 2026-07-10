@@ -255,29 +255,36 @@
 
     <main>
         <!-- ======================== ABOUT HERO ======================== -->
-        <section id="hero" aria-label="About hero section"
-            style="min-height: 70vh; padding-top: 140px; padding-bottom: 60px; position: relative; background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <section id="hero" class="hero-section" style="position: relative; background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" aria-label="About hero section">
             <div style="position: absolute; inset: 0; background: rgba(3, 7, 18, 0.72); z-index: 0;"></div>
             <div class="hero-bg" style="position: absolute; inset: 0; z-index: 1;">
                 <div class="hero-mesh"></div>
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
+                <div class="orb orb-1" style="background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%); top: -10%; left: 10%;"></div>
             </div>
-            <div class="hero-content">
+            <div class="hero-content" style="position: relative; z-index: 2;">
                 <div class="container">
-                    <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="animate-fade-in-up">
-                        <div class="hero-badge" style="justify-content: center;">
-                            <span class="hero-badge-dot"></span>
-                            PURE ENGINEERING MASTERY
+                    <div class="hero-grid">
+                        <!-- Left: Text Content -->
+                        <div class="hero-text-col animate-fade-in-up">
+                            <div class="hero-badge" style="justify-content: flex-start;">
+                                <span class="hero-badge-dot" style="background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan)"></span>
+                                PURE ENGINEERING MASTERY
+                            </div>
+                            <h1 class="hero-title">About <span class="hero-title-accent">Pixon Technologies</span></h1>
+                            <p class="hero-sub">Middle East & Africa's premier LED Screen & AV Solutions Company.</p>
+                            <p class="hero-desc">Supplying, designing, installing, and servicing commercial displays with absolute mechanical and calibration expertise. We transform spaces through innovative display technology.</p>
+                            <div class="hero-actions">
+                                <a href="#about" class="btn btn-primary">Our Story</a>
+                                <a href="contact.html" class="btn btn-ghost">Contact Us</a>
+                            </div>
                         </div>
-                        <h1 class="hero-title" style="font-size: clamp(38px, 5vw, 64px); margin-bottom: 16px;">
-                            About <span class="hero-title-accent">Pixon Technologies</span>
-                        </h1>
-                        <p class="hero-sub" style="margin-bottom: 0; margin-left: auto; margin-right: auto;">
-                            Middle East & Africa's premier LED Screen & AV Solutions Company. Supplying, designing,
-                            installing, and servicing commercial displays with absolute mechanical and calibration
-                            expertise.
-                        </p>
+                        
+                        <!-- Right: Image -->
+                        <div class="hero-image-col animate-fade-in-up delay-2">
+                            <div class="hero-image-wrapper">
+                                <img src="assets/Regions Covered.jpg" alt="Pixon Technologies" class="hero-image" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

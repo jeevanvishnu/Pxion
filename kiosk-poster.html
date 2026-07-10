@@ -256,7 +256,8 @@
         <!-- ============================================================
              HERO SECTION - Product Banner
              ============================================================ -->
-        <section id="hero" class="hero-section" style="position: relative; background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" aria-label="Kiosk & Poster Screen Hero Section">
+        <section id="hero" aria-label="Hero Section"
+            style="min-height: 70vh; padding-top: 140px; padding-bottom: 60px; position: relative; background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div style="position: absolute; inset: 0; background: rgba(3, 7, 18, 0.72); z-index: 0;"></div>
             <div class="hero-bg" style="position: absolute; inset: 0; z-index: 1;">
                 <div class="hero-mesh"></div>
@@ -264,27 +265,23 @@
             </div>
             <div class="hero-content" style="position: relative; z-index: 2;">
                 <div class="container">
-                    <div class="hero-grid">
-                        <!-- Left: Text Content -->
-                        <div class="hero-text-col animate-fade-in-up">
-                            <div class="hero-badge" style="justify-content: flex-start;">
-                                <span class="hero-badge-dot" style="background: var(--secondary-blue); box-shadow: 0 0 8px var(--secondary-blue)"></span>
-                                LCD & KIOSK
-                            </div>
-                            <h1 class="hero-title">Kiosk & Poster Screen</h1>
-                            <p class="hero-sub">Stunning Visual Experiences for Indoor Spaces</p>
-                            <p class="hero-desc">Transform your retail stores, corporate offices, shopping malls, auditoriums, and event venues with high-resolution indoor LED display solutions. Designed for exceptional image quality, vibrant colors, and seamless performance.</p>
-                            <div class="hero-actions">
-                                <a href="#get-started" class="btn btn-primary">Get Consultation</a>
-                                <a href="#specs" class="btn btn-ghost">Learn More</a>
-                            </div>
+                    <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="animate-fade-in-up">
+                        <div class="hero-badge" style="justify-content: center;">
+                            <span class="hero-badge-dot" style="background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan)"></span>
+                            LCD & KIOSK
                         </div>
-                        
-                        <!-- Right: Product Image -->
-                        <div class="hero-image-col animate-fade-in-up delay-2">
-                            <div class="hero-image-wrapper">
-                                <img src="assets/kiosk-hero.jpg" alt="Kiosk & Poster Screen" class="hero-image" />
-                            </div>
+                        <h1 class="hero-title" style="font-size: clamp(38px, 5vw, 64px); margin-bottom: 16px;">
+                            Kiosk & Poster Screen
+                        </h1>
+                        <p class="hero-sub" style="margin-bottom: 20px; margin-left: auto; margin-right: auto;">
+                            Stunning Visual Experiences for Indoor Spaces
+                        </p>
+                        <p class="hero-desc" style="margin-left: auto; margin-right: auto; margin-bottom: 40px; max-width: 600px;">
+                            Transform your retail stores, corporate offices, shopping malls, auditoriums, and event venues with high-resolution indoor LED display solutions. Designed for exceptional image quality, vibrant colors, and seamless performance.
+                        </p>
+                        <div class="hero-actions" style="justify-content: center;">
+                            <a href="#get-started" class="btn btn-primary">Get Consultation</a>
+                            <a href="#features" class="btn btn-ghost">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -374,118 +371,11 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             SECTION 2: TECHNICAL SPECIFICATIONS
-             ============================================================ -->
-        <section class="section" id="specs">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-label">Specifications</div>
-                    <h2 class="section-title">Technical <span class="hero-title-accent">Specifications</span></h2>
-                    <p class="section-sub">Detailed specifications and technical details of Kiosk & Poster Screen</p>
-                </div>
-
-                <div class="specs-grid">
-                    <!-- Specs Column 1 -->
-                    <div class="specs-column reveal">
-                        <h3 class="specs-category-title">Display Specifications</h3>
-                        <ul class="specs-list">
-                            <li>
-                                <span class="specs-label">Resolution:</span>
-                                <span class="specs-value">1920 x 1080 to 4K Ultra HD</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Pixel Pitch:</span>
-                                <span class="specs-value">1.5mm - 10mm</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Brightness:</span>
-                                <span class="specs-value">1200 nits - 3000 nits</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Contrast Ratio:</span>
-                                <span class="specs-value">5000:1 - 10000:1</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Refresh Rate:</span>
-                                <span class="specs-value">60Hz - 240Hz</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Color Gamut:</span>
-                                <span class="specs-value">Full HD RGB - 16.7 Million Colors</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Specs Column 2 -->
-                    <div class="specs-column reveal reveal-delay-1">
-                        <h3 class="specs-category-title">Physical Specifications</h3>
-                        <ul class="specs-list">
-                            <li>
-                                <span class="specs-label">Panel Size:</span>
-                                <span class="specs-value">500mm x 500mm x 90mm</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Weight per Panel:</span>
-                                <span class="specs-value">8kg - 15kg</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Material:</span>
-                                <span class="specs-value">Aluminum Die-cast, SMD/COB LED</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Installation:</span>
-                                <span class="specs-value">Modular, Wall Mount, Magnetic</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Operating Temperature:</span>
-                                <span class="specs-value">0°C to 45°C</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Warranty:</span>
-                                <span class="specs-value">3 Years Standard</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Specs Column 3 -->
-                    <div class="specs-column reveal reveal-delay-2">
-                        <h3 class="specs-category-title">Power & Performance</h3>
-                        <ul class="specs-list">
-                            <li>
-                                <span class="specs-label">Power Consumption:</span>
-                                <span class="specs-value">400W - 600W per m²</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Input Interface:</span>
-                                <span class="specs-value">HDMI, DisplayPort, DVI, Ethernet</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Processing:</span>
-                                <span class="specs-value">Advanced LED Driver Technology</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Color Depth:</span>
-                                <span class="specs-value">16-bit (65,536 colors)</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Noise Level:</span>
-                                <span class="specs-value">Below 65dB</span>
-                            </li>
-                            <li>
-                                <span class="specs-label">Lifespan:</span>
-                                <span class="specs-value">100,000+ hours</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- ============================================================
              SECTION 3: APPLICATIONS & USE CASES
              ============================================================ -->
-        <section class="section light-section">
+        <section class="section">
             <div class="container">
                 <div class="section-header text-center">
                     <div class="section-label">Applications</div>
@@ -572,7 +462,7 @@
         <!-- ============================================================
              SECTION 4: GALLERY / IMAGE SHOWCASE
              ============================================================ -->
-        <section class="section gallery-section">
+        <section id="gallery" class="light-section section gallery-section">
             <div class="container">
                 <div class="section-header text-center">
                     <div class="section-label">Gallery</div>
