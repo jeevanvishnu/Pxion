@@ -1800,6 +1800,12 @@ button {
     }
 }
 
+@media (max-width: 1023px) {
+    .about-split-layout .about-visual-showcase {
+        order: -1;
+    }
+}
+
 /* Left Showcase Frame */
 .about-visual-showcase {
     position: relative;
@@ -7328,7 +7334,8 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
         gap: 12px;
     }
 
-    .cta-actions .btn {
+    .cta-actions .btn,
+    .cta-actions .cta-phone {
         width: 100%;
         justify-content: center;
     }
@@ -8765,11 +8772,12 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     border-radius: 24px;
     overflow: hidden;
     background: #0a0a0a;
+    display: grid;
 }
 
 .showcase-display-item {
-    position: absolute;
-    inset: 0;
+    grid-area: 1 / 1;
+    position: relative;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.6s ease, visibility 0.6s ease;

@@ -257,7 +257,7 @@
       <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
     </ul>
     <div class="mobile-menu-cta">
-      <a href="projects.html" class="btn btn-primary">Our Portfolio →</a>
+      <a href="contact.html" class="btn btn-primary">Our Portfolio</a>
     </div>
   </nav>
 
@@ -840,9 +840,25 @@
           .stats-premium-row::-webkit-scrollbar {
             display: none;
           }
+          .stats-premium-row {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            gap: 16px;
+            margin-bottom: 60px;
+            overflow-x: auto;
+            padding: 10px 16px 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+          @media (min-width: 1024px) {
+            .stats-premium-row {
+              justify-content: center;
+              padding: 10px 4px 20px;
+            }
+          }
         </style>
-        <div class="stats-premium-row reveal"
-          style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 16px; margin-bottom: 60px; overflow-x: auto; padding: 10px 4px 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+        <div class="stats-premium-row reveal">
           <!-- Card 1 -->
           <div
             style="background: #ffffff; border: 1.5px solid rgba(56, 198, 244, 0.3); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(8, 19, 53, 0.05), 0 8px 10px -6px rgba(8, 19, 53, 0.05); padding: 28px 16px; flex: 1 1 0px; min-width: 140px; max-width: 200px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-shrink: 0; flex-direction: column; justify-content: center; align-items: center;">
