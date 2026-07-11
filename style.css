@@ -9214,7 +9214,8 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
 .gallery-card-img-wrapper::after,
 .project-card-img-wrapper::after,
 .model-card-image-wrapper::after,
-.showcase-bg-wrapper::after {
+.showcase-bg-wrapper::after,
+.gallery-image::after {
     content: '';
     position: absolute;
     bottom: 20px;
@@ -9240,7 +9241,8 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
     .gallery-card-img-wrapper::after,
     .project-card-img-wrapper::after,
     .model-card-image-wrapper::after,
-    .showcase-bg-wrapper::after {
+    .showcase-bg-wrapper::after,
+    .gallery-image::after {
         width: 65px;
         height: 35px;
         bottom: 12px;
