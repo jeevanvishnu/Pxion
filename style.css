@@ -623,7 +623,7 @@ button {
     top: calc(100% + 20px);
     left: 50%;
     transform: translateX(-50%) translateY(15px);
-    width: 280px;
+    width: 340px;
     background: var(--surface-color);
     border-radius: 16px;
     box-shadow: var(--shadow-lg);
