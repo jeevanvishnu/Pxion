@@ -9202,3 +9202,46 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
         height: 20px;
     }
 }
+
+/* ============================================================
+   IMAGE LOGO WATERMARKS
+============================================================ */
+.service-img-wrapper::after,
+.about-showcase-frame::after,
+.product-img::after,
+.hero-image-wrapper::after,
+.gallery-card-img-wrapper::after,
+.project-card-img-wrapper::after,
+.model-card-image-wrapper::after,
+.showcase-bg-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 90px;
+    height: 45px;
+    background-image: url('assets/pixon-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    opacity: 0.9;
+    z-index: 20;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+}
+
+@media (max-width: 768px) {
+    .service-img-wrapper::after,
+    .about-showcase-frame::after,
+    .product-img::after,
+    .hero-image-wrapper::after,
+    .gallery-card-img-wrapper::after,
+    .project-card-img-wrapper::after,
+    .model-card-image-wrapper::after,
+    .showcase-bg-wrapper::after {
+        width: 65px;
+        height: 35px;
+        bottom: 12px;
+        right: 12px;
+    }
+}
