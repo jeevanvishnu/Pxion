@@ -201,16 +201,16 @@ button {
 ============================================================ */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 60px);
+    padding: 0 clamp(20px, 3.5vw, 48px);
 }
 
 .container-large {
     width: 100%;
-    max-width: 1536px;
+    max-width: 1760px;
     margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 60px);
+    padding: 0 clamp(20px, 3.5vw, 48px);
 }
 
 .section {
@@ -428,7 +428,7 @@ button {
 }
 
 #header .container {
-    max-width: 1200px;
+    max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     padding: 0 24px;
@@ -1543,7 +1543,7 @@ button {
     height: 1px;
     background: rgba(255, 255, 255, 0.1);
     margin: 0 auto 32px;
-    max-width: 1200px;
+    max-width: 1440px;
 }
 
 .marquee-container {
