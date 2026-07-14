@@ -9249,3 +9249,54 @@ footer a:not(.social-btn):not(.footer-logo-link):hover,
         right: 12px;
     }
 }
+
+
+/* ============================================================
+   WHATSAPP FLOAT
+============================================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 96px; /* Positioned above the scroll-top button */
+    right: 32px;
+    z-index: 500;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #25D366; /* WhatsApp brand color */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    color: #ffffff;
+}
+
+.whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 80px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+    
+    .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+    }
+}
