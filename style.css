@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    CSS CUSTOM PROPERTIES
 ============================================================ */
 :root {
@@ -9928,7 +9928,7 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
 }
 
 /* ======================== PARALLELOGRAM GALLERY ======================== */
-.parallelogram-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; max-width: 1400px; margin-left: auto; margin-right: auto; }
+.parallelogram-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 80px 15px; margin-bottom: 20px; max-width: 1400px; margin-left: auto; margin-right: auto; }
 
 .pg-item {
     width: calc(25% - 15px);
@@ -9937,7 +9937,7 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
     cursor: pointer;
     overflow: hidden;
     transition: transform 0.3s ease, filter 0.3s ease;
-    border-radius: 12px;
+    border-radius: 0;
     /* Slight rounding for elegance, though clip-path overwrites it mostly */
 }
 
@@ -10033,4 +10033,5 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
 
     }
 }
+
 
