@@ -208,18 +208,6 @@
             border: 2px solid #05082D;
         }
 
-        /* Connecting Lines for Grid */
-        .arch-grid::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            right: 5%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.3), transparent);
-            z-index: 1;
-            transform: translateY(-50%);
-        }
 
         /* Product Showcase */
         .showcase-grid {
@@ -433,10 +421,7 @@
             }
             .arch-grid, .features-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .arch-grid::before {
-                display: none;
-            }
+
         }
 
         @media (max-width: 768px) {
@@ -744,14 +729,10 @@
                 <div class="container">
                     <div style="max-width: 850px; margin: 0 auto; text-align: center;" class="animate-fade-in-up">
                         <h1 class="hero-title"
-                            style="font-size: clamp(32px, 4.5vw, 48px); margin-bottom: 20px; line-height: 1.1; text-transform: uppercase;">
+                            style="font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 16px;">
                             Retail Display Solutions
                         </h1>
-                        <p class="hero-sub"
-                            style="margin-bottom: 36px; max-width: 720px; margin-left: auto; margin-right: auto; font-size: 20px;">
-                            Next-Gen Retail Digitalization & Pricing Displays
-                        </p>
-                        <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 16px; max-width: 760px; margin-left: auto; margin-right: auto;">
+                        <p class="hero-sub" style="margin-bottom: 36px; max-width: 720px; margin-left: auto; margin-right: auto;">
                             Transform traditional brick-and-mortar stores into connected, data-driven smart retail environments. Eliminate manual labeling, execute promotions instantly, and synchronize global chain pricing with our centralized IoT platform.
                         </p>
                     </div>
@@ -925,15 +906,7 @@
                             <h3 class="product-name" style="font-size: 18px; margin-bottom: 10px;">Smart Retail Terminal</h3>
                         </div>
                     </div>
-                    <div class="product-card reveal">
-                        <div class="product-visual" style="height: 250px; background: transparent; padding: 20px;">
-                            <img src="assetss/Retails/imgi_72_68afbe8f53a50.jpg" alt="Retail Display Model 9" style="max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 8px;">
-                        </div>
-                        <div class="product-content" style="padding: 20px;">
-                            <div class="product-type" style="font-size: 12px; color: #00D9FF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Display Series</div>
-                            <h3 class="product-name" style="font-size: 18px; margin-bottom: 10px;">Smart Retail Terminal</h3>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
