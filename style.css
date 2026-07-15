@@ -10035,3 +10035,61 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
 }
 
 
+
+/* ============================================================ */
+/* CTA BUTTONS */
+/* ============================================================ */
+.cta-btn-solid {
+    background: #ffffff;
+    color: var(--navy);
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid transparent;
+}
+.cta-btn-solid:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    background: #f8fafc;
+    color: var(--accent-blue);
+}
+.cta-btn-solid svg {
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+.cta-btn-solid:hover svg {
+    transform: translateX(5px);
+}
+.cta-btn-outline {
+    background: transparent;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+}
+.cta-btn-outline:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.cta-btn-outline svg {
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+.cta-btn-outline:hover svg {
+    transform: translateX(5px);
+}
+
