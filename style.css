@@ -9185,23 +9185,27 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
 }
 
 /* Fix for hover issue caused by !important rules earlier in the file */
-.light-section .why-card .why-icon {
+.light-section .why-card .why-icon,
+.light-section .industry-card .industry-icon {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
 
-.light-section .why-card:hover .why-icon {
+.light-section .why-card:hover .why-icon,
+.light-section .industry-card:hover .industry-icon {
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
 }
 
-.light-section .why-card .why-icon svg {
+.light-section .why-card .why-icon svg,
+.light-section .industry-card .industry-icon svg {
     color: var(--blue-accent) !important;
 }
 
-.light-section .why-card:hover .why-icon svg {
+.light-section .why-card:hover .why-icon svg,
+.light-section .industry-card:hover .industry-icon svg {
     color: var(--blue-accent) !important;
 }
 
