@@ -561,6 +561,7 @@
                     videoEl.src = mediaSrc;
                     videoEl.controls = true;
                     videoEl.autoplay = true;
+                    videoEl.muted = true;
                     container.appendChild(videoEl);
                 } else if (type === 'image') {
                     const imgEl = document.createElement('img');
