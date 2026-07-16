@@ -19,14 +19,14 @@
     --accent-cyan: #00D9FF;
     /* Bright Cyan accent    */
     --accent-blue: #00D9FF;
-    /* Alias â†’ same cyan     */
+    /* Alias → same cyan     */
     --blue-accent: #00D9FF;
-    /* Alias â†’ same cyan     */
+    /* Alias → same cyan     */
     --bg: #05082D;
     /* Dark Background       */
     --white: #FFFFFF;
 
-    /* â”€â”€â”€ Accent Colors (used for feature dots) â”€â”€â”€ */
+    /* --- Accent Colors (used for feature dots) --- */
     --orange: #F97316;
     /* Warm orange           */
     --yellow: #EAB308;
@@ -3436,7 +3436,7 @@ footer::before {
 }
 
 .footer-link::before {
-    content: 'â†’';
+    content: '→';
     font-size: 12px;
     opacity: 0;
     width: 0;
