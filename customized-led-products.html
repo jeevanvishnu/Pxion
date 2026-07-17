@@ -1509,6 +1509,60 @@
         </svg>
     </button>
     <script defer="" src="script.js"></script>
+
+    <!-- Watermark Script -->
+    <style>
+        .watermark-wrapper {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .watermark-wrapper .watermark-logo {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 80px;
+            height: auto;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 10;
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+            transition: opacity 0.3s ease;
+        }
+        .watermark-wrapper:hover .watermark-logo {
+            opacity: 0.85;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select all images inside image-grid sections (product images only)
+            const grids = document.querySelectorAll('.image-grid');
+            grids.forEach(function (grid) {
+                const imgs = grid.querySelectorAll('img');
+                imgs.forEach(function (img) {
+                    // Avoid double-wrapping
+                    if (img.parentElement.classList.contains('watermark-wrapper')) return;
+
+                    // Create wrapper
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'watermark-wrapper';
+                    wrapper.style.cssText = 'position:relative;display:block;width:100%;height:100%;';
+
+                    // Insert wrapper before img and move img inside
+                    img.parentNode.insertBefore(wrapper, img);
+                    wrapper.appendChild(img);
+
+                    // Create watermark logo
+                    const wm = document.createElement('img');
+                    wm.src = 'assets/pixon-logo.png';
+                    wm.alt = 'PIXON TECHNOLOGIES';
+                    wm.className = 'watermark-logo';
+                    wrapper.appendChild(wm);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
