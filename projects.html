@@ -1,532 +1,784 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Featured Projects — Explore PIXON TECHNOLOGIES's premier display installations, executive boardrooms, retail video walls, and customized kinetic displays across the Middle East &amp; Africa." name="description"/>
-<meta content="PIXON TECHNOLOGIES projects, display installation Dubai, video wall Riyadh, smart screens Middle East &amp; Africa, commercial displays Middle East &amp; Africa" name="keywords"/>
-<meta content="PIXON TECHNOLOGIES" name="author"/>
-<title>Display Projects — PIXON TECHNOLOGIES | LED &amp; AV Project Portfolio</title>
-<link href="assets/pixon-logo.png" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=2" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+        content="Featured Projects — Explore PIXON TECHNOLOGIES's premier display installations, executive boardrooms, retail video walls, and customized kinetic displays across the Middle East &amp; Africa."
+        name="description" />
+    <meta
+        content="PIXON TECHNOLOGIES projects, display installation Dubai, video wall Riyadh, smart screens Middle East &amp; Africa, commercial displays Middle East &amp; Africa"
+        name="keywords" />
+    <meta content="PIXON TECHNOLOGIES" name="author" />
+    <title>Display Projects — PIXON TECHNOLOGIES | LED &amp; AV Project Portfolio</title>
+    <link href="assets/pixon-logo.png" rel="icon" type="image/png" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="style.css?v=2" rel="stylesheet" />
 
-<style>
-/* Bento CSS Override */
-.bento-overlay {
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 60%;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
-.bento-title {
-    position: absolute;
-    bottom: 20px;
-    left: 24px;
-    color: #ffffff !important;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-    z-index: 2;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-}
-</style>
+    <style>
+        /* Bento CSS Override */
+        .bento-overlay {
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bento-title {
+            position: absolute;
+            bottom: 20px;
+            left: 24px;
+            color: #ffffff !important;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Portfolio CSS Redesign */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--surface-color, #0D145A);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4 / 3;
+        }
+
+        .portfolio-card::after {
+            content: "";
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 20%;
+            height: 20%;
+            background-image: url('assets/pixon-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            opacity: 0.5;
+            filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.8)) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.4));
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 217, 255, 0.15);
+        }
+
+        .portfolio-content {
+            width: 100%;
+            height: 100%;
+        }
+
+        .portfolio-card img,
+        .portfolio-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover img,
+        .portfolio-card:hover video {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(4, 11, 79, 0.95) 0%, rgba(4, 11, 79, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* Keep the gallery play icon style inside the portfolio card */
+        .portfolio-card .gallery-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 64px;
+            height: 64px;
+            background: rgba(10, 61, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .portfolio-card:hover .gallery-play-icon {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .gallery-play-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            margin-left: 4px;
+        }
+    </style>
 </head>
+
 <body>
-<!-- Header -->
-<header id="header" role="banner">
-<div class="container">
-<div class="header-inner">
-<a aria-label="PIXON TECHNOLOGIES Home" class="logo" href="index.html">
-<img alt="PIXON TECHNOLOGIES Logo" class="logo-img" src="assets/pixon-logo.png"/>
-</a>
-<nav aria-label="Main navigation" role="navigation">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="about.html">About Us</a>
-<div class="nav-item-dropdown">
-<a class="nav-link dropdown-toggle" href="solutions.html">Services</a>
-<div class="simple-dropdown">
-<ul>
-<li><a href="installation.html">Installation &amp; Configuration</a></li>
-<li><a href="indoor.html">Indoor LED Screen</a></li>
-<li><a href="outdoor.html">Outdoor LED Screen</a></li>
-<li><a href="rental.html">Rental LED Screen</a></li>
-<li><a href="av-solutions.html">AV Solutions</a></li>
-<li><a href="retail-display.html">Retail Display Solution</a></li>
-<li><a href="customized-led-screens.html">Customized LED Screens</a></li>
-<li><a href="immersive-projection.html">Immersive Projection</a></li>
-<li><a href="content-creation.html">Content Creation</a></li>
-</ul>
-</div>
-</div>
-<div class="nav-item-dropdown">
-<a class="nav-link dropdown-toggle" href="products.html">Products</a>
-<div class="mega-menu">
-<div class="mega-menu-grid">
-<!-- Indoor Products -->
-<div class="mega-column">
-<h4 class="mega-title">Indoor Products</h4>
-<ul class="mega-list">
-<li><a href="indoor-led-screen.html">Indoor LED Screen</a></li>
-<li><a href="oled-series.html">OLED Series</a></li>
-<li><a href="indoor-cob.html">Indoor COB (Chip-On-Board) <span class="badge-hot">HOT</span></a></li>
-</ul>
-</div>
-<!-- Outdoor Products -->
-<div class="mega-column">
-<h4 class="mega-title">Outdoor Products</h4>
-<ul class="mega-list">
-<li><a href="outdoor-led-screen.html">Outdoor LED Screen</a></li>
-<li><a href="outdoor-mesh-screen.html">Outdoor Mesh Screen</a></li>
-</ul>
-</div>
-<!-- Innovative LED Screens -->
-<div class="mega-column">
-<h4 class="mega-title">Innovative LED Screens</h4>
-<ul class="mega-list">
-<li><a href="smart-classroom-led.html">Smart Classroom LED System</a></li>
-<li><a href="interactive-conference-led.html">Interactive Conference
+    <!-- Header -->
+    <header id="header" role="banner">
+        <div class="container">
+            <div class="header-inner">
+                <a aria-label="PIXON TECHNOLOGIES Home" class="logo" href="index.html">
+                    <img alt="PIXON TECHNOLOGIES Logo" class="logo-img" src="assets/pixon-logo.png" />
+                </a>
+                <nav aria-label="Main navigation" role="navigation">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="about.html">About Us</a>
+                    <div class="nav-item-dropdown">
+                        <a class="nav-link dropdown-toggle" href="solutions.html">Services</a>
+                        <div class="simple-dropdown">
+                            <ul>
+                                <li><a href="installation.html">Installation &amp; Configuration</a></li>
+                                <li><a href="indoor.html">Indoor LED Screen</a></li>
+                                <li><a href="outdoor.html">Outdoor LED Screen</a></li>
+                                <li><a href="rental.html">Rental LED Screen</a></li>
+                                <li><a href="av-solutions.html">AV Solutions</a></li>
+                                <li><a href="retail-display.html">Retail Display Solution</a></li>
+                                <li><a href="customized-led-screens.html">Customized LED Screens</a></li>
+                                <li><a href="immersive-projection.html">Immersive Projection</a></li>
+                                <li><a href="content-creation.html">Content Creation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nav-item-dropdown">
+                        <a class="nav-link dropdown-toggle" href="products.html">Products</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Indoor Products -->
+                                <div class="mega-column">
+                                    <h4 class="mega-title">Indoor Products</h4>
+                                    <ul class="mega-list">
+                                        <li><a href="indoor-led-screen.html">Indoor LED Screen</a></li>
+                                        <li><a href="oled-series.html">OLED Series</a></li>
+                                        <li><a href="indoor-cob.html">Indoor COB (Chip-On-Board) <span
+                                                    class="badge-hot">HOT</span></a></li>
+                                    </ul>
+                                </div>
+                                <!-- Outdoor Products -->
+                                <div class="mega-column">
+                                    <h4 class="mega-title">Outdoor Products</h4>
+                                    <ul class="mega-list">
+                                        <li><a href="outdoor-led-screen.html">Outdoor LED Screen</a></li>
+                                        <li><a href="outdoor-mesh-screen.html">Outdoor Mesh Screen</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Innovative LED Screens -->
+                                <div class="mega-column">
+                                    <h4 class="mega-title">Innovative LED Screens</h4>
+                                    <ul class="mega-list">
+                                        <li><a href="smart-classroom-led.html">Smart Classroom LED System</a></li>
+                                        <li><a href="interactive-conference-led.html">Interactive Conference
                                                 LED</a></li>
-<li><a href="kinetic-led-screen.html">Kinetic LED Screen <span class="badge-hot">HOT</span></a></li>
+                                        <li><a href="kinetic-led-screen.html">Kinetic LED Screen <span
+                                                    class="badge-hot">HOT</span></a></li>
 
-<li><a href="glass-transparent-display-solutions.html">Glass Transparent Display Solutions</a>
-</li>
-<li><a href="transparent-film-led.html">Transparent LED Screen</a>
-</li>
-<li><a href="customized-led-products.html">Customized LED Screens</a></li>
-</ul>
-</div>
-<!-- LCD & Kiosk -->
-<div class="mega-column">
-<h4 class="mega-title">LCD &amp; Kiosk</h4>
-<ul class="mega-list">
-<li><a href="kiosk-poster.html">Kiosk &amp; Poster Screen <span class="badge-hot">HOT</span></a></li>
-</ul>
-</div>
-<!-- Right Promo Card -->
-<div class="mega-promo-card">
-<div class="promo-content">
-<div class="promo-logo">
-<svg fill="none" height="40" viewbox="0 0 100 100" width="40" xmlns="http://www.w3.org/2000/svg">
-<path d="M48 50C48 50 15 45 15 25C15 10 35 15 45 35C48 40 48 50 48 50Z" fill="url(#left-wing-grad)"></path>
-<path d="M48 50C48 50 15 55 15 75C15 90 35 85 45 65C48 60 48 50 48 50Z" fill="url(#left-wing-grad)"></path>
-<path d="M52 50C52 50 85 45 85 25C85 10 65 15 55 35C52 40 52 50 52 50Z" fill="url(#right-wing-grad)"></path>
-<path d="M52 50C52 50 85 55 85 75C85 90 65 85 55 65C52 60 52 50 52 50Z" fill="url(#right-wing-grad)"></path>
-<defs>
-<lineargradient gradientunits="userSpaceOnUse" id="left-wing-grad" x1="15" x2="48" y1="20" y2="80">
-<stop offset="0%" stop-color="#FF5722"></stop>
-<stop offset="100%" stop-color="#FFC107"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="right-wing-grad" x1="52" x2="85" y1="20" y2="80">
-<stop offset="0%" stop-color="#2196F3"></stop>
-<stop offset="100%" stop-color="#00BCD4"></stop>
-</lineargradient>
-</defs>
-</svg>
-</div>
-<h3 class="promo-heading">Need help to choose the right LED Solution? Feel free
+                                        <li><a href="glass-transparent-display-solutions.html">Glass Transparent Display
+                                                Solutions</a>
+                                        </li>
+                                        <li><a href="transparent-film-led.html">Transparent LED Screen</a>
+                                        </li>
+                                        <li><a href="customized-led-products.html">Customized LED Screens</a></li>
+                                    </ul>
+                                </div>
+                                <!-- LCD & Kiosk -->
+                                <div class="mega-column">
+                                    <h4 class="mega-title">LCD &amp; Kiosk</h4>
+                                    <ul class="mega-list">
+                                        <li><a href="kiosk-poster.html">Kiosk &amp; Poster Screen <span
+                                                    class="badge-hot">HOT</span></a></li>
+                                    </ul>
+                                </div>
+                                <!-- Right Promo Card -->
+                                <div class="mega-promo-card">
+                                    <div class="promo-content">
+                                        <div class="promo-logo">
+                                            <svg fill="none" height="40" viewbox="0 0 100 100" width="40"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M48 50C48 50 15 45 15 25C15 10 35 15 45 35C48 40 48 50 48 50Z"
+                                                    fill="url(#left-wing-grad)"></path>
+                                                <path d="M48 50C48 50 15 55 15 75C15 90 35 85 45 65C48 60 48 50 48 50Z"
+                                                    fill="url(#left-wing-grad)"></path>
+                                                <path d="M52 50C52 50 85 45 85 25C85 10 65 15 55 35C52 40 52 50 52 50Z"
+                                                    fill="url(#right-wing-grad)"></path>
+                                                <path d="M52 50C52 50 85 55 85 75C85 90 65 85 55 65C52 60 52 50 52 50Z"
+                                                    fill="url(#right-wing-grad)"></path>
+                                                <defs>
+                                                    <lineargradient gradientunits="userSpaceOnUse" id="left-wing-grad"
+                                                        x1="15" x2="48" y1="20" y2="80">
+                                                        <stop offset="0%" stop-color="#FF5722"></stop>
+                                                        <stop offset="100%" stop-color="#FFC107"></stop>
+                                                    </lineargradient>
+                                                    <lineargradient gradientunits="userSpaceOnUse" id="right-wing-grad"
+                                                        x1="52" x2="85" y1="20" y2="80">
+                                                        <stop offset="0%" stop-color="#2196F3"></stop>
+                                                        <stop offset="100%" stop-color="#00BCD4"></stop>
+                                                    </lineargradient>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <h3 class="promo-heading">Need help to choose the right LED Solution? Feel free
                                             contact us</h3>
-<div class="promo-arrow">
-<svg fill="none" height="50" viewbox="0 0 100 70" width="70" xmlns="http://www.w3.org/2000/svg">
-<path d="M10,10 C45,-10 65,40 35,50 C20,55 30,35 60,15 C70,10 85,25 70,45" fill="none" stroke="rgba(255,255,255,0.7)" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M60,40 L70,45 L75,35" fill="none" stroke="rgba(255,255,255,0.7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-</svg>
-</div>
-<a class="btn-promo-cta" href="contact.html">
-<span class="promo-cta-circle">
-<svg fill="none" height="12" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24" width="12">
-<line x1="5" x2="19" y1="12" y2="12"></line>
-<polyline points="12 5 19 12 12 19"></polyline>
-</svg>
-</span>
-<span class="promo-cta-text">Get in touch</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<a class="nav-link active" href="projects.html">Projects</a>
-<a class="nav-link" href="contact.html">Contact</a>
-</nav>
-<div class="header-cta">
-<a aria-label="Our Portfolio" class="btn header-cta" href="contact.html">Our Portfolio</a>
-</div>
-<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle mobile menu" class="hamburger">
-<span></span><span></span><span></span>
-</button>
-</div>
-</div>
-</header>
-<!-- Mobile Menu -->
-<nav aria-label="Mobile navigation" id="mobile-menu" role="navigation">
-<ul class="mobile-nav">
-<li><a class="mobile-nav-link" href="index.html">Home</a></li>
-<li><a class="mobile-nav-link" href="about.html">About Us</a></li>
-<li class="mobile-nav-item-dropdown">
-<button aria-expanded="false" class="mobile-nav-link mobile-dropdown-toggle">
+                                        <div class="promo-arrow">
+                                            <svg fill="none" height="50" viewbox="0 0 100 70" width="70"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10,10 C45,-10 65,40 35,50 C20,55 30,35 60,15 C70,10 85,25 70,45"
+                                                    fill="none" stroke="rgba(255,255,255,0.7)" stroke-linecap="round"
+                                                    stroke-width="2.5"></path>
+                                                <path d="M60,40 L70,45 L75,35" fill="none"
+                                                    stroke="rgba(255,255,255,0.7)" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2.5"></path>
+                                            </svg>
+                                        </div>
+                                        <a class="btn-promo-cta" href="contact.html">
+                                            <span class="promo-cta-circle">
+                                                <svg fill="none" height="12" stroke="currentColor" stroke-width="3"
+                                                    viewbox="0 0 24 24" width="12">
+                                                    <line x1="5" x2="19" y1="12" y2="12"></line>
+                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                </svg>
+                                            </span>
+                                            <span class="promo-cta-text">Get in touch</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-link active" href="projects.html">Projects</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </nav>
+                <div class="header-cta">
+                    <a aria-label="Our Portfolio" class="btn header-cta" href="contact.html">Our Portfolio</a>
+                </div>
+                <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle mobile menu"
+                    class="hamburger">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Menu -->
+    <nav aria-label="Mobile navigation" id="mobile-menu" role="navigation">
+        <ul class="mobile-nav">
+            <li><a class="mobile-nav-link" href="index.html">Home</a></li>
+            <li><a class="mobile-nav-link" href="about.html">About Us</a></li>
+            <li class="mobile-nav-item-dropdown">
+                <button aria-expanded="false" class="mobile-nav-link mobile-dropdown-toggle">
                     Services
-                    <svg class="dropdown-chevron" fill="none" height="12" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24" width="12">
-<polyline points="6 9 12 15 18 9"></polyline>
-</svg>
-</button>
-<ul class="mobile-submenu">
-<li><a class="mobile-submenu-link" href="installation.html">Installation &amp; Configuration</a></li>
-<li><a class="mobile-submenu-link" href="indoor.html">Indoor LED Screen</a></li>
-<li><a class="mobile-submenu-link" href="outdoor.html">Outdoor LED Screen</a></li>
-<li><a class="mobile-submenu-link" href="rental.html">Rental LED Screen</a></li>
-<li><a class="mobile-submenu-link" href="av-solutions.html">AV Solutions</a></li>
-<li><a class="mobile-submenu-link" href="retail-display.html">Retail Display Solution</a></li>
-<li><a class="mobile-submenu-link" href="customized-led-screens.html">Customized LED Screens</a>
-</li>
-<li><a class="mobile-submenu-link" href="immersive-projection.html">Immersive Projection</a></li>
-<li><a class="mobile-submenu-link" href="content-creation.html">Content Creation</a></li>
-</ul>
-</li>
-<li class="mobile-nav-item-dropdown">
-<button aria-expanded="false" class="mobile-nav-link mobile-dropdown-toggle">
+                    <svg class="dropdown-chevron" fill="none" height="12" stroke="currentColor" stroke-width="3"
+                        viewbox="0 0 24 24" width="12">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a class="mobile-submenu-link" href="installation.html">Installation &amp; Configuration</a>
+                    </li>
+                    <li><a class="mobile-submenu-link" href="indoor.html">Indoor LED Screen</a></li>
+                    <li><a class="mobile-submenu-link" href="outdoor.html">Outdoor LED Screen</a></li>
+                    <li><a class="mobile-submenu-link" href="rental.html">Rental LED Screen</a></li>
+                    <li><a class="mobile-submenu-link" href="av-solutions.html">AV Solutions</a></li>
+                    <li><a class="mobile-submenu-link" href="retail-display.html">Retail Display Solution</a></li>
+                    <li><a class="mobile-submenu-link" href="customized-led-screens.html">Customized LED Screens</a>
+                    </li>
+                    <li><a class="mobile-submenu-link" href="immersive-projection.html">Immersive Projection</a></li>
+                    <li><a class="mobile-submenu-link" href="content-creation.html">Content Creation</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item-dropdown">
+                <button aria-expanded="false" class="mobile-nav-link mobile-dropdown-toggle">
                     Products
-                    <svg class="dropdown-chevron" fill="none" height="12" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24" width="12">
-<polyline points="6 9 12 15 18 9"></polyline>
-</svg>
-</button>
-<ul class="mobile-submenu">
-<li class="mobile-submenu-group">
-<span class="mobile-submenu-title">Indoor Products</span>
-<ul>
-<li><a class="mobile-submenu-link" href="indoor-led-screen.html">Indoor LED Screen</a>
-</li>
-<li><a class="mobile-submenu-link" href="oled-series.html">OLED Series</a></li>
-<li><a class="mobile-submenu-link" href="indoor-cob.html">Indoor COB
+                    <svg class="dropdown-chevron" fill="none" height="12" stroke="currentColor" stroke-width="3"
+                        viewbox="0 0 24 24" width="12">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-group">
+                        <span class="mobile-submenu-title">Indoor Products</span>
+                        <ul>
+                            <li><a class="mobile-submenu-link" href="indoor-led-screen.html">Indoor LED Screen</a>
+                            </li>
+                            <li><a class="mobile-submenu-link" href="oled-series.html">OLED Series</a></li>
+                            <li><a class="mobile-submenu-link" href="indoor-cob.html">Indoor COB
                                     (Chip-On-Board) <span class="badge-hot">HOT</span></a></li>
-</ul>
-</li>
-<li class="mobile-submenu-group">
-<span class="mobile-submenu-title">Outdoor Products</span>
-<ul>
-<li><a class="mobile-submenu-link" href="outdoor-led-screen.html">Outdoor LED Screen</a>
-</li>
-<li><a class="mobile-submenu-link" href="outdoor-mesh-screen.html">Outdoor Mesh Screen</a>
-</li>
-<li><a class="mobile-submenu-link" href="outdoor-flexible-led.html">Outdoor Flexible
+                        </ul>
+                    </li>
+                    <li class="mobile-submenu-group">
+                        <span class="mobile-submenu-title">Outdoor Products</span>
+                        <ul>
+                            <li><a class="mobile-submenu-link" href="outdoor-led-screen.html">Outdoor LED Screen</a>
+                            </li>
+                            <li><a class="mobile-submenu-link" href="outdoor-mesh-screen.html">Outdoor Mesh Screen</a>
+                            </li>
+                            <li><a class="mobile-submenu-link" href="outdoor-flexible-led.html">Outdoor Flexible
                                     LED</a></li>
-</ul>
-</li>
-<li class="mobile-submenu-group">
-<span class="mobile-submenu-title">Innovative LED Screens</span>
-<ul>
-<li><a class="mobile-submenu-link" href="smart-classroom-led.html">Smart Classroom LED
+                        </ul>
+                    </li>
+                    <li class="mobile-submenu-group">
+                        <span class="mobile-submenu-title">Innovative LED Screens</span>
+                        <ul>
+                            <li><a class="mobile-submenu-link" href="smart-classroom-led.html">Smart Classroom LED
                                     System</a></li>
-<li><a class="mobile-submenu-link" href="interactive-conference-led.html">Interactive
+                            <li><a class="mobile-submenu-link" href="interactive-conference-led.html">Interactive
                                     Conference LED</a></li>
-<li><a class="mobile-submenu-link" href="kinetic-led-screen.html">Kinetic LED Screen <span class="badge-hot">HOT</span></a></li>
+                            <li><a class="mobile-submenu-link" href="kinetic-led-screen.html">Kinetic LED Screen <span
+                                        class="badge-hot">HOT</span></a></li>
 
-<li><a class="mobile-submenu-link" href="glass-transparent-display-solutions.html">Glass Transparent Display Solutions</a></li>
-<li><a class="mobile-submenu-link" href="transparent-film-led.html">Transparent Film
+                            <li><a class="mobile-submenu-link" href="glass-transparent-display-solutions.html">Glass
+                                    Transparent Display Solutions</a></li>
+                            <li><a class="mobile-submenu-link" href="transparent-film-led.html">Transparent Film
                                     LED</a></li>
-</ul>
-</li>
-<li class="mobile-submenu-group">
-<span class="mobile-submenu-title">LCD &amp; Kiosk</span>
-<ul>
-<li><a class="mobile-submenu-link" href="kiosk-poster.html">Kiosk &amp; Poster Screen
+                        </ul>
+                    </li>
+                    <li class="mobile-submenu-group">
+                        <span class="mobile-submenu-title">LCD &amp; Kiosk</span>
+                        <ul>
+                            <li><a class="mobile-submenu-link" href="kiosk-poster.html">Kiosk &amp; Poster Screen
                                     <span class="badge-hot">HOT</span></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="mobile-nav-link active" href="projects.html">Projects</a></li>
-<li><a class="mobile-nav-link" href="contact.html">Contact Us</a></li>
-</ul>
-<div class="mobile-menu-cta">
-<a class="btn btn-primary" href="contact.html">Our Portfolio</a>
-</div>
-</nav>
-<main>
-<!-- ======================== GALLERY HERO ======================== -->
-<section class="gallery-hero" style="background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,20,0.8) 0%, rgba(4,11,79,0.9) 100%); z-index: 0;">
-</div>
-<div class="container" style="position: relative; z-index: 2;">
-<h1 class="gallery-hero-title animate-fade-in-up" style="font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 16px;">Project Portfolio</h1>
-<p class="gallery-hero-sub animate-fade-in-up" style="animation-delay: 0.1s;">Explore our extensive
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a class="mobile-nav-link active" href="projects.html">Projects</a></li>
+            <li><a class="mobile-nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a class="btn btn-primary" href="contact.html">Our Portfolio</a>
+        </div>
+    </nav>
+    <main>
+        <!-- ======================== GALLERY HERO ======================== -->
+        <section class="gallery-hero"
+            style="background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div
+                style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,20,0.8) 0%, rgba(4,11,79,0.9) 100%); z-index: 0;">
+            </div>
+            <div class="container" style="position: relative; z-index: 2;">
+                <h1 class="gallery-hero-title animate-fade-in-up"
+                    style="font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 16px;">Project Portfolio</h1>
+                <p class="gallery-hero-sub animate-fade-in-up" style="animation-delay: 0.1s;">Explore our extensive
                     gallery of premium LED and AV integrations across commercial, retail, and transit environments.</p>
-</div>
-</section>
-<!-- ======================== 3D CAROUSEL ======================== -->
-<!-- ======================== PARALLELOGRAM GALLERY ======================== -->
-<section class="gallery-section" style="background-color: #ffffff;">
-<div class="container" style="max-width: 1400px; padding: 40px 20px;">
-<h2 class="gallery-title" style="display: block; position: relative; z-index: 10; opacity: 1; visibility: visible; text-align: center; margin: 80px 0 40px; font-size: 2rem; color: #000000 !important; font-weight: 700;">
+            </div>
+        </section>
+        <!-- ======================== 3D CAROUSEL ======================== -->
+        <!-- ======================== PARALLELOGRAM GALLERY ======================== -->
+        <section class="gallery-section" style="background-color: #ffffff;">
+            <div class="container" style="max-width: 1400px; padding: 40px 20px;">
+                <h2 class="gallery-title"
+                    style="display: block; position: relative; z-index: 10; opacity: 1; visibility: visible; text-align: center; margin: 80px 0 40px; font-size: 2rem; color: #000000 !important; font-weight: 700;">
                     Indoor LED Projects</h2>
-<div class="parallelogram-gallery">
-<div class="pg-item" onclick="openLightbox('assetss/projects/4-Blue Aura/WhatsApp Video 2026-07-14 at 7.45.03 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/4-Blue Aura/WhatsApp Video 2026-07-14 at 7.45.03 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/adidas showroom/WhatsApp Video 2026-07-14 at 7.43.42 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/adidas showroom/WhatsApp Video 2026-07-14 at 7.43.42 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.06 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.06 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.07 AM (1).jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.07 AM (1).jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.08 AM (1).jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.08 AM (1).jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.53 AM (1).jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.53 AM (1).jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.54 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.54 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.55 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.55 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.15 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.15 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.17 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.17 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.19 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.19 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.20 AM (1).jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.20 AM (1).jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.06 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.06 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.14 AM (1).mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.14 AM (1).mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.15 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.15 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.16 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.16 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="gallery-section">
-<div class="container" style="max-width: 1400px; padding: 40px 20px;">
-<h2 class="gallery-title" style="text-align: center; margin: 0 0 40px; font-size: 2rem; color: #040b4f; font-weight: 700;">
+                <div class="portfolio-grid">
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/4-Blue Aura/WhatsApp Video 2026-07-14 at 7.45.03 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/4-Blue Aura/WhatsApp Video 2026-07-14 at 7.45.03 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/adidas showroom/WhatsApp Video 2026-07-14 at 7.43.42 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/adidas showroom/WhatsApp Video 2026-07-14 at 7.43.42 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.06 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.06 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.07 AM (1).jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.07 AM (1).jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.08 AM (1).jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.08 AM (1).jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.53 AM (1).jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.53 AM (1).jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.54 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.54 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.45.55 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.45.55 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.15 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.15 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.17 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.17 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.19 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.19 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.20 AM (1).jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.20 AM (1).jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.06 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.06 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.14 AM (1).mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.14 AM (1).mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.15 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.15 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.16 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.16 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 1.01.41 PM (1).mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 1.01.41 PM (1).mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 12.58.25 PM (2).mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 12.58.25 PM (2).mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="gallery-section">
+            <div class="container" style="max-width: 1400px; padding: 40px 20px;">
+                <h2 class="gallery-title"
+                    style="text-align: center; margin: 0 0 40px; font-size: 2rem; color: #040b4f; font-weight: 700;">
                     Outdoor LED Projects</h2>
-<div class="parallelogram-gallery">
-<div class="pg-item" onclick="openLightbox('assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Image 2026-07-14 at 7.44.40 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Image 2026-07-14 at 7.44.40 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Video 2026-07-14 at 7.44.48 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Video 2026-07-14 at 7.44.48 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/Al Kabayal/WhatsApp Video 2026-07-14 at 7.44.18 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/Al Kabayal/WhatsApp Video 2026-07-14 at 7.44.18 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.24 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.24 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.50 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.50 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.51 AM (1).mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.51 AM (1).mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.52 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.52 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.17 AM (1).mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.17 AM (1).mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.18 AM (1).mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.18 AM (1).mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.21 AM (1).mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.21 AM (1).mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.24 AM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.24 AM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.16 AM (1).jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.16 AM (1).jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.21 AM.jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.21 AM.jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.22 AM (1).jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.22 AM (1).jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.23 AM (1).jpeg', 'image')">
-<div class="pg-content">
-<img alt="Project View" loading="lazy" src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.23 AM (1).jpeg"/>
-<div class="pg-overlay"></div>
-</div>
-</div>
-<div class="pg-item" onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 12.57.34 PM.mp4', 'video')">
-<div class="pg-content">
-<video autoplay="" loop="" muted="" playsinline="" src="assetss/projects/WhatsApp Video 2026-07-14 at 12.57.34 PM.mp4"></video>
-<div class="gallery-play-icon"><svg viewbox="0 0 24 24">
-<polygon points="5 3 19 12 5 21 5 3"></polygon>
-</svg></div>
-<div class="pg-overlay"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- LIGHTBOX MODAL -->
-<div class="proj-lightbox" id="mediaLightbox">
-<div class="proj-lightbox-content">
-<div class="proj-lightbox-close" onclick="closeLightbox()">×</div>
-<div id="lightboxMediaContainer"></div>
-</div>
-</div>
-<script>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Image 2026-07-14 at 7.44.40 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Image 2026-07-14 at 7.44.40 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Video 2026-07-14 at 7.44.48 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/3-Arabia Taxi Abudhabi/WhatsApp Video 2026-07-14 at 7.44.48 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/Al Kabayal/WhatsApp Video 2026-07-14 at 7.44.18 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/Al Kabayal/WhatsApp Video 2026-07-14 at 7.44.18 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.24 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.24 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.50 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.50 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.51 AM (1).mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.51 AM (1).mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.45.52 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.45.52 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.17 AM (1).mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.17 AM (1).mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.18 AM (1).mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.18 AM (1).mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.21 AM (1).mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.21 AM (1).mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 7.46.24 AM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 7.46.24 AM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.16 AM (1).jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.16 AM (1).jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.21 AM.jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.21 AM.jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.22 AM (1).jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.22 AM (1).jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Image 2026-07-14 at 7.46.23 AM (1).jpeg', 'image')">
+                        <div class="portfolio-content">
+                            <img alt="Project View" loading="lazy"
+                                src="assetss/projects/WhatsApp Image 2026-07-14 at 7.46.23 AM (1).jpeg" />
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-14 at 12.57.34 PM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-14 at 12.57.34 PM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-17 at 3.09.45 PM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-17 at 3.09.45 PM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card"
+                        onclick="openLightbox('assetss/projects/WhatsApp Video 2026-07-17 at 3.10.32 PM.mp4', 'video')">
+                        <div class="portfolio-content">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                src="assetss/projects/WhatsApp Video 2026-07-17 at 3.10.32 PM.mp4"></video>
+                            <div class="gallery-play-icon"><svg viewbox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg></div>
+                            <div class="portfolio-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- LIGHTBOX MODAL -->
+        <div class="proj-lightbox" id="mediaLightbox">
+            <div class="proj-lightbox-content">
+                <div class="proj-lightbox-close" onclick="closeLightbox()">×</div>
+                <div id="lightboxMediaContainer"></div>
+            </div>
+        </div>
+        <script>
             // Filter Logic
             const filterBtns = document.querySelectorAll('.gallery-filter-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
@@ -690,100 +942,127 @@
             updateCarousel();
 
         </script>
-</main>
-<!-- ======================== FOOTER ======================== -->
-<footer role="contentinfo">
-<div class="container">
-<div class="footer-grid">
-<!-- Brand -->
-<div class="footer-brand">
-<a aria-label="PIXON TECHNOLOGIES Home" class="footer-logo-link" href="index.html">
-<img alt="PIXON TECHNOLOGIES Logo" class="footer-logo-img" src="assets/pixon-logo.png"/>
-</a>
-<p class="footer-tagline">Supplying, designing, installing, and servicing commercial indoor/outdoor
+    </main>
+    <!-- ======================== FOOTER ======================== -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a aria-label="PIXON TECHNOLOGIES Home" class="footer-logo-link" href="index.html">
+                        <img alt="PIXON TECHNOLOGIES Logo" class="footer-logo-img" src="assets/pixon-logo.png" />
+                    </a>
+                    <p class="footer-tagline">Supplying, designing, installing, and servicing commercial indoor/outdoor
                         LED screens, digital displays, and complete professional audio-visual system integrations across
                         the Middle East &amp; Africa.</p>
-<div aria-label="Social media links" class="footer-socials">
-<a aria-label="LinkedIn" class="social-btn" href="https://www.linkedin.com/company/pixonglobal/" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 16 16" width="18" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"></path>
-</svg></a>
-<a aria-label="Instagram" class="social-btn" href="https://www.instagram.com/pixonglobal?utm_source=qr" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 16 16" width="18" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.487.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
-</svg></a>
-</div>
-</div>
-<!-- Quick Links -->
-<div>
-<div class="footer-col-title">Quick Links</div>
-<nav aria-label="Quick links" class="footer-links">
-<a class="footer-link" href="index.html">Home</a>
-<a class="footer-link" href="about.html">About Us</a>
-<a class="footer-link" href="solutions.html">Services</a>
-<a class="footer-link" href="products.html">Products</a>
-<a class="footer-link" href="projects.html">Projects</a>
-<a class="footer-link" href="contact.html">Contact</a>
-</nav>
-</div>
-<!-- Services -->
-<div>
-<div class="footer-col-title">Services</div>
-<nav aria-label="Services links" class="footer-links">
-<a class="footer-link" href="products.html">Indoor LED Screens</a>
-<a class="footer-link" href="products.html">Outdoor LED Screens</a>
-<a class="footer-link" href="products.html">Custom Displays</a>
-<a class="footer-link" href="products.html">LCD &amp; Kiosks</a>
-<a class="footer-link" href="solutions.html">AV Integrations</a>
-<a class="footer-link" href="retail-display.html">Retail Display Solution</a>
-<a class="footer-link" href="customized-led-screens.html">Customized LED Screens</a>
-<a class="footer-link" href="immersive-projection.html">Immersive Projection</a>
-<a class="footer-link" href="content-creation.html">Content Creation</a>
-</nav>
-</div>
-<!-- Contact Us -->
-<div>
-<div class="footer-col-title">Contact Us</div>
-<div style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; margin-bottom: 12px; display: flex; flex-direction: column; gap: 10px;">
-<a href="mailto:info@pixonglobal.com" onmouseout="this.style.color='inherit'" onmouseover="this.style.color='#fff'" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;" viewbox="0 0 24 24" width="16">
-<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-</path>
-<polyline points="22,6 12,13 2,6"></polyline>
-</svg>
+                    <div aria-label="Social media links" class="footer-socials">
+                        <a aria-label="LinkedIn" class="social-btn" href="https://www.linkedin.com/company/pixonglobal/"
+                            target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 16 16" width="18"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
+                                </path>
+                            </svg></a>
+                        <a aria-label="Instagram" class="social-btn"
+                            href="https://www.instagram.com/pixonglobal?utm_source=qr" target="_blank"><svg
+                                fill="currentColor" height="18" viewbox="0 0 16 16" width="18"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.487.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334">
+                                </path>
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <div class="footer-col-title">Quick Links</div>
+                    <nav aria-label="Quick links" class="footer-links">
+                        <a class="footer-link" href="index.html">Home</a>
+                        <a class="footer-link" href="about.html">About Us</a>
+                        <a class="footer-link" href="solutions.html">Services</a>
+                        <a class="footer-link" href="products.html">Products</a>
+                        <a class="footer-link" href="projects.html">Projects</a>
+                        <a class="footer-link" href="contact.html">Contact</a>
+                    </nav>
+                </div>
+                <!-- Services -->
+                <div>
+                    <div class="footer-col-title">Services</div>
+                    <nav aria-label="Services links" class="footer-links">
+                        <a class="footer-link" href="products.html">Indoor LED Screens</a>
+                        <a class="footer-link" href="products.html">Outdoor LED Screens</a>
+                        <a class="footer-link" href="products.html">Custom Displays</a>
+                        <a class="footer-link" href="products.html">LCD &amp; Kiosks</a>
+                        <a class="footer-link" href="solutions.html">AV Integrations</a>
+                        <a class="footer-link" href="retail-display.html">Retail Display Solution</a>
+                        <a class="footer-link" href="customized-led-screens.html">Customized LED Screens</a>
+                        <a class="footer-link" href="immersive-projection.html">Immersive Projection</a>
+                        <a class="footer-link" href="content-creation.html">Content Creation</a>
+                    </nav>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <div class="footer-col-title">Contact Us</div>
+                    <div
+                        style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; margin-bottom: 12px; display: flex; flex-direction: column; gap: 10px;">
+                        <a href="mailto:info@pixonglobal.com" onmouseout="this.style.color='inherit'"
+                            onmouseover="this.style.color='#fff'"
+                            style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;">
+                            <svg fill="none" height="16" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"
+                                viewbox="0 0 24 24" width="16">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
                             info@pixonglobal.com
                         </a>
-<a href="tel:+971581065959" onmouseout="this.style.color='inherit'" onmouseover="this.style.color='#fff'" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;">
-<svg fill="none" height="16" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;" viewbox="0 0 24 24" width="16">
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-</path>
-</svg>
+                        <a href="tel:+971581065959" onmouseout="this.style.color='inherit'"
+                            onmouseover="this.style.color='#fff'"
+                            style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;">
+                            <svg fill="none" height="16" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"
+                                viewbox="0 0 24 24" width="16">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
                             +971 58 106 5959
                         </a>
-</div>
-<div style="width: 100%; height: 120px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-top: 15px;">
-<iframe frameborder="0" height="100%" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?q=Naif,%20Deira%20Dubai,%20United%20Arab%20Emirates&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style="display: block; width: 100%; border: none;" width="100%">
-</iframe>
-</div>
-</div>
-</div>
-<div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
-                © All Rights Reserved | <a href="https://www.mostech.ae/" style="color: #f2f2f2; text-decoration: none; font-weight: bold;" target="_blank">Developed by Mostech Business Solutions</a>
+                    </div>
+                    <div
+                        style="width: 100%; height: 120px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-top: 15px;">
+                        <iframe frameborder="0" height="100%" marginheight="0" marginwidth="0" scrolling="no"
+                            src="https://maps.google.com/maps?q=Naif,%20Deira%20Dubai,%20United%20Arab%20Emirates&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                            style="display: block; width: 100%; border: none;" width="100%">
+                        </iframe>
+                    </div>
+                </div>
             </div>
-</div>
-</footer>
-<!-- WhatsApp Float -->
-<a aria-label="WhatsApp" class="whatsapp-float" href="https://wa.me/971581065959" rel="noopener noreferrer" target="_blank">
-<svg fill="currentColor" height="28" viewbox="0 0 32 32" width="28">
-<path d="M16 2.002c-7.72 0-14 6.28-14 14 0 2.45.632 4.756 1.748 6.786L2 29.998l7.396-1.94c2.005 1.01 4.265 1.576 6.604 1.576 7.72 0 14-6.28 14-14s-6.28-14-14-14zm0 25.645c-2.19 0-4.24-.564-6.044-1.542l-.434-.236-4.502 1.18 1.2-4.387-.26-.413C4.945 20.373 4.28 18.257 4.28 16c0-6.46 5.258-11.72 11.72-11.72S27.72 9.54 27.72 16 22.46 27.647 16 27.647zm6.474-8.815c-.355-.178-2.102-1.037-2.427-1.156-.324-.118-.56-.178-.797.178-.236.356-.917 1.156-1.124 1.393-.207.237-.414.266-.77.888-1.527-.767-2.903-1.844-3.957-3.136-.273-.336-.027-.517.15-.694.16-.16.355-.415.533-.623.177-.207.236-.355.355-.592.12-.237.06-.445-.03-.623-.088-.178-.796-1.92-1.092-2.63-.287-.69-.58-.596-.796-.607-.207-.01-.444-.012-.68-.012-.237 0-.622.088-.948.444-.326.355-1.243 1.214-1.243 2.96 0 1.747 1.272 3.435 1.45 3.672.177.237 2.502 3.82 6.06 5.27.845.344 1.503.55 2.016.704.847.27 1.617.23 2.228.14.685-.102 2.102-.86 2.398-1.688.296-.83.296-1.542.207-1.69-.088-.147-.326-.236-.68-.413z"></path>
-</svg>
-</a>
-<!-- Scroll to Top -->
-<button aria-label="Scroll to top" id="scroll-top">
-<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="20">
-<polyline points="18 15 12 9 6 15"></polyline>
-</svg>
-</button>
-<!-- Project Gallery Filters & Drag Slider JS Controller -->
-<script>
+            <div
+                style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                © All Rights Reserved | <a href="https://www.mostech.ae/"
+                    style="color: #f2f2f2; text-decoration: none; font-weight: bold;" target="_blank">Developed by
+                    Mostech Business Solutions</a>
+            </div>
+        </div>
+    </footer>
+    <!-- WhatsApp Float -->
+    <a aria-label="WhatsApp" class="whatsapp-float" href="https://wa.me/971581065959" rel="noopener noreferrer"
+        target="_blank">
+        <svg fill="currentColor" height="28" viewbox="0 0 32 32" width="28">
+            <path
+                d="M16 2.002c-7.72 0-14 6.28-14 14 0 2.45.632 4.756 1.748 6.786L2 29.998l7.396-1.94c2.005 1.01 4.265 1.576 6.604 1.576 7.72 0 14-6.28 14-14s-6.28-14-14-14zm0 25.645c-2.19 0-4.24-.564-6.044-1.542l-.434-.236-4.502 1.18 1.2-4.387-.26-.413C4.945 20.373 4.28 18.257 4.28 16c0-6.46 5.258-11.72 11.72-11.72S27.72 9.54 27.72 16 22.46 27.647 16 27.647zm6.474-8.815c-.355-.178-2.102-1.037-2.427-1.156-.324-.118-.56-.178-.797.178-.236.356-.917 1.156-1.124 1.393-.207.237-.414.266-.77.888-1.527-.767-2.903-1.844-3.957-3.136-.273-.336-.027-.517.15-.694.16-.16.355-.415.533-.623.177-.207.236-.355.355-.592.12-.237.06-.445-.03-.623-.088-.178-.796-1.92-1.092-2.63-.287-.69-.58-.596-.796-.607-.207-.01-.444-.012-.68-.012-.237 0-.622.088-.948.444-.326.355-1.243 1.214-1.243 2.96 0 1.747 1.272 3.435 1.45 3.672.177.237 2.502 3.82 6.06 5.27.845.344 1.503.55 2.016.704.847.27 1.617.23 2.228.14.685-.102 2.102-.86 2.398-1.688.296-.83.296-1.542.207-1.69-.088-.147-.326-.236-.68-.413z">
+            </path>
+        </svg>
+    </a>
+    <!-- Scroll to Top -->
+    <button aria-label="Scroll to top" id="scroll-top">
+        <svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"
+            width="20">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    <!-- Project Gallery Filters & Drag Slider JS Controller -->
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             // 1. Before & After Slider Drag Logic
             const slider = document.querySelector('.before-after-slider');
@@ -860,6 +1139,7 @@
             });
         });
     </script>
-<script defer="" src="script.js"></script>
+    <script defer="" src="script.js"></script>
 </body>
+
 </html>
