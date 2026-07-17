@@ -35,6 +35,273 @@
     z-index: 2;
     text-shadow: 0 2px 4px rgba(0,0,0,0.9);
 }
+
+/* ── Kinetic Page Custom Styles ─────────────────────────────── */
+
+/* Reduce Subheading Sizes */
+.section-sub {
+    font-size: clamp(14px, 1.5vw, 16px) !important;
+}
+.section-label {
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+}
+/* Tab switcher */
+.ks-tab-bar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+.ks-tab {
+    padding: 10px 28px;
+    border-radius: 99px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid rgba(0,217,255,0.3);
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    transition: all 0.3s ease;
+    font-family: var(--font);
+}
+.ks-tab.active, .ks-tab:hover {
+    background: linear-gradient(135deg, #0A3DFF, #00D9FF);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0,217,255,0.3);
+    transform: translateY(-2px);
+}
+
+/* Model cards */
+.ks-models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+.ks-model-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,217,255,0.15);
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+.ks-model-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF);
+    border-radius: 20px 20px 0 0;
+}
+.ks-model-card:hover {
+    border-color: rgba(0,217,255,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0,217,255,0.12);
+    background: rgba(255,255,255,0.07);
+}
+.ks-model-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(0,217,255,0.15), rgba(10,61,255,0.15));
+    border: 1px solid rgba(0,217,255,0.3);
+    color: #00D9FF;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 99px;
+    margin-bottom: 16px;
+}
+.ks-model-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+.ks-spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    gap: 12px;
+}
+.ks-spec-row:last-child { border-bottom: none; }
+.ks-spec-key {
+    font-size: 12px;
+    color: rgba(199,210,254,0.6);
+    font-weight: 500;
+    flex-shrink: 0;
+    max-width: 48%;
+}
+.ks-spec-val {
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    text-align: right;
+}
+.ks-stroke-val {
+    color: #00D9FF;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+/* Design & Build */
+.ks-dbf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+.ks-dbf-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,217,255,0.12);
+    border-radius: 18px;
+    padding: 24px;
+    transition: all 0.4s ease;
+}
+.ks-dbf-card:hover {
+    border-color: rgba(0,217,255,0.35);
+    background: rgba(0,217,255,0.05);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,217,255,0.08);
+}
+.ks-dbf-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(0,217,255,0.15), rgba(10,61,255,0.15));
+    border: 1px solid rgba(0,217,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ks-dbf-text h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+.ks-dbf-text p {
+    font-size: 14px;
+    color: rgba(199,210,254,0.75);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Applications */
+.ks-app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+.ks-app-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.ks-app-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0A3DFF, #00D9FF);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 20px 20px;
+}
+.ks-app-card:hover {
+    border-color: rgba(0,217,255,0.25);
+    background: rgba(0,217,255,0.04);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0,217,255,0.1);
+}
+.ks-app-card:hover::after { opacity: 1; }
+.ks-app-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(0,217,255,0.08);
+    line-height: 1;
+    margin-bottom: 12px;
+    font-family: var(--font);
+}
+.ks-app-card h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.ks-app-card p {
+    font-size: 14px;
+    color: rgba(199,210,254,0.7);
+    line-height: 1.65;
+    margin: 0;
+}
+.ks-app-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(10,61,255,0.2), rgba(0,217,255,0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,217,255,0.2);
+}
+
+/* Intro strip */
+.ks-intro-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid rgba(0,217,255,0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 56px;
+}
+.ks-intro-item {
+    padding: 36px 32px;
+    border-right: 1px solid rgba(0,217,255,0.1);
+    text-align: center;
+    transition: background 0.3s;
+}
+.ks-intro-item:last-child { border-right: none; }
+.ks-intro-item:hover { background: rgba(0,217,255,0.04); }
+.ks-intro-num {
+    font-size: 42px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00D9FF, #0A3DFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.ks-intro-label {
+    font-size: 13px;
+    color: rgba(199,210,254,0.7);
+    font-weight: 500;
+}
+@media (max-width: 768px) {
+    .ks-intro-strip { grid-template-columns: 1fr; }
+    .ks-intro-item { border-right: none; border-bottom: 1px solid rgba(0,217,255,0.1); }
+    .ks-intro-item:last-child { border-bottom: none; }
+}
 </style>
 </head>
 <body>
@@ -248,13 +515,12 @@
 </nav>
 <main>
 <!-- ============================================================
-             HERO SECTION - Product Banner
-             ============================================================ -->
-<section aria-label="Hero Section" id="hero" style="display: flex; flex-direction: column; justify-content: center; height: auto !important; min-height: 55vh !important; padding-top: 120px; padding-bottom: 40px; position: relative; background-image: url('assets/product-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-<div style="position: absolute; inset: 0; background: rgba(3, 7, 18, 0.72); z-index: 0;"></div>
-<div class="hero-bg" style="position: absolute; inset: 0; z-index: 1;">
+     HERO SECTION
+     ============================================================ -->
+<section aria-label="Hero Section" id="hero" style="display:flex;flex-direction:column;justify-content:center;height:auto!important;min-height:60vh!important;padding-top:120px;padding-bottom:60px;position:relative;background-image:url('assets/product-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;">
+<div style="position:absolute;inset:0;background:rgba(3,7,18,0.78);z-index:0;"></div>
+<div class="hero-bg" style="position:absolute;inset:0;z-index:1;">
 <div class="hero-mesh"></div>
-<div class="orb orb-1" style="background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%); top: -10%; left: 10%;"></div>
 </div>
 <div class="hero-content" style="position: relative; z-index: 2;">
 <div class="container">
@@ -269,254 +535,255 @@
 </div>
 </div>
 </section>
+
 <!-- ============================================================
-             SECTION 1: KEY FEATURES & BENEFITS
-             ============================================================ -->
-<section class="section light-section">
+     PRODUCT MODELS SECTION
+     ============================================================ -->
+<section class="section" id="models">
 <div class="container">
 <div class="section-header text-center">
-<div class="section-label">Benefits</div>
-<h2 class="section-title">Key Features &amp; <span class="hero-title-accent">Benefits</span></h2>
-<p class="section-sub">Discover what makes Kinetic LED Screen the ideal choice for your business</p>
+<div class="section-label">Specifications</div>
+<h2 class="section-title" style="font-size: clamp(24px, 3vw, 32px);">Product <span class="hero-title-accent">Models</span></h2>
+<p class="section-sub">Available in indoor and outdoor configurations with varying pitch and stroke options to suit your environment.</p>
 </div>
-<div class="features-grid">
-<!-- Feature 1 -->
-<div class="feature-card reveal">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect><line x1="3" x2="21" y1="9" y2="9"></line></svg>
+
+<!-- Tab Bar -->
+<div class="ks-tab-bar" style="margin-top:40px;">
+<button class="ks-tab active" id="tab-indoor" onclick="switchTab('indoor')">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14" style="display:inline;vertical-align:middle;margin-right:6px;"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+Indoor Models
+</button>
+<button class="ks-tab" id="tab-outdoor" onclick="switchTab('outdoor')">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+Outdoor Models
+</button>
 </div>
-<h3 class="feature-title">Dynamic Movement</h3>
-<p class="feature-desc">Motorized kinetic systems allow screens to physically move, separate, and reassemble.</p>
+
+<!-- Indoor Models -->
+<div id="panel-indoor" class="ks-models-grid">
+<div class="ks-model-card reveal">
+<div class="ks-model-badge">Indoor</div>
+<div class="ks-model-name">125-150-I</div>
+<div class="ks-spec-row"><span class="ks-spec-key">Pixel Pitch</span><span class="ks-spec-val">P1.94</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Unit Resolution</span><span class="ks-spec-val">64 × 64 px</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Display Dimension</span><span class="ks-spec-val">124.2 × 124.2 mm</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Max. Forward Stroke</span><span class="ks-spec-val ks-stroke-val">150 mm</span></div>
 </div>
-<!-- Feature 2 -->
-<div class="feature-card reveal reveal-delay-1">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+<div class="ks-model-card reveal reveal-delay-1">
+<div class="ks-model-badge">Indoor</div>
+<div class="ks-model-name">250-250-I</div>
+<div class="ks-spec-row"><span class="ks-spec-key">Pixel Pitch</span><span class="ks-spec-val">P1.94</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Unit Resolution</span><span class="ks-spec-val">128 × 128 px</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Display Dimension</span><span class="ks-spec-val">248.4 × 248.4 mm</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Max. Forward Stroke</span><span class="ks-spec-val ks-stroke-val">250 mm</span></div>
 </div>
-<h3 class="feature-title">360-Degree Viewing</h3>
-<p class="feature-desc">Spherical and cylindrical formats provide complete, omnidirectional visual coverage.</p>
 </div>
-<!-- Feature 3 -->
-<div class="feature-card reveal reveal-delay-2">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path></svg>
+
+<!-- Outdoor Models (hidden by default) -->
+<div id="panel-outdoor" class="ks-models-grid" style="display:none;">
+<div class="ks-model-card reveal">
+<div class="ks-model-badge" style="background:linear-gradient(135deg,rgba(255,149,0,0.15),rgba(255,80,0,0.1));border-color:rgba(255,149,0,0.35);color:#FF9500;">Outdoor</div>
+<div class="ks-model-name">250-300-O</div>
+<div class="ks-spec-row"><span class="ks-spec-key">Pixel Pitch</span><span class="ks-spec-val">P4</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Unit Resolution</span><span class="ks-spec-val">64 × 64 px</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Display Dimension</span><span class="ks-spec-val">250 × 250 mm</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Max. Forward Stroke</span><span class="ks-spec-val ks-stroke-val">300 mm</span></div>
 </div>
-<h3 class="feature-title">Custom PCB Design</h3>
-<p class="feature-desc">Bespoke flexible modules can be mapped to virtually any architectural shape or curve.</p>
+<div class="ks-model-card reveal reveal-delay-1">
+<div class="ks-model-badge" style="background:linear-gradient(135deg,rgba(255,149,0,0.15),rgba(255,80,0,0.1));border-color:rgba(255,149,0,0.35);color:#FF9500;">Outdoor</div>
+<div class="ks-model-name">500-600-O</div>
+<div class="ks-spec-row"><span class="ks-spec-key">Pixel Pitch</span><span class="ks-spec-val">P10</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Unit Resolution</span><span class="ks-spec-val">48 × 48 px</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Display Dimension</span><span class="ks-spec-val">495 × 495 mm</span></div>
+<div class="ks-spec-row"><span class="ks-spec-key">Max. Forward Stroke</span><span class="ks-spec-val ks-stroke-val">600 mm</span></div>
 </div>
-<!-- Feature 4 -->
-<div class="feature-card reveal reveal-delay-3">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path></svg>
 </div>
-<h3 class="feature-title">Precision Mapping</h3>
-<p class="feature-desc">Advanced software maps content flawlessly across complex, non-planar surfaces.</p>
+
 </div>
-<!-- Feature 5 -->
-<div class="feature-card reveal reveal-delay-4">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><path d="M9 3H5a2 2 0 0 0-2 2v4m0 0H3m2 0v4a2 2 0 0 0 2 2h4m0 0v2m0-2h4a2 2 0 0 0 2-2v-4m0 0h2m-2 0v-4a2 2 0 0 0-2-2h-4"></path></svg>
+</section>
+
+<!-- ============================================================
+     DIE-CASTING CABINET SECTION
+     ============================================================ -->
+<section class="section light-section" style="background-color:#ffffff;">
+<div class="container">
+<div class="section-header text-center">
+<div class="section-label" style="-webkit-text-fill-color:initial;color:var(--accent-cyan);">Cabinet Design</div>
+<h2 class="section-title" style="color:#111827; font-size: clamp(24px, 3vw, 32px);">Kinetic Screen with <span class="hero-title-accent">Die-casting Cabinet Design</span></h2>
 </div>
-<h3 class="feature-title">Artistic Integration</h3>
-<p class="feature-desc">Transform structural columns, ceilings, and unique spaces into digital centerpieces.</p>
-</div>
-<!-- Feature 6 -->
-<div class="feature-card reveal reveal-delay-5">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path></svg>
-</div>
-<h3 class="feature-title">High Consistency</h3>
-<p class="feature-desc">Uniform color and brightness maintained across intricate folds and severe angles.</p>
-</div>
-<!-- Feature 7 -->
-<div class="feature-card reveal">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-</div>
-<h3 class="feature-title">Motorized Modules</h3>
-<p class="feature-desc">Screens physically move in and out to create real 3D depth.</p>
-</div>
-<!-- Feature 8 -->
-<div class="feature-card reveal reveal-delay-1">
-<div class="feature-icon">
-<svg fill="none" height="40" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="40"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-</div>
-<h3 class="feature-title">Synchronized Choreography</h3>
-<p class="feature-desc">Software perfectly times video content with mechanical movement.</p>
-</div>
+<div class="reveal" style="text-align:center;margin-top:40px;">
+<img alt="Kinetic Screen with Die-casting Cabinet Design" src="assetss/innovative led screens/kinetic led screen/wavT04.webp" style="max-width:100%;height:auto;display:inline-block;border-radius:16px;"/>
 </div>
 </div>
 </section>
+
 <!-- ============================================================
-             SECTION 3: APPLICATIONS & USE CASES
-             ============================================================ -->
+     DESIGN & BUILD FEATURES
+     ============================================================ -->
 <section class="section">
 <div class="container">
 <div class="section-header text-center">
-<div class="section-label">Applications</div>
-<h2 class="section-title">Perfect For <span class="hero-title-accent">Every Industry</span></h2>
-<p class="section-sub">Versatile applications across multiple sectors and environments</p>
+<div class="section-label">Engineering</div>
+<h2 class="section-title" style="font-size: clamp(24px, 3vw, 32px);">Design &amp; Build <span class="hero-title-accent">Features</span></h2>
+<p class="section-sub">Precision engineering meets visual innovation in every kinetic unit.</p>
 </div>
-<div class="applications-grid">
-<!-- Application 1 -->
-<div class="application-card reveal">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M18 8H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2z"></path><line x1="9" x2="15" y1="13" y2="13"></line></svg>
+<div class="ks-dbf-grid">
+<div class="ks-dbf-card reveal">
+<div class="ks-dbf-icon">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><path d="M8 7V5a2 2 0 0 0-4 0v2"/></svg>
 </div>
-<h3 class="application-title">Interactive Exhibitions</h3>
-<p class="application-desc">Engage audiences with kinetic and unique-shaped digital installations.</p>
+<div class="ks-dbf-text">
+<h4>Die-casting Cabinet Design</h4>
+<p>Built with lightweight, die-cast aluminum cabinets designed for quick installation, dismantling, and portability — ideal for touring events and permanent installations alike.</p>
 </div>
-<!-- Application 2 -->
-<div class="application-card reveal reveal-delay-1">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
 </div>
-<h3 class="application-title">Creative Branding</h3>
-<p class="application-desc">Stand out from competitors with bespoke, unconventional LED configurations.</p>
+<div class="ks-dbf-card reveal reveal-delay-1">
+<div class="ks-dbf-icon">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
 </div>
-<!-- Application 3 -->
-<div class="application-card reveal reveal-delay-2">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path></svg>
+<div class="ks-dbf-text">
+<h4>Seamless Visuals</h4>
+<p>Engineered with tight gap tolerances between units to maintain visual continuity even as mechanical modules move — delivering a flawless, uninterrupted image at all positions.</p>
 </div>
-<h3 class="application-title">Immersive Environments</h3>
-<p class="application-desc">Surround viewers with seamless, curved, or spherical visual experiences.</p>
 </div>
-<!-- Application 4 -->
-<div class="application-card reveal reveal-delay-3">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+<div class="ks-dbf-card reveal reveal-delay-2">
+<div class="ks-dbf-icon">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
 </div>
-<h3 class="application-title">Entertainment Venues</h3>
-<p class="application-desc">Elevate nightclubs and theaters with dynamic, moving digital sculptures.</p>
+<div class="ks-dbf-text">
+<h4>Synchronized Motion Control</h4>
+<p>Each module's stroke is precisely controlled and synchronized with video content via a dedicated control system — enabling complex wave and 3D effect choreography in real time.</p>
 </div>
-<!-- Application 5 -->
-<div class="application-card reveal reveal-delay-4">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
 </div>
-<h3 class="application-title">Experiential Marketing</h3>
-<p class="application-desc">Drive social sharing through unforgettable, custom digital centerpieces.</p>
+<div class="ks-dbf-card reveal reveal-delay-3">
+<div class="ks-dbf-icon">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
 </div>
-<!-- Application 6 -->
-<div class="application-card reveal reveal-delay-5">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect><line x1="9" x2="15" y1="9" y2="9"></line><line x1="9" x2="15" y1="15" y2="15"></line></svg>
+<div class="ks-dbf-text">
+<h4>Fast Response &amp; High Reliability</h4>
+<p>Max forward speed of 600mm/s with a response time of 0.4 seconds. Industrial-grade linear guide rails minimize unit gaps and ensure consistent mechanical performance.</p>
 </div>
-<h3 class="application-title">Public Art</h3>
-<p class="application-desc">Integrate technology into urban landscapes with flexible and mesh structures.</p>
-</div>
-<!-- Application 7 -->
-<div class="application-card reveal">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-</div>
-<h3 class="application-title">High-End Nightclubs</h3>
-<p class="application-desc">Pulsating visual features synchronized with the music.</p>
-</div>
-<!-- Application 8 -->
-<div class="application-card reveal reveal-delay-1">
-<div class="application-icon">
-<svg fill="none" height="48" stroke="var(--accent-cyan)" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-</div>
-<h3 class="application-title">Avant-Garde Art Installations</h3>
-<p class="application-desc">Breathtaking tech-art pieces for modern galleries.</p>
 </div>
 </div>
 </div>
 </section>
+
 <!-- ============================================================
-             SECTION 4: GALLERY / IMAGE SHOWCASE
-             ============================================================ -->
+     APPLICATIONS SECTION
+     ============================================================ -->
+<section class="section" style="background:rgba(0,217,255,0.02);">
+<div class="container">
+<div class="section-header text-center">
+<div class="section-label">Common Applications</div>
+<h2 class="section-title" style="font-size: clamp(24px, 3vw, 32px);">Where Kinetic <span class="hero-title-accent">Screens Excel</span></h2>
+<p class="section-sub">From high-impact retail to spectacular event stages — kinetic screens command attention everywhere.</p>
+</div>
+<div class="ks-app-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+<div class="ks-app-card reveal">
+<div class="ks-app-icon-wrap">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+</div>
+<h4>Commercial Advertising</h4>
+<p>High-impact storefronts, shopping malls, and brand activations that demand attention. Turn any commercial space into a living visual statement.</p>
+</div>
+<div class="ks-app-card reveal reveal-delay-1">
+<div class="ks-app-icon-wrap">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+</div>
+<h4>Digital Exhibition Halls &amp; Museums</h4>
+<p>Interactive, futuristic installations that transform passive visitors into active participants — perfect for science centres, art museums, and cultural institutions.</p>
+</div>
+<div class="ks-app-card reveal reveal-delay-2">
+<div class="ks-app-icon-wrap">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+</div>
+<h4>Events, Stages &amp; Rentals</h4>
+<p>Dynamic backdrops for concerts, fashion shows, and corporate exhibitions. The motorized movement adds a physical dimension no static display can replicate.</p>
+</div>
+<div class="ks-app-card reveal reveal-delay-3">
+<div class="ks-app-icon-wrap">
+<svg fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+</div>
+<h4>High-End Retail &amp; Brand Showrooms</h4>
+<p>Luxury flagship stores and premium showrooms use kinetic screens to create unforgettable immersive brand experiences that set them apart from competitors.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================================================
+     GALLERY / IMAGE SHOWCASE
+     ============================================================ -->
 <section class="light-section section gallery-section" id="gallery">
 <div class="container">
 <div class="section-header text-center">
-<div class="section-label">Reference Images</div>
-<h2 class="section-title">Kinetic LED Screen <span class="hero-title-accent">References</span></h2>
+<div class="section-label" style="-webkit-text-fill-color:initial;color:var(--accent-cyan);">Reference Images</div>
+<h2 class="section-title" style="color:#111827; font-size: clamp(24px, 3vw, 32px);">Kinetic LED Screen <span class="hero-title-accent">References</span></h2>
 </div>
 <div class="bento-gallery">
-<!-- Gallery Image 1 -->
 <div class="bento-item reveal">
-<img alt="Retail Store LED Display" src="assetss/innovative led screens/kinetic led screen/aboT01.webp"/>
-<div class="bento-overlay" style="position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); pointer-events: none; z-index: 1;"></div>
-<h3 class="bento-title" style="color: #ffffff !important; z-index: 999; text-shadow: 0 2px 4px rgba(0,0,0,0.9); position: absolute; bottom: 20px; left: 24px;">Kinetic LED Screen</h3>
+<img alt="Kinetic LED Screen Installation" src="assetss/innovative led screens/kinetic led screen/aboT01.webp"/>
+<div class="bento-overlay" style="position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);pointer-events:none;z-index:1;"></div>
+<h3 class="bento-title" style="color:#ffffff!important;z-index:999;text-shadow:0 2px 4px rgba(0,0,0,0.9);position:absolute;bottom:20px;left:24px;">Kinetic LED Screen</h3>
 </div>
-<!-- Gallery Image 2 -->
 <div class="bento-item reveal reveal-delay-1">
-<img alt="Corporate Lobby Display" src="assetss/innovative led screens/kinetic led screen/Market-and-application-of-kinetic-LED-screen-www.bibild.com-1.jpg"/>
-<div class="bento-overlay" style="position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); pointer-events: none; z-index: 1;"></div>
-<h3 class="bento-title" style="color: #ffffff !important; z-index: 999; text-shadow: 0 2px 4px rgba(0,0,0,0.9); position: absolute; bottom: 20px; left: 24px;">Kinetic LED Screen</h3>
+<img alt="Kinetic LED Market Application" src="assetss/innovative led screens/kinetic led screen/Market-and-application-of-kinetic-LED-screen-www.bibild.com-1.jpg"/>
+<div class="bento-overlay" style="position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);pointer-events:none;z-index:1;"></div>
+<h3 class="bento-title" style="color:#ffffff!important;z-index:999;text-shadow:0 2px 4px rgba(0,0,0,0.9);position:absolute;bottom:20px;left:24px;">Commercial Activation</h3>
 </div>
-<!-- Gallery Image 3 -->
 <div class="bento-item reveal reveal-delay-2">
-<img alt="Shopping Mall Installation" src="assetss/innovative led screens/kinetic led screen/imgi_47_202301131636063314.jpg"/>
-<div class="bento-overlay" style="position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); pointer-events: none; z-index: 1;"></div>
-<h3 class="bento-title" style="color: #ffffff !important; z-index: 999; text-shadow: 0 2px 4px rgba(0,0,0,0.9); position: absolute; bottom: 20px; left: 24px;">Kinetic LED Screen</h3>
+<img alt="Kinetic LED Installation View" src="assetss/innovative led screens/kinetic led screen/imgi_47_202301131636063314.jpg"/>
+<div class="bento-overlay" style="position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);pointer-events:none;z-index:1;"></div>
+<h3 class="bento-title" style="color:#ffffff!important;z-index:999;text-shadow:0 2px 4px rgba(0,0,0,0.9);position:absolute;bottom:20px;left:24px;">Exhibition Hall</h3>
 </div>
-<!-- Gallery Image 4 -->
 <div class="bento-item reveal reveal-delay-3">
-<img alt="Event Venue Display" src="assetss/innovative led screens/kinetic led screen/3D-Kinetic-LED-Wall.jpg"/>
-<div class="bento-overlay" style="position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); pointer-events: none; z-index: 1;"></div>
-<h3 class="bento-title" style="color: #ffffff !important; z-index: 999; text-shadow: 0 2px 4px rgba(0,0,0,0.9); position: absolute; bottom: 20px; left: 24px;">Kinetic LED Screen</h3>
+<img alt="3D Kinetic LED Wall" src="assetss/innovative led screens/kinetic led screen/3D-Kinetic-LED-Wall.jpg"/>
+<div class="bento-overlay" style="position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);pointer-events:none;z-index:1;"></div>
+<h3 class="bento-title" style="color:#ffffff!important;z-index:999;text-shadow:0 2px 4px rgba(0,0,0,0.9);position:absolute;bottom:20px;left:24px;">3D Kinetic Wall</h3>
 </div>
-<!-- Gallery Image 5 -->
 <div class="bento-item reveal reveal-delay-4">
-<img alt="Additional Installation View" src="assetss/innovative led screens/kinetic led screen/imgi_48_2023011316355949.jpg"/>
-<div class="bento-overlay" style="position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); pointer-events: none; z-index: 1;"></div>
-<h3 class="bento-title" style="color: #ffffff !important; z-index: 999; text-shadow: 0 2px 4px rgba(0,0,0,0.9); position: absolute; bottom: 20px; left: 24px;">Kinetic LED Screen</h3>
+<img alt="Kinetic LED Stage Backdrop" src="assetss/innovative led screens/kinetic led screen/imgi_48_2023011316355949.jpg"/>
+<div class="bento-overlay" style="position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);pointer-events:none;z-index:1;"></div>
+<h3 class="bento-title" style="color:#ffffff!important;z-index:999;text-shadow:0 2px 4px rgba(0,0,0,0.9);position:absolute;bottom:20px;left:24px;">Stage &amp; Events</h3>
 </div>
-<!-- Gallery Image 6 -->
 <div class="bento-item reveal reveal-delay-5">
-<img alt="Detailed View" src="assetss/innovative led screens/kinetic led screen/imgi_4_20250729163355830.png"/>
-<div class="bento-overlay" style="position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); pointer-events: none; z-index: 1;"></div>
-<h3 class="bento-title" style="color: #ffffff !important; z-index: 999; text-shadow: 0 2px 4px rgba(0,0,0,0.9); position: absolute; bottom: 20px; left: 24px;">Kinetic LED Screen</h3>
+<img alt="Kinetic LED Detail View" src="assetss/innovative led screens/kinetic led screen/imgi_4_20250729163355830.png"/>
+<div class="bento-overlay" style="position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);pointer-events:none;z-index:1;"></div>
+<h3 class="bento-title" style="color:#ffffff!important;z-index:999;text-shadow:0 2px 4px rgba(0,0,0,0.9);position:absolute;bottom:20px;left:24px;">Detail View</h3>
 </div>
 </div>
 </div>
 </section>
+
 <!-- ============================================================
-             SECTION 5: CTA / GET STARTED
-             ============================================================ -->
-    <!-- ============================================================
-         SECTION 7: CTA
-         ============================================================ -->
-    <section aria-labelledby="cta-heading" class="section cta-section" id="contact" style="padding: 0;">
-    <div style="background: transparent; padding: 100px 20px; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center;">
-        
-        <!-- Left curved lines -->
-        <svg width="300" height="100%" viewBox="0 0 300 400" preserveAspectRatio="none" style="position: absolute; left: 0; top: 0; opacity: 0.5; pointer-events: none;">
-            <path d="M0,0 C120,80 150,250 0,400" fill="none" stroke="#ffffff" stroke-width="1.5"/>
-            <path d="M0,0 C160,100 190,270 0,400" fill="none" stroke="#ffffff" stroke-width="1"/>
-            <path d="M0,0 C200,120 230,290 0,400" fill="none" stroke="#ffffff" stroke-width="0.5"/>
-        </svg>
-
-        <!-- Right curved lines -->
-        <svg width="300" height="100%" viewBox="0 0 300 400" preserveAspectRatio="none" style="position: absolute; right: 0; bottom: 0; opacity: 0.5; pointer-events: none;">
-            <path d="M300,400 C180,320 150,150 300,0" fill="none" stroke="#ffffff" stroke-width="1.5"/>
-            <path d="M300,400 C140,300 110,130 300,0" fill="none" stroke="#ffffff" stroke-width="1"/>
-            <path d="M300,400 C100,280 70,110 300,0" fill="none" stroke="#ffffff" stroke-width="0.5"/>
-        </svg>
-
-        <div class="container" style="position: relative; z-index: 2; max-width: 1000px;">
-            <div class="cta-label" style="color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px;">&mdash; UPGRADE TODAY &mdash;</div>
-            <h2 id="cta-heading" style="color: #ffffff; font-size: clamp(20px, 2.8vw, 30px); font-weight: 500; margin-bottom: 20px; font-family: 'Inter', sans-serif;">Ready To Upgrade Your Display Experience?</h2>
-            <p style="color: rgba(255, 255, 255, 0.95); font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px; font-weight: 400; max-width: 650px; margin-left: auto; margin-right: auto;">
-                From precise LED module calibrations to massive commercial LED meshes, PIXON TECHNOLOGIES's engineering team is ready to design and calibrate your layout.
-            </p>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="contact.html" class="cta-btn-solid">
-                    Contact Our Team
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-                <a href="contact.html" class="cta-btn-outline">
-                    Schedule Consultation
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-            </div>
-        </div>
-    </div>
+     CTA SECTION
+     ============================================================ -->
+<section aria-labelledby="cta-heading" class="section cta-section" id="contact" style="padding:0;">
+<div style="background:transparent;padding:100px 20px;position:relative;overflow:hidden;display:flex;justify-content:center;align-items:center;text-align:center;">
+<svg width="300" height="100%" viewBox="0 0 300 400" preserveAspectRatio="none" style="position:absolute;left:0;top:0;opacity:0.5;pointer-events:none;"><path d="M0,0 C120,80 150,250 0,400" fill="none" stroke="#ffffff" stroke-width="1.5"/><path d="M0,0 C160,100 190,270 0,400" fill="none" stroke="#ffffff" stroke-width="1"/><path d="M0,0 C200,120 230,290 0,400" fill="none" stroke="#ffffff" stroke-width="0.5"/></svg>
+<svg width="300" height="100%" viewBox="0 0 300 400" preserveAspectRatio="none" style="position:absolute;right:0;bottom:0;opacity:0.5;pointer-events:none;"><path d="M300,400 C180,320 150,150 300,0" fill="none" stroke="#ffffff" stroke-width="1.5"/><path d="M300,400 C140,300 110,130 300,0" fill="none" stroke="#ffffff" stroke-width="1"/><path d="M300,400 C100,280 70,110 300,0" fill="none" stroke="#ffffff" stroke-width="0.5"/></svg>
+<div class="container" style="position:relative;z-index:2;max-width:1000px;">
+<div class="cta-label" style="color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:2px;font-size:0.85rem;font-weight:700;margin-bottom:15px;">&mdash; GET STARTED &mdash;</div>
+<h2 id="cta-heading" style="color:#ffffff;font-size:clamp(20px,2.8vw,30px);font-weight:500;margin-bottom:20px;font-family:'Inter',sans-serif;">Ready to Add Motion to Your Display?</h2>
+<p style="color:rgba(255,255,255,0.95);font-size:1.1rem;line-height:1.6;margin-bottom:40px;font-weight:400;max-width:650px;margin-left:auto;margin-right:auto;">Our engineering team is ready to design, supply, and install the perfect kinetic LED configuration for your space.</p>
+<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+<a href="contact.html" class="cta-btn-solid">Contact Our Team <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+<a href="contact.html" class="cta-btn-outline">Schedule Consultation <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+</div>
+</div>
+</div>
 </section>
 </main>
+
+<script>
+function switchTab(type) {
+    document.getElementById('panel-indoor').style.display = type === 'indoor' ? 'grid' : 'none';
+    document.getElementById('panel-outdoor').style.display = type === 'outdoor' ? 'grid' : 'none';
+    document.getElementById('tab-indoor').classList.toggle('active', type === 'indoor');
+    document.getElementById('tab-outdoor').classList.toggle('active', type === 'outdoor');
+}
+</script>
+
 <!-- ======================== FOOTER ======================== -->
 <footer role="contentinfo">
 <div class="container">
