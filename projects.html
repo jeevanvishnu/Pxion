@@ -299,6 +299,14 @@
     </header>
     <!-- Mobile Menu -->
     <nav aria-label="Mobile navigation" id="mobile-menu" role="navigation">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-menu-close" aria-label="Close menu" id="mobile-menu-close-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                   <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
         <ul class="mobile-nav">
             <li><a class="mobile-nav-link" href="index.html">Home</a></li>
             <li><a class="mobile-nav-link" href="about.html">About Us</a></li>
@@ -779,6 +787,7 @@
             </div>
         </div>
         <script>
+            (() => {
             // Filter Logic
             const filterBtns = document.querySelectorAll('.gallery-filter-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
@@ -912,15 +921,21 @@
                 });
             }
 
-            document.getElementById('carNext').addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalItems;
-                updateCarousel();
-            });
+            const carNextBtn = document.getElementById('carNext');
+            if (carNextBtn) {
+                carNextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % totalItems;
+                    updateCarousel();
+                });
+            }
 
-            document.getElementById('carPrev').addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-                updateCarousel();
-            });
+            const carPrevBtn = document.getElementById('carPrev');
+            if (carPrevBtn) {
+                carPrevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                    updateCarousel();
+                });
+            }
 
             // Click on items to make them active or open lightbox
             carouselItems.forEach((item, index) => {
@@ -940,7 +955,7 @@
 
             // Initialize
             updateCarousel();
-
+            })();
         </script>
     </main>
     <!-- ======================== FOOTER ======================== -->

@@ -65,6 +65,17 @@ if (hamburger && mobileMenu) {
         hamburger.classList.toggle('active', open);
         hamburger.setAttribute('aria-expanded', open);
     });
+    
+    // Close button logic
+    const closeBtn = document.getElementById('mobile-menu-close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    }
+    
     // Close on mobile link click
     document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta .btn').forEach(link => {
         // Exclude dropdown toggles from closing the whole menu
