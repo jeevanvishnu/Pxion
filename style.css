@@ -10109,18 +10109,20 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
     position: relative;
     overflow: hidden;
     height: 320px;
-    background: #000;
+    background: transparent;
+    border-radius: var(--radius-md, 12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .bento-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.6s ease;
 }
 
 .bento-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .bento-overlay {
@@ -10164,25 +10166,15 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
 }
 
 @media (max-width: 768px) {
-    .bento-item:nth-child(1),
-    .bento-item:nth-child(2),
-    .bento-item:nth-child(3),
-    .bento-item:nth-child(4),
-    .bento-item:nth-child(5),
-    .bento-item:nth-child(6) { 
-        grid-column: span 6; 
-        height: 220px; 
+    .bento-item { 
+        grid-column: span 6 !important; 
+        height: 220px !important; 
     }
 }
 
 @media (max-width: 576px) {
-    .bento-item:nth-child(1),
-    .bento-item:nth-child(2),
-    .bento-item:nth-child(3),
-    .bento-item:nth-child(4),
-    .bento-item:nth-child(5),
-    .bento-item:nth-child(6) { 
-        grid-column: span 12; 
-        height: 250px; 
+    .bento-item { 
+        grid-column: span 12 !important; 
+        height: 250px !important; 
     }
 }
