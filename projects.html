@@ -149,6 +149,61 @@
             fill: white;
             margin-left: 4px;
         }
+
+        /* Lightbox CSS */
+        .proj-lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .proj-lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .proj-lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .proj-lightbox-content img,
+        .proj-lightbox-content video {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .proj-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 10000;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .proj-lightbox-close:hover {
+            color: #00d9ff;
+        }
     </style>
 </head>
 
@@ -811,7 +866,7 @@
             });
 
             // Lightbox Logic
-            function openLightbox(mediaSrc, type) {
+            window.openLightbox = function(mediaSrc, type) {
                 const lightbox = document.getElementById('mediaLightbox');
                 const container = document.getElementById('lightboxMediaContainer');
 
@@ -833,7 +888,7 @@
                 lightbox.classList.add('active');
             }
 
-            function closeLightbox() {
+            window.closeLightbox = function() {
                 const lightbox = document.getElementById('mediaLightbox');
                 const container = document.getElementById('lightboxMediaContainer');
 

@@ -1070,6 +1070,9 @@ button {
 
 .dropdown-chevron {
     transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
 }
 
 .mobile-dropdown-toggle[aria-expanded="true"] .dropdown-chevron {
@@ -9542,7 +9545,7 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
 
 @media (max-width: 768px) {
     .whatsapp-float {
-        bottom: 80px;
+        bottom: 74px;
         right: 16px;
         width: 42px;
         height: 42px;
@@ -9551,6 +9554,13 @@ CQ SPLIT Î“Ã‡Ã¶ MODERN CLEAN CONTACT SECTION (LIGHT THEME)==============
     .whatsapp-float svg {
         width: 24px;
         height: 24px;
+    }
+
+    #scroll-top {
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
     }
 }
 
