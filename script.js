@@ -314,13 +314,42 @@ document.querySelectorAll('.faq-trigger').forEach(trigger => {
 // =================== CONTACT FORM SUBMISSION ===================
 const contactForm = document.getElementById('contact-form-submit');
 if (contactForm) {
+    const catSelect = document.getElementById('contact-category');
+    const otherInput = document.getElementById('contact-category-other');
+    const cancelBtn = document.getElementById('cancel-other-btn');
+
+    if (catSelect && otherInput && cancelBtn) {
+        catSelect.addEventListener('change', () => {
+            if (catSelect.value === 'other') {
+                catSelect.style.display = 'none';
+                otherInput.style.display = 'block';
+                cancelBtn.style.display = 'block';
+                otherInput.setAttribute('required', '');
+                otherInput.focus();
+            }
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            otherInput.style.display = 'none';
+            cancelBtn.style.display = 'none';
+            catSelect.style.display = 'block';
+            catSelect.value = '';
+            otherInput.removeAttribute('required');
+            otherInput.value = '';
+            catSelect.focus();
+        });
+    }
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const nameVal = document.getElementById('contact-name').value;
         const emailVal = document.getElementById('contact-email').value;
-        const catSelect = document.getElementById('contact-category');
-        const catVal = catSelect.options[catSelect.selectedIndex].text;
+        
+        let catVal = catSelect ? catSelect.options[catSelect.selectedIndex].text : '';
+        if (catSelect && catSelect.value === 'other' && otherInput && otherInput.value.trim() !== '') {
+            catVal = otherInput.value.trim();
+        }
 
         // Create custom notification block
         const container = contactForm.parentNode;
@@ -346,6 +375,17 @@ if (contactForm) {
 
         // Clear all fields and file previews
         contactForm.reset();
+        if (otherInput) {
+            otherInput.style.display = 'none';
+            otherInput.removeAttribute('required');
+            otherInput.value = '';
+        }
+        if (cancelBtn) {
+            cancelBtn.style.display = 'none';
+        }
+        if (catSelect) {
+            catSelect.style.display = 'block';
+        }
         uploadedFiles = [];
         renderFilePreviews();
 

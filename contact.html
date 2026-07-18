@@ -425,7 +425,20 @@
 </div>
 <div class="form-group">
 <label for="contact-phone">Mobile Number</label>
-<input autocomplete="tel" class="form-input" id="contact-phone" placeholder="Enter mobile number" required="" type="tel"/>
+<div style="display: flex; gap: 8px;">
+<select class="form-input" id="contact-country-code" required="" style="width: 105px; flex-shrink: 0; padding-right: 5px;">
+<option selected="" value="+971">🇦🇪 +971</option>
+<option value="+966">🇸🇦 +966</option>
+<option value="+968">🇴🇲 +968</option>
+<option value="+974">🇶🇦 +974</option>
+<option value="+973">🇧🇭 +973</option>
+<option value="+965">🇰🇼 +965</option>
+<option value="+91">🇮🇳 +91</option>
+<option value="+1">🇺🇸 +1</option>
+<option value="+44">🇬🇧 +44</option>
+</select>
+<input autocomplete="tel" class="form-input" id="contact-phone" placeholder="Enter mobile number" required="" type="tel" style="flex-grow: 1;"/>
+</div>
 </div>
 </div>
 <div class="glass-form-row">
@@ -434,8 +447,9 @@
 <input class="form-input" id="contact-location" placeholder="Enter your city or country" required="" type="text"/>
 </div>
 <div class="form-group">
-<label for="contact-category">LED Screen Type</label>
-<select class="form-input form-select" id="contact-category" required="">
+<label for="contact-category" id="contact-category-label">LED Screen Type</label>
+<div style="position: relative; width: 100%;">
+<select class="form-input form-select" id="contact-category" required="" style="width: 100%;">
 <option disabled="" selected="" value="">Select Screen Type</option>
 <option value="indoor">Indoor LED Screen (SMD/COB)</option>
 <option value="outdoor">Outdoor LED Screen / Billboard</option>
@@ -444,7 +458,11 @@
 <option value="lighting">Commercial &amp; Architectural Lighting</option>
 <option value="av-integration">Professional AV &amp; Systems Integration</option>
 <option value="custom">Bespoke Custom / Kinetic Display</option>
+<option value="other">Other (Please specify)</option>
 </select>
+<input class="form-input" id="contact-category-other" placeholder="Please specify your screen type" type="text" style="display: none; width: 100%; padding-right: 40px;"/>
+<button type="button" id="cancel-other-btn" style="display: none; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: inherit; opacity: 0.7; cursor: pointer; font-size: 16px; padding: 5px; z-index: 10;" aria-label="Back to options">✕</button>
+</div>
 </div>
 </div>
 <div class="form-group">
